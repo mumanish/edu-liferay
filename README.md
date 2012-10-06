@@ -1,4 +1,4 @@
 liferay-edu
 ===========
 
-Liferay customization and development
+Liferay portlet development
