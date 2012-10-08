@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/portlet" prefix="portlet" %>
 <jsp:useBean id="addNameURL" class="java.lang.String" scope="request" />
+<jsp:useBean id="addDefault" class="java.lang.String" scope="request" />
 
 <portlet:defineObjects />
 
@@ -20,5 +21,13 @@
 	</tr>
 </table>
 
-<input type = "submit" id = "nameButton" title = "Add Name" value = "Add Name">
+<input type = "submit" id = "nameButton" title = "Add Name" value = "Add Name"><p>
+</form>
+
+<form
+	id = "<portlet:namespace />helloForm"
+	action = "<%= addDefault %>"
+	method = "post">
+
+<input type = "submit" id = "nameButton" title = "Add Default" value = "Add Default"><p>
 </form>

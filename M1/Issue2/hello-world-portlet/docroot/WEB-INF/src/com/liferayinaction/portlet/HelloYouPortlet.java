@@ -52,6 +52,12 @@ public class HelloYouPortlet extends GenericPortlet {
 		PortletURL addName = renderResponse.createActionURL();
 		addName.setParameter("addName", "addName");
 		renderRequest.setAttribute("addNameURL", addName.toString());
+
+		PortletURL addDef = renderResponse.createActionURL();
+		addDef.setParameter("addDef", "addDef");
+		renderRequest.setAttribute("addDefault", addDef.toString());
+
+
 		include(editJSP, renderRequest, renderResponse);
 	}
 
@@ -60,6 +66,7 @@ public class HelloYouPortlet extends GenericPortlet {
 		ActionResponse actionResponse) throws IOException, PortletException {
 
 		String addName = actionRequest.getParameter("addName");
+		String addDef = actionRequest.getParameter("addDef");
 
 		if (addName != null) {
 
@@ -70,6 +77,18 @@ public class HelloYouPortlet extends GenericPortlet {
 			prefs.store();
 			actionResponse.setPortletMode(PortletMode.VIEW);
 		}
+
+		if (addDef != null) {
+
+			PortletPreferences prefs = actionRequest.getPreferences();
+			prefs.setValue("name", "DEFAULT");
+			prefs.setValue("email", "default@liferay.com");
+			
+			prefs.store();
+			actionResponse.setPortletMode(PortletMode.VIEW);
+		}
+
+
 	}
 
 	protected void include(String path, RenderRequest renderRequest,
