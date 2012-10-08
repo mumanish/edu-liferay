@@ -42,6 +42,12 @@ public class HelloYouPortlet extends GenericPortlet {
 
 		renderRequest.setAttribute("userName", username);
 		renderRequest.setAttribute("eMail", email);
+
+
+		PortletURL goEdit = renderResponse.createActionURL();
+		goEdit.setParameter("goEdit", "goEdit");
+		renderRequest.setAttribute("goEditMode", goEdit.toString());
+
 		include(viewJSP, renderRequest, renderResponse);
 	}
 
@@ -49,6 +55,7 @@ public class HelloYouPortlet extends GenericPortlet {
 		RenderResponse renderResponse) throws IOException, PortletException {
 
 		renderResponse.setContentType("text/html");
+
 		PortletURL addName = renderResponse.createActionURL();
 		addName.setParameter("addName", "addName");
 		renderRequest.setAttribute("addNameURL", addName.toString());
@@ -56,7 +63,6 @@ public class HelloYouPortlet extends GenericPortlet {
 		PortletURL addDef = renderResponse.createActionURL();
 		addDef.setParameter("addDef", "addDef");
 		renderRequest.setAttribute("addDefault", addDef.toString());
-
 
 		include(editJSP, renderRequest, renderResponse);
 	}
@@ -67,6 +73,7 @@ public class HelloYouPortlet extends GenericPortlet {
 
 		String addName = actionRequest.getParameter("addName");
 		String addDef = actionRequest.getParameter("addDef");
+		String goEdit = actionRequest.getParameter("goEdit");
 
 		if (addName != null) {
 
@@ -86,6 +93,11 @@ public class HelloYouPortlet extends GenericPortlet {
 			
 			prefs.store();
 			actionResponse.setPortletMode(PortletMode.VIEW);
+		}
+
+		if (goEdit != null) {
+
+			actionResponse.setPortletMode(PortletMode.EDIT);
 		}
 
 

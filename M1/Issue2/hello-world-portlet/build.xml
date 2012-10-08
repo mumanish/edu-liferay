@@ -2,4 +2,11 @@
 
 <project name="hello-world-portlet" basedir="." default="deploy">
 	<import file="../build-common-portlet.xml" />
+
+	<target name="repo">
+		<copy todir="D:\archive\temp">
+			<fileset dir="../hello-world-portlet" />
+		</copy>
+	</target>
+
 </project>
