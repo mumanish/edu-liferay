@@ -16,9 +16,11 @@
 
 <%@ taglib uri="http://java.sun.com/portlet" prefix="portlet" %>
 <jsp:useBean id="userName" class="java.lang.String" scope="request" />
+<jsp:useBean id="eMail" class="java.lang.String" scope="request" />
 
 <portlet:defineObjects />
 
 
 This is the <b>Hello You</b> portlet.
 <p>Hello <%=userName %>!</p>
+Your email is: <%=eMail %>.

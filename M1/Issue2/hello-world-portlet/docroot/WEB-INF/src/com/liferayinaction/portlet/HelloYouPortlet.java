@@ -33,12 +33,15 @@ public class HelloYouPortlet extends GenericPortlet {
 
 		PortletPreferences prefs = renderRequest.getPreferences();
 		String username = (String)prefs.getValue("name", "no");
+		String email = (String)prefs.getValue("email", "no");
 
-		if(username.equalsIgnoreCase("no")) {
-			username = "unknown";
+		if(username.equalsIgnoreCase("no") || email.equalsIgnoreCase("no")) {
+			username = "";
+			email = "";
 		}
 
 		renderRequest.setAttribute("userName", username);
+		renderRequest.setAttribute("eMail", email);
 		include(viewJSP, renderRequest, renderResponse);
 	}
 
@@ -62,6 +65,7 @@ public class HelloYouPortlet extends GenericPortlet {
 
 			PortletPreferences prefs = actionRequest.getPreferences();
 			prefs.setValue("name", actionRequest.getParameter("username"));
+			prefs.setValue("email", actionRequest.getParameter("email"));
 			
 			prefs.store();
 			actionResponse.setPortletMode(PortletMode.VIEW);

@@ -3,7 +3,7 @@
 
 <liferay-portlet-app>
 	<portlet>
-		<portlet-name>hello-world</portlet-name>
+		<portlet-name>hello-you</portlet-name>
 		<icon>/icon2.png</icon>
 		<instanceable>false</instanceable>
 		<header-portlet-css>/css/main.css</header-portlet-css>

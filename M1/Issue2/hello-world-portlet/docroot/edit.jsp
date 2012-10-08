@@ -12,7 +12,11 @@
 <table>
 	<tr>
 		<td>Name:</td>
-		<td><input type = "text" name = "username"></td>
+		<td><input type = "text" name = "username"></td><p>
+	</tr>
+	<tr>
+		<td>E-mail:</td>
+		<td><input type = "text" name = "email"></td>
 	</tr>
 </table>
 
