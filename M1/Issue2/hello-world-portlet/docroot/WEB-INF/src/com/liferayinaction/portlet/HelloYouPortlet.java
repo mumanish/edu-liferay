@@ -13,6 +13,8 @@ import javax.portlet.PortletURL;
 import javax.portlet.PortletMode;
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
+import java.io.*;
+import java.util.*;
 
 public class HelloYouPortlet extends GenericPortlet {
 
@@ -21,7 +23,7 @@ public class HelloYouPortlet extends GenericPortlet {
 
 	private static Log _log = LogFactory.getLog(HelloYouPortlet.class);
 
-
+	
 	public void init() throws PortletException {
 
 		editJSP = getInitParameter("edit-jsp");
@@ -54,6 +56,13 @@ public class HelloYouPortlet extends GenericPortlet {
 	public void doEdit(RenderRequest renderRequest,
 		RenderResponse renderResponse) throws IOException, PortletException {
 
+		PortletPreferences prefs = renderRequest.getPreferences();
+		String username = (String)prefs.getValue("name", "n/a");
+		String email = (String)prefs.getValue("email", "n/a");
+
+		renderRequest.setAttribute("userName", username);
+		renderRequest.setAttribute("eMail", email);
+
 		renderResponse.setContentType("text/html");
 
 		PortletURL addName = renderResponse.createActionURL();
@@ -63,6 +72,8 @@ public class HelloYouPortlet extends GenericPortlet {
 		PortletURL addDef = renderResponse.createActionURL();
 		addDef.setParameter("addDef", "addDef");
 		renderRequest.setAttribute("addDefault", addDef.toString());
+
+		
 
 		include(editJSP, renderRequest, renderResponse);
 	}
@@ -75,6 +86,8 @@ public class HelloYouPortlet extends GenericPortlet {
 		String addDef = actionRequest.getParameter("addDef");
 		String goEdit = actionRequest.getParameter("goEdit");
 
+		
+
 		if (addName != null) {
 
 			PortletPreferences prefs = actionRequest.getPreferences();
@@ -82,7 +95,9 @@ public class HelloYouPortlet extends GenericPortlet {
 			prefs.setValue("email", actionRequest.getParameter("email"));
 			
 			prefs.store();
+
 			actionResponse.setPortletMode(PortletMode.VIEW);
+
 		}
 
 		if (addDef != null) {
@@ -98,6 +113,7 @@ public class HelloYouPortlet extends GenericPortlet {
 		if (goEdit != null) {
 
 			actionResponse.setPortletMode(PortletMode.EDIT);
+
 		}
 
 
@@ -116,5 +132,6 @@ public class HelloYouPortlet extends GenericPortlet {
 			portletRequestDispatcher.include(renderRequest, renderResponse);
 		}
 	}
+
 
 }

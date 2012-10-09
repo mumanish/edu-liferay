@@ -1,6 +1,9 @@
 <%@ taglib uri="http://java.sun.com/portlet" prefix="portlet" %>
 <jsp:useBean id="addNameURL" class="java.lang.String" scope="request" />
 <jsp:useBean id="addDefault" class="java.lang.String" scope="request" />
+<jsp:useBean id="userName" class="java.lang.String" scope="request" />
+<jsp:useBean id="eMail" class="java.lang.String" scope="request" />
+
 
 <portlet:defineObjects />
 
@@ -13,11 +16,11 @@
 <table>
 	<tr>
 		<td>Name:</td>
-		<td><input type = "text" name = "username"></td><p>
+		<td><input type = "text" name = "username" value = "<%=userName %>"></td><p>
 	</tr>
 	<tr>
 		<td>E-mail:</td>
-		<td><input type = "text" name = "email"></td>
+		<td><input type = "text" name = "email" value = "<%=eMail %>"></td>
 	</tr>
 </table>
 
