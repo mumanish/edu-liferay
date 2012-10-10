@@ -15,36 +15,54 @@
 %>
 
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
+<jsp:useBean id="goEditMode" class="java.lang.String" scope="request" />
+<jsp:useBean id="monDay" class="java.lang.String" scope="request" />
+<jsp:useBean id="tuesDay" class="java.lang.String" scope="request" />
+<jsp:useBean id="wednesDay" class="java.lang.String" scope="request" />
+<jsp:useBean id="thursDay" class="java.lang.String" scope="request" />
+<jsp:useBean id="friDay" class="java.lang.String" scope="request" />
+<jsp:useBean id="saturDay" class="java.lang.String" scope="request" />
+<jsp:useBean id="sunDay" class="java.lang.String" scope="request" />
+
 
 <portlet:defineObjects />
 
 <table>
 	<tr>
 		<td><b>Monday</b></td>
-		<td><i>Populating issue storage with just created issues</i></td>
+		<td><i><%=monDay %></i></td>
 	</tr>
 	<tr>
 		<td><b>Tuesday</b></td>
-		<td><i>Populating issue storage with just created issues</i></td>
+		<td><i><%=tuesDay %></i></td>
 	</tr>
 	<tr>
 		<td><b>Wednesday&nbsp&nbsp&nbsp</b></td>
-		<td><i>Populating issue storage with just created issues</i></td>
+		<td><i><%=wednesDay %></i></td>
 	</tr>
 	<tr>
 		<td><b>Thursday</b></td>
-		<td><i>Populating issue storage with just created issues</i></td>
+		<td><i><%=thursDay %></i></td>
 	</tr>
 	<tr>
 		<td><b>Friday</b></td>
-		<td><i>Populating issue storage with just created issues</i></td>
+		<td><i><%=friDay %></i></td>
 	</tr>
 	<tr>
 		<td><b>Saturday</b></td>
-		<td><i>Populating issue storage with just created issues</i></td>
+		<td><i><%=saturDay %></i></td>
 	</tr>
 	<tr>
 		<td><b>Sunday</b></td>
-		<td><i>Populating issue storage with just created issues</i></td>
+		<td><i><%=sunDay %></i></td>
 	</tr>
 </table>
+
+<p>
+<form
+	id = "<portlet:namespace />wtForm"
+	action = "<%= goEditMode %>"
+	method = "post">
+
+<input type = "submit" id = "editButton" title = "Edit" value = "Edit">
+</form>
