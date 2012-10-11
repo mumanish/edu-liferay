@@ -22,48 +22,46 @@ public class WeeklyTicketsPortlet extends GenericPortlet {
 	protected String editJSP;
 	protected String viewJSP;
 
-
 	public void init() throws PortletException {
 
 		editJSP = getInitParameter("edit-jsp");
 		viewJSP = getInitParameter("view-jsp");
 	}
 
+	public String[] receiveAttributes(PortletPreferences p, String attrN) {
+
+		String[] daysArr = new String[8];
+
+		for(int i = 1; i <= 7; i++) {
+			daysArr[i] = (String)p.getValue(attrN+i, "no");
+		} 
+		return daysArr;
+	}
+
 	public void doView(RenderRequest renderRequest,
 		RenderResponse renderResponse)throws IOException, PortletException {
 
 		PortletPreferences prefs = renderRequest.getPreferences();
-		String monday = (String)prefs.getValue("monday", "no");
-		String tuesday = (String)prefs.getValue("tuesday", "no");
-		String wednesday = (String)prefs.getValue("wednesday", "no");
-		String thursday = (String)prefs.getValue("thursday", "no");
-		String friday = (String)prefs.getValue("friday", "no");
-		String saturday = (String)prefs.getValue("saturday", "no");
-		String sunday = (String)prefs.getValue("sunday", "no");
+		
+		String[] days = this.receiveAttributes(prefs, "d");
+		String[] statuses = this.receiveAttributes(prefs, "status_");
 
-		String status_1 = (String)prefs.getValue("status_1", "no");
-		String status_2 = (String)prefs.getValue("status_2", "no");
-		String status_3 = (String)prefs.getValue("status_3", "no");
-		String status_4 = (String)prefs.getValue("status_4", "no");
-		String status_5 = (String)prefs.getValue("status_5", "no");
-		String status_6 = (String)prefs.getValue("status_6", "no");
-		String status_7 = (String)prefs.getValue("status_7", "no");
 
-		renderRequest.setAttribute("monDay", monday);
-		renderRequest.setAttribute("tuesDay", tuesday);
-		renderRequest.setAttribute("wednesDay", wednesday);
-		renderRequest.setAttribute("thursDay", thursday);
-		renderRequest.setAttribute("friDay", friday);
-		renderRequest.setAttribute("saturDay", saturday);
-		renderRequest.setAttribute("sunDay", sunday);
+		renderRequest.setAttribute("monDay", days[1]);
+		renderRequest.setAttribute("tuesDay", days[2]);
+		renderRequest.setAttribute("wednesDay", days[3]);
+		renderRequest.setAttribute("thursDay", days[4]);
+		renderRequest.setAttribute("friDay", days[5]);
+		renderRequest.setAttribute("saturDay", days[6]);
+		renderRequest.setAttribute("sunDay", days[7]);
 
-		renderRequest.setAttribute("status_v1", status_1);
-		renderRequest.setAttribute("status_v2", status_2);
-		renderRequest.setAttribute("status_v3", status_3);
-		renderRequest.setAttribute("status_v4", status_4);
-		renderRequest.setAttribute("status_v5", status_5);
-		renderRequest.setAttribute("status_v6", status_6);
-		renderRequest.setAttribute("status_v7", status_7);
+		renderRequest.setAttribute("status_v1", statuses[1]);
+		renderRequest.setAttribute("status_v2", statuses[2]);
+		renderRequest.setAttribute("status_v3", statuses[3]);
+		renderRequest.setAttribute("status_v4", statuses[4]);
+		renderRequest.setAttribute("status_v5", statuses[5]);
+		renderRequest.setAttribute("status_v6", statuses[6]);
+		renderRequest.setAttribute("status_v7", statuses[7]);
 
 		PortletURL goEdit = renderResponse.createActionURL();
 		goEdit.setParameter("goEdit", "goEdit");
@@ -71,7 +69,6 @@ public class WeeklyTicketsPortlet extends GenericPortlet {
 
 		PortletRequestDispatcher portletRequestDispatcher = 
 		getPortletContext().getRequestDispatcher(viewJSP);
-
 		portletRequestDispatcher.include(renderRequest, renderResponse);
 
 	}
@@ -82,55 +79,33 @@ public class WeeklyTicketsPortlet extends GenericPortlet {
 		renderResponse.setContentType("text/html");
 
 		PortletPreferences prefs = renderRequest.getPreferences();
-		String monday = (String)prefs.getValue("monday", "no");
-		String tuesday = (String)prefs.getValue("tuesday", "no");
-		String wednesday = (String)prefs.getValue("wednesday", "no");
-		String thursday = (String)prefs.getValue("thursday", "no");
-		String friday = (String)prefs.getValue("friday", "no");
-		String saturday = (String)prefs.getValue("saturday", "no");
-		String sunday = (String)prefs.getValue("sunday", "no");
+		
+		String[] days = this.receiveAttributes(prefs, "d");
+		String[] statuses = this.receiveAttributes(prefs, "status_");
 
-		renderRequest.setAttribute("monDay", monday);
-		renderRequest.setAttribute("tuesDay", tuesday);
-		renderRequest.setAttribute("wednesDay", wednesday);
-		renderRequest.setAttribute("thursDay", thursday);
-		renderRequest.setAttribute("friDay", friday);
-		renderRequest.setAttribute("saturDay", saturday);
-		renderRequest.setAttribute("sunDay", sunday);
 
-		String status_e1 = (String)prefs.getValue("status_1", "no");
-		String status_e2 = (String)prefs.getValue("status_2", "no");
-		String status_e3 = (String)prefs.getValue("status_3", "no");
-		String status_e4 = (String)prefs.getValue("status_4", "no");
-		String status_e5 = (String)prefs.getValue("status_5", "no");
-		String status_e6 = (String)prefs.getValue("status_6", "no");
-		String status_e7 = (String)prefs.getValue("status_7", "no");
+		renderRequest.setAttribute("monDay", days[1]);
+		renderRequest.setAttribute("tuesDay", days[2]);
+		renderRequest.setAttribute("wednesDay", days[3]);
+		renderRequest.setAttribute("thursDay", days[4]);
+		renderRequest.setAttribute("friDay", days[5]);
+		renderRequest.setAttribute("saturDay", days[6]);
+		renderRequest.setAttribute("sunDay", days[7]);
 
-		renderRequest.setAttribute("monDay", monday);
-		renderRequest.setAttribute("tuesDay", tuesday);
-		renderRequest.setAttribute("wednesDay", wednesday);
-		renderRequest.setAttribute("thursDay", thursday);
-		renderRequest.setAttribute("friDay", friday);
-		renderRequest.setAttribute("saturDay", saturday);
-		renderRequest.setAttribute("sunDay", sunday);
-
-		renderRequest.setAttribute("status_s1", status_e1);
-		renderRequest.setAttribute("status_s2", status_e2);
-		renderRequest.setAttribute("status_s3", status_e3);
-		renderRequest.setAttribute("status_s4", status_e4);
-		renderRequest.setAttribute("status_s5", status_e5);
-		renderRequest.setAttribute("status_s6", status_e6);
-		renderRequest.setAttribute("status_s7", status_e7);
+		renderRequest.setAttribute("status_e1", statuses[1]);
+		renderRequest.setAttribute("status_e2", statuses[2]);
+		renderRequest.setAttribute("status_e3", statuses[3]);
+		renderRequest.setAttribute("status_e4", statuses[4]);
+		renderRequest.setAttribute("status_e5", statuses[5]);
+		renderRequest.setAttribute("status_e6", statuses[6]);
+		renderRequest.setAttribute("status_e7", statuses[7]);
 
 		PortletURL submit = renderResponse.createActionURL();
 		submit.setParameter("doSub", "doSub");
 		renderRequest.setAttribute("doSubmit", submit.toString());
 
-
 		PortletRequestDispatcher portletRequestDispatcher = 
 		getPortletContext().getRequestDispatcher(editJSP);
-
-
 		portletRequestDispatcher.include(renderRequest, renderResponse);
 	}
 
@@ -148,13 +123,13 @@ public class WeeklyTicketsPortlet extends GenericPortlet {
 		if (doSubmit != null) {
 
 			PortletPreferences prefs = actionRequest.getPreferences();
-			prefs.setValue("monday", actionRequest.getParameter("mon"));
-			prefs.setValue("tuesday", actionRequest.getParameter("tue"));
-			prefs.setValue("wednesday", actionRequest.getParameter("wed"));
-			prefs.setValue("thursday", actionRequest.getParameter("thu"));
-			prefs.setValue("friday", actionRequest.getParameter("fri"));
-			prefs.setValue("saturday", actionRequest.getParameter("sat"));
-			prefs.setValue("sunday", actionRequest.getParameter("sun"));
+			prefs.setValue("d1", actionRequest.getParameter("mon"));
+			prefs.setValue("d2", actionRequest.getParameter("tue"));
+			prefs.setValue("d3", actionRequest.getParameter("wed"));
+			prefs.setValue("d4", actionRequest.getParameter("thu"));
+			prefs.setValue("d5", actionRequest.getParameter("fri"));
+			prefs.setValue("d6", actionRequest.getParameter("sat"));
+			prefs.setValue("d7", actionRequest.getParameter("sun"));
 
 			prefs.setValue("status_1", actionRequest.getParameter("status1"));
 			prefs.setValue("status_2", actionRequest.getParameter("status2"));

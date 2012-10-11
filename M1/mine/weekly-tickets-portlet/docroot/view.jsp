@@ -34,6 +34,7 @@
 
 
 <portlet:defineObjects />
+<liferay-theme:defineObjects />
 
 <table width = "100%">
 	<tr>
