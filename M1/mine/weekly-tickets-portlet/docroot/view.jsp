@@ -54,32 +54,32 @@
 	<tr>
 		<td><b>Tuesday</b></td>
 		<td><i><%=tuesDay %></i></td>
-		<td><font color = "#82DE5D"><%=status_v2 %></td>
+		<td><font color = "#3E6E2B"><%=status_v2 %></td>
 	</tr>
 	<tr>
 		<td><b>Wednesday&nbsp&nbsp&nbsp</b></td>
 		<td><i><%=wednesDay %></i></td>
-		<td><font color = "#D0E6C8"><%=status_v3 %></td>
+		<td><font color = "#3E6E2B"><%=status_v3 %></td>
 	</tr>
 	<tr>
 		<td><b>Thursday</b></td>
 		<td><i><%=thursDay %></i></td>
-		<td><font color = "#D0E6C8"><%=status_v4 %></td>
+		<td><font color = "#3E6E2B"><%=status_v4 %></td>
 	</tr>
 	<tr>
 		<td><b>Friday</b></td>
 		<td><i><%=friDay %></i></td>
-		<td><font color = "#D0E6C8"><%=status_v5 %></td>
+		<td><font color = "#3E6E2B"><%=status_v5 %></td>
 	</tr>
 	<tr>
 		<td><b>Saturday</b></td>
 		<td><i><%=saturDay %></i></td>
-		<td><font color = "#D0E6C8"><%=status_v6 %></td>
+		<td><font color = "#3E6E2B"><%=status_v6 %></td>
 	</tr>
 	<tr>
 		<td><b>Sunday</b></td>
 		<td><i><%=sunDay %></i></td>
-		<td><font color = "#D0E6C8"><%=status_v7 %></td>
+		<td><font color = "#3E6E2B"><%=status_v7 %></td>
 	</tr>
 </table>
 
