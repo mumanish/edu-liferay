@@ -22,11 +22,13 @@ public class WeeklyTicketsPortlet extends GenericPortlet {
 
 	protected String editJSP;
 	protected String viewJSP;
+	Helper service;
 
 	public void init() throws PortletException {
 
 		editJSP = getInitParameter("edit-jsp");
 		viewJSP = getInitParameter("view-jsp");
+		service = new Helper();
 	}
 
 	public void doView(RenderRequest renderRequest,
@@ -34,11 +36,11 @@ public class WeeklyTicketsPortlet extends GenericPortlet {
 
 		PortletPreferences prefs = renderRequest.getPreferences();
 		
-		String[] days = getPreferencesValues(prefs, "d");
-		String[] statuses = getPreferencesValues(prefs, "status_");
+		String[] days = service.getPreferencesValues(prefs, "d");
+		String[] statuses = service.getPreferencesValues(prefs, "status_");
 
-		setAttributeValues(renderRequest, "dv", days);
-		setAttributeValues(renderRequest, "status_v", statuses);
+		service.setAttributeValues(renderRequest, "dv", days);
+		service.setAttributeValues(renderRequest, "status_v", statuses);
 
 		PortletURL goEdit = renderResponse.createActionURL();
 		goEdit.setParameter("goEdit", "goEdit");
@@ -54,11 +56,11 @@ public class WeeklyTicketsPortlet extends GenericPortlet {
 
 		PortletPreferences prefs = renderRequest.getPreferences();
 		
-		String[] days = getPreferencesValues(prefs, "d");
-		String[] statuses = getPreferencesValues(prefs, "status_");
+		String[] days = service.getPreferencesValues(prefs, "d");
+		String[] statuses = service.getPreferencesValues(prefs, "status_");
 
-		setAttributeValues(renderRequest, "dv", days);
-		setAttributeValues(renderRequest, "status_e", statuses);
+		service.setAttributeValues(renderRequest, "dv", days);
+		service.setAttributeValues(renderRequest, "status_e", statuses);
 
 		PortletURL submit = renderResponse.createActionURL();
 		submit.setParameter("doSub", "doSub");
@@ -81,8 +83,8 @@ public class WeeklyTicketsPortlet extends GenericPortlet {
 
 			PortletPreferences prefs = actionRequest.getPreferences();
 
-			setActionValues(prefs, actionRequest, "d", "dn");
-			setActionValues(prefs, actionRequest, "status_", "status");
+			service.setActionValues(prefs, actionRequest, "d", "dn");
+			service.setActionValues(prefs, actionRequest, "status_", "status");
 
 			prefs.store();
 			actionResponse.setPortletMode(PortletMode.VIEW);
@@ -91,38 +93,8 @@ public class WeeklyTicketsPortlet extends GenericPortlet {
 
 	}
 
-	// service methods
-
-	public String[] getPreferencesValues(PortletPreferences p, String attrN) {
-
-		String[] daysArr = new String[8];
-
-		for(int i = 1; i <= 7; i++) {
-			daysArr[i] = (String)p.getValue(attrN+i, "no");
-		} 
-		return daysArr;
-	}
-
-
-	public void setActionValues(PortletPreferences p, ActionRequest ar, 
-		String attr1, String attr2)throws ReadOnlyException {
-
-		String[] daysArr = new String[8];
-
-		for(int i = 1; i <= 7; i++) {
-			p.setValue(attr1+i, ar.getParameter(attr2+i));
-		} 
-	}
-
-
-	public void setAttributeValues(RenderRequest rr, String attrN, String[] setArr) {
-
-		for(int i = 1; i <= 7; i++) {
-		rr.setAttribute(attrN+i, setArr[i]);
-		}
-
-	}
-
+	
+	
 	public void include(String path, RenderRequest rq, 
 		RenderResponse rp) throws PortletException, IOException {
 
@@ -130,5 +102,7 @@ public class WeeklyTicketsPortlet extends GenericPortlet {
 		getPortletContext().getRequestDispatcher(path);
 		portletRequestDispatcher.include(rq, rp);
 	}
+
+
 
 }
