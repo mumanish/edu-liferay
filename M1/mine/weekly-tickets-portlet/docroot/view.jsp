@@ -16,13 +16,13 @@
 
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
 <jsp:useBean id="goEditMode" class="java.lang.String" scope="request" />
-<jsp:useBean id="monDay" class="java.lang.String" scope="request" />
-<jsp:useBean id="tuesDay" class="java.lang.String" scope="request" />
-<jsp:useBean id="wednesDay" class="java.lang.String" scope="request" />
-<jsp:useBean id="thursDay" class="java.lang.String" scope="request" />
-<jsp:useBean id="friDay" class="java.lang.String" scope="request" />
-<jsp:useBean id="saturDay" class="java.lang.String" scope="request" />
-<jsp:useBean id="sunDay" class="java.lang.String" scope="request" />
+<jsp:useBean id="dv1" class="java.lang.String" scope="request" />
+<jsp:useBean id="dv2" class="java.lang.String" scope="request" />
+<jsp:useBean id="dv3" class="java.lang.String" scope="request" />
+<jsp:useBean id="dv4" class="java.lang.String" scope="request" />
+<jsp:useBean id="dv5" class="java.lang.String" scope="request" />
+<jsp:useBean id="dv6" class="java.lang.String" scope="request" />
+<jsp:useBean id="dv7" class="java.lang.String" scope="request" />
 
 <jsp:useBean id="status_v1" class="java.lang.String" scope = "request" />
 <jsp:useBean id="status_v2" class="java.lang.String" scope = "request" />
@@ -49,37 +49,37 @@
 	</tr>
 	<tr>
 		<td><b>Monday</b></td>
-		<td><i><%=monDay %></i></td>
+		<td><i><%=dv1 %></i></td>
 		<td><font color = "#3E6E2B"><%=status_v1 %></td>
 	</tr>
 	<tr>
 		<td><b>Tuesday</b></td>
-		<td><i><%=tuesDay %></i></td>
+		<td><i><%=dv2 %></i></td>
 		<td><font color = "#3E6E2B"><%=status_v2 %></td>
 	</tr>
 	<tr>
 		<td><b>Wednesday&nbsp&nbsp&nbsp</b></td>
-		<td><i><%=wednesDay %></i></td>
+		<td><i><%=dv3 %></i></td>
 		<td><font color = "#3E6E2B"><%=status_v3 %></td>
 	</tr>
 	<tr>
 		<td><b>Thursday</b></td>
-		<td><i><%=thursDay %></i></td>
+		<td><i><%=dv4 %></i></td>
 		<td><font color = "#3E6E2B"><%=status_v4 %></td>
 	</tr>
 	<tr>
 		<td><b>Friday</b></td>
-		<td><i><%=friDay %></i></td>
+		<td><i><%=dv5 %></i></td>
 		<td><font color = "#3E6E2B"><%=status_v5 %></td>
 	</tr>
 	<tr>
 		<td><b>Saturday</b></td>
-		<td><i><%=saturDay %></i></td>
+		<td><i><%=dv6 %></i></td>
 		<td><font color = "#3E6E2B"><%=status_v6 %></td>
 	</tr>
 	<tr>
 		<td><b>Sunday</b></td>
-		<td><i><%=sunDay %></i></td>
+		<td><i><%=dv7 %></i></td>
 		<td><font color = "#3E6E2B"><%=status_v7 %></td>
 	</tr>
 </table>

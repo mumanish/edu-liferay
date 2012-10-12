@@ -1,13 +1,13 @@
 <%@ taglib uri="http://java.sun.com/portlet" prefix="portlet" %>
 <jsp:useBean id="doSubmit" class = "java.lang.String" scope="request" />
 
-<jsp:useBean id="monDay" class="java.lang.String" scope="request" />
-<jsp:useBean id="tuesDay" class="java.lang.String" scope="request" />
-<jsp:useBean id="wednesDay" class="java.lang.String" scope="request" />
-<jsp:useBean id="thursDay" class="java.lang.String" scope="request" />
-<jsp:useBean id="friDay" class="java.lang.String" scope="request" />
-<jsp:useBean id="saturDay" class="java.lang.String" scope="request" />
-<jsp:useBean id="sunDay" class="java.lang.String" scope="request" />
+<jsp:useBean id="dv1" class="java.lang.String" scope="request" />
+<jsp:useBean id="dv2" class="java.lang.String" scope="request" />
+<jsp:useBean id="dv3" class="java.lang.String" scope="request" />
+<jsp:useBean id="dv4" class="java.lang.String" scope="request" />
+<jsp:useBean id="dv5" class="java.lang.String" scope="request" />
+<jsp:useBean id="dv6" class="java.lang.String" scope="request" />
+<jsp:useBean id="dv7" class="java.lang.String" scope="request" />
 
 <jsp:useBean id="status_e1" class="java.lang.String" scope="request" />
 <jsp:useBean id="status_e2" class="java.lang.String" scope="request" />
@@ -35,7 +35,7 @@
 	<table>
 	<tr>
 		<td>Monday</td>
-		<td><input type = "text" value = "<%=monDay %>" name = "mon" size = "100%"></td>
+		<td><input type = "text" value = "<%=dv1 %>" name = "dn1" size = "100%"></td>
 		<td>
 		<select name = "status1">
 			<% if (status_e1.equals(s1)) {
@@ -55,7 +55,7 @@
 	</tr>
 	<tr>
 		<td>Tuesday</td>
-		<td><input type = "text" value = "<%=tuesDay %>" name = "tue" size = "100%"></td>
+		<td><input type = "text" value = "<%=dv2 %>" name = "dn2" size = "100%"></td>
 		<td>
 		<select name = "status2">
 			<% if (status_e2.equals(s1)) {
@@ -75,7 +75,7 @@
 	</tr>
 	<tr>
 		<td>Wednesday&nbsp&nbsp&nbsp</td>
-		<td><input type = "text" value = "<%=wednesDay %>" name = "wed" size = "100%"></td>
+		<td><input type = "text" value = "<%=dv3 %>" name = "dn3" size = "100%"></td>
 		<td>
 		<select name = "status3">
 			<% if (status_e3.equals(s1)) {
@@ -95,7 +95,7 @@
 	</tr>
 	<tr>
 		<td>Thursday</td>
-		<td><input type = "text" value = "<%=thursDay %>" name = "thu" size = "100%"></td>
+		<td><input type = "text" value = "<%=dv4 %>" name = "dn4" size = "100%"></td>
 		<td>
 		<select name = "status4">
 			<% if (status_e4.equals(s1)) {
@@ -115,7 +115,7 @@
 	</tr>
 	<tr>
 		<td>Friday</td>
-		<td><input type = "text" value = "<%=friDay %>" name = "fri" size = "100%"></td>
+		<td><input type = "text" value = "<%=dv5 %>" name = "dn5" size = "100%"></td>
 		<td>
 		<select name = "status5">
 			<% if (status_e5.equals(s1)) {
@@ -135,7 +135,7 @@
 	</tr>
 	<tr>
 		<td>Saturday</td>
-		<td><input type = "text" value = "<%=saturDay %>" name = "sat" size = "100%"></td>
+		<td><input type = "text" value = "<%=dv6 %>" name = "dn6" size = "100%"></td>
 		<td>
 		<select name = "status6">
 			<% if (status_e6.equals(s1)) {
@@ -155,7 +155,7 @@
 	</tr>
 	<tr>
 		<td>Sunday</td>
-		<td><input type = "text" value = "<%=sunDay %>" name = "sun" size = "100%"></td>
+		<td><input type = "text" value = "<%=dv7 %>" name = "dn7" size = "100%"></td>
 		<td>
 		<select name = "status7">
 			<% if (status_e7.equals(s1)) {
