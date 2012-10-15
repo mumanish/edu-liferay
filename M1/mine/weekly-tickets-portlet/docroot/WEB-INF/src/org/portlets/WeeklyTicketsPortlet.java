@@ -36,11 +36,28 @@ public class WeeklyTicketsPortlet extends GenericPortlet {
 
 		PortletPreferences prefs = renderRequest.getPreferences();
 		
-		String[] days = service.getPreferencesValues(prefs, "d");
-		String[] statuses = service.getPreferencesValues(prefs, "status_");
+		ArrayList days = new ArrayList();
+		days.add(prefs.getValue("d1", "no"));
+		days.add(prefs.getValue("d2", "no"));
+		days.add(prefs.getValue("d3", "no"));
+		days.add(prefs.getValue("d4", "no"));
+		days.add(prefs.getValue("d5", "no"));
+		days.add(prefs.getValue("d6", "no"));
+		days.add(prefs.getValue("d7", "no"));
 
-		service.setAttributeValues(renderRequest, "dv", days);
-		service.setAttributeValues(renderRequest, "status_v", statuses);
+		ArrayList statuses = new ArrayList();
+		statuses.add(prefs.getValue("status_1", "no"));
+		statuses.add(prefs.getValue("status_2", "no"));
+		statuses.add(prefs.getValue("status_3", "no"));
+		statuses.add(prefs.getValue("status_4", "no"));
+		statuses.add(prefs.getValue("status_5", "no"));
+		statuses.add(prefs.getValue("status_6", "no"));
+		statuses.add(prefs.getValue("status_7", "no"));
+
+
+		renderRequest.setAttribute("days", days);
+		renderRequest.setAttribute("statuses", statuses);
+
 
 		PortletURL goEdit = renderResponse.createActionURL();
 		goEdit.setParameter("goEdit", "goEdit");
@@ -56,11 +73,28 @@ public class WeeklyTicketsPortlet extends GenericPortlet {
 
 		PortletPreferences prefs = renderRequest.getPreferences();
 		
-		String[] days = service.getPreferencesValues(prefs, "d");
-		String[] statuses = service.getPreferencesValues(prefs, "status_");
+		ArrayList days = new ArrayList();
+		days.add(prefs.getValue("d1", "no"));
+		days.add(prefs.getValue("d2", "no"));
+		days.add(prefs.getValue("d3", "no"));
+		days.add(prefs.getValue("d4", "no"));
+		days.add(prefs.getValue("d5", "no"));
+		days.add(prefs.getValue("d6", "no"));
+		days.add(prefs.getValue("d7", "no"));
 
-		service.setAttributeValues(renderRequest, "dv", days);
-		service.setAttributeValues(renderRequest, "status_e", statuses);
+		ArrayList statuses = new ArrayList();
+		statuses.add(prefs.getValue("status_1", "no"));
+		statuses.add(prefs.getValue("status_2", "no"));
+		statuses.add(prefs.getValue("status_3", "no"));
+		statuses.add(prefs.getValue("status_4", "no"));
+		statuses.add(prefs.getValue("status_5", "no"));
+		statuses.add(prefs.getValue("status_6", "no"));
+		statuses.add(prefs.getValue("status_7", "no"));
+
+
+		renderRequest.setAttribute("days", days);
+		renderRequest.setAttribute("statuses", statuses);
+
 
 		PortletURL submit = renderResponse.createActionURL();
 		submit.setParameter("doSub", "doSub");
@@ -83,18 +117,20 @@ public class WeeklyTicketsPortlet extends GenericPortlet {
 
 			PortletPreferences prefs = actionRequest.getPreferences();
 
-			service.setActionValues(prefs, actionRequest, "d", "dn");
-			service.setActionValues(prefs, actionRequest, "status_", "status");
+			String[] daysArr = new String[8];
+			String[] attributes = {"d", "dn", "status_", "status"};
+
+			for(int i = 1; i <= 7; i++) {
+				prefs.setValue(attributes[0]+i, actionRequest.getParameter(attributes[1]+i));
+				prefs.setValue(attributes[2]+i, actionRequest.getParameter(attributes[3]+i));
+			} 
 
 			prefs.store();
 			actionResponse.setPortletMode(PortletMode.VIEW);
-
 		}
-
 	}
 
-	
-	
+		
 	public void include(String path, RenderRequest rq, 
 		RenderResponse rp) throws PortletException, IOException {
 

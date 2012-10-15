@@ -15,26 +15,32 @@
 %>
 
 <%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
+<%@ page import = "java.util.*" %>
 <jsp:useBean id="goEditMode" class="java.lang.String" scope="request" />
-<jsp:useBean id="dv1" class="java.lang.String" scope="request" />
-<jsp:useBean id="dv2" class="java.lang.String" scope="request" />
-<jsp:useBean id="dv3" class="java.lang.String" scope="request" />
-<jsp:useBean id="dv4" class="java.lang.String" scope="request" />
-<jsp:useBean id="dv5" class="java.lang.String" scope="request" />
-<jsp:useBean id="dv6" class="java.lang.String" scope="request" />
-<jsp:useBean id="dv7" class="java.lang.String" scope="request" />
 
-<jsp:useBean id="status_v1" class="java.lang.String" scope = "request" />
-<jsp:useBean id="status_v2" class="java.lang.String" scope = "request" />
-<jsp:useBean id="status_v3" class="java.lang.String" scope = "request" />
-<jsp:useBean id="status_v4" class="java.lang.String" scope = "request" />
-<jsp:useBean id="status_v5" class="java.lang.String" scope = "request" />
-<jsp:useBean id="status_v6" class="java.lang.String" scope = "request" />
-<jsp:useBean id="status_v7" class="java.lang.String" scope = "request" />
+<jsp:useBean id="days" class="java.util.ArrayList" scope = "request" />
+<jsp:useBean id="statuses" class="java.util.ArrayList" scope = "request" />
 
 
 <portlet:defineObjects />
-<liferay-theme:defineObjects />
+
+<%		Iterator i = null;
+		String[] daysArr = new String[8];
+		String[] statusesArr = new String[8];
+
+		int iD = 1;
+			for (i = days.iterator(); i.hasNext();) {
+			daysArr[iD] = (String)i.next();
+			iD++;
+			}
+
+		int iS = 1;
+			for (i = statuses.iterator(); i.hasNext();) {
+			statusesArr[iS] = (String)i.next();
+			iS++;
+			}
+		%>
+
 
 <table width = "100%">
 	<tr>
@@ -49,38 +55,38 @@
 	</tr>
 	<tr>
 		<td><b>Monday</b></td>
-		<td><i><%=dv1 %></i></td>
-		<td><font color = "#3E6E2B"><%=status_v1 %></td>
+		<td><i><%=daysArr[1] %></i></td>
+		<td><font color = "#3E6E2B"><%=statusesArr[1] %></td>
 	</tr>
 	<tr>
 		<td><b>Tuesday</b></td>
-		<td><i><%=dv2 %></i></td>
-		<td><font color = "#3E6E2B"><%=status_v2 %></td>
+		<td><i><%=daysArr[2] %></i></td>
+		<td><font color = "#3E6E2B"><%=statusesArr[2] %></td>
 	</tr>
 	<tr>
 		<td><b>Wednesday&nbsp&nbsp&nbsp</b></td>
-		<td><i><%=dv3 %></i></td>
-		<td><font color = "#3E6E2B"><%=status_v3 %></td>
+		<td><i><%=daysArr[3] %></i></td>
+		<td><font color = "#3E6E2B"><%=statusesArr[3] %></td>
 	</tr>
 	<tr>
 		<td><b>Thursday</b></td>
-		<td><i><%=dv4 %></i></td>
-		<td><font color = "#3E6E2B"><%=status_v4 %></td>
+		<td><i><%=daysArr[4] %></i></td>
+		<td><font color = "#3E6E2B"><%=statusesArr[4]%></td>
 	</tr>
 	<tr>
 		<td><b>Friday</b></td>
-		<td><i><%=dv5 %></i></td>
-		<td><font color = "#3E6E2B"><%=status_v5 %></td>
+		<td><i><%=daysArr[5] %></i></td>
+		<td><font color = "#3E6E2B"><%=statusesArr[5]%></td>
 	</tr>
 	<tr>
 		<td><b>Saturday</b></td>
-		<td><i><%=dv6 %></i></td>
-		<td><font color = "#3E6E2B"><%=status_v6 %></td>
+		<td><i><%=daysArr[6] %></i></td>
+		<td><font color = "#3E6E2B"><%=statusesArr[6] %></td>
 	</tr>
 	<tr>
 		<td><b>Sunday</b></td>
-		<td><i><%=dv7 %></i></td>
-		<td><font color = "#3E6E2B"><%=status_v7 %></td>
+		<td><i><%=daysArr[7] %></i></td>
+		<td><font color = "#3E6E2B"><%=statusesArr[7]%></td>
 	</tr>
 </table>
 
