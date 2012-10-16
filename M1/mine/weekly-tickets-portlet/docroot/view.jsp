@@ -18,12 +18,15 @@
 <%@ page import = "java.util.*" %>
 <jsp:useBean id="goEditMode" class="java.lang.String" scope="request" />
 
+<!-- getting days and statuses from ArrayList attributes -->
 <jsp:useBean id="days" class="java.util.ArrayList" scope = "request" />
 <jsp:useBean id="statuses" class="java.util.ArrayList" scope = "request" />
 
 
 <portlet:defineObjects />
 
+
+<!-- writing days and statuses ArrayList values to indexed Arrays for use in the table -->
 <%		Iterator i = null;
 		String[] daysArr = new String[8];
 		String[] statusesArr = new String[8];
@@ -41,7 +44,7 @@
 			}
 		%>
 
-
+<!-- main table -->
 <table width = "100%">
 	<tr>
 		<td width = "20%"><u>Day</u></td>
@@ -91,6 +94,7 @@
 </table>
 
 <p>
+<!-- Edit button for goEdit action -->
 <form
 	id = "<portlet:namespace />wtForm"
 	action = "<%= goEditMode %>"

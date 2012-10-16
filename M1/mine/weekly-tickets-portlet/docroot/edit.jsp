@@ -3,10 +3,11 @@
 
 <jsp:useBean id="doSubmit" class = "java.lang.String" scope="request" />
 
+<!-- getting days and statuses from ArrayList attributes -->
 <jsp:useBean id="days" class="java.util.ArrayList" scope = "request" />
 <jsp:useBean id="statuses" class="java.util.ArrayList" scope = "request" />
 
-
+<!-- writing days and statuses ArrayList values to indexed Arrays for use in the table -->
 <%		Iterator i = null;
 		String[] daysArr = new String[8];
 		String[] statusesArr = new String[8];
@@ -24,7 +25,7 @@
 			}
 		%>
 
-
+<!-- possible values for SELECTED option -->
 <% String s1 = "planned";
 	String s2 = "in progress";
 	 String s3 = "completed";
@@ -35,17 +36,20 @@
 
 <portlet:defineObjects />
 
+<!-- Submit button for saving values action -->
 <form
 	id = "portlet:namespace />helloForm"
 	action = "<%= doSubmit %>"
 	method = "post">
 
+<!-- main table -->
 	<table>
 	<tr>
 		<td>Monday</td>
 		<td><input type = "text" value = "<%=daysArr[1] %>" name = "dn1" size = "100%"></td>
 		<td>
 		<select name = "status1">
+			<!-- setting SELECTED attribute for selected status -->
 			<% if (statusesArr[1].equals(s1)) {
 				selected[0] = "selected";
 				}
