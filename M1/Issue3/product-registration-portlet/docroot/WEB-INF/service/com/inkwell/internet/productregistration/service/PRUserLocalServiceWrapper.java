@@ -16,66 +16,65 @@ package com.inkwell.internet.productregistration.service;
 
 /**
  * <p>
- * This class is a wrapper for {@link PRProductLocalService}.
+ * This class is a wrapper for {@link PRUserLocalService}.
  * </p>
  *
  * @author    Vladimir Frolov
- * @see       PRProductLocalService
+ * @see       PRUserLocalService
  * @generated
  */
-public class PRProductLocalServiceWrapper implements PRProductLocalService {
-	public PRProductLocalServiceWrapper(
-		PRProductLocalService prProductLocalService) {
-		_prProductLocalService = prProductLocalService;
+public class PRUserLocalServiceWrapper implements PRUserLocalService {
+	public PRUserLocalServiceWrapper(PRUserLocalService prUserLocalService) {
+		_prUserLocalService = prUserLocalService;
 	}
 
 	/**
-	* Adds the p r product to the database. Also notifies the appropriate model listeners.
+	* Adds the p r user to the database. Also notifies the appropriate model listeners.
 	*
-	* @param prProduct the p r product to add
-	* @return the p r product that was added
+	* @param prUser the p r user to add
+	* @return the p r user that was added
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.inkwell.internet.productregistration.model.PRProduct addPRProduct(
-		com.inkwell.internet.productregistration.model.PRProduct prProduct)
+	public com.inkwell.internet.productregistration.model.PRUser addPRUser(
+		com.inkwell.internet.productregistration.model.PRUser prUser)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _prProductLocalService.addPRProduct(prProduct);
+		return _prUserLocalService.addPRUser(prUser);
 	}
 
 	/**
-	* Creates a new p r product with the primary key. Does not add the p r product to the database.
+	* Creates a new p r user with the primary key. Does not add the p r user to the database.
 	*
-	* @param productId the primary key for the new p r product
-	* @return the new p r product
+	* @param prUserId the primary key for the new p r user
+	* @return the new p r user
 	*/
-	public com.inkwell.internet.productregistration.model.PRProduct createPRProduct(
-		long productId) {
-		return _prProductLocalService.createPRProduct(productId);
+	public com.inkwell.internet.productregistration.model.PRUser createPRUser(
+		long prUserId) {
+		return _prUserLocalService.createPRUser(prUserId);
 	}
 
 	/**
-	* Deletes the p r product with the primary key from the database. Also notifies the appropriate model listeners.
+	* Deletes the p r user with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param productId the primary key of the p r product to delete
-	* @throws PortalException if a p r product with the primary key could not be found
+	* @param prUserId the primary key of the p r user to delete
+	* @throws PortalException if a p r user with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public void deletePRProduct(long productId)
+	public void deletePRUser(long prUserId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		_prProductLocalService.deletePRProduct(productId);
+		_prUserLocalService.deletePRUser(prUserId);
 	}
 
 	/**
-	* Deletes the p r product from the database. Also notifies the appropriate model listeners.
+	* Deletes the p r user from the database. Also notifies the appropriate model listeners.
 	*
-	* @param prProduct the p r product to delete
+	* @param prUser the p r user to delete
 	* @throws SystemException if a system exception occurred
 	*/
-	public void deletePRProduct(
-		com.inkwell.internet.productregistration.model.PRProduct prProduct)
+	public void deletePRUser(
+		com.inkwell.internet.productregistration.model.PRUser prUser)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		_prProductLocalService.deletePRProduct(prProduct);
+		_prUserLocalService.deletePRUser(prUser);
 	}
 
 	/**
@@ -89,7 +88,7 @@ public class PRProductLocalServiceWrapper implements PRProductLocalService {
 	public java.util.List dynamicQuery(
 		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _prProductLocalService.dynamicQuery(dynamicQuery);
+		return _prUserLocalService.dynamicQuery(dynamicQuery);
 	}
 
 	/**
@@ -109,7 +108,7 @@ public class PRProductLocalServiceWrapper implements PRProductLocalService {
 	public java.util.List dynamicQuery(
 		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
 		int end) throws com.liferay.portal.kernel.exception.SystemException {
-		return _prProductLocalService.dynamicQuery(dynamicQuery, start, end);
+		return _prUserLocalService.dynamicQuery(dynamicQuery, start, end);
 	}
 
 	/**
@@ -132,7 +131,7 @@ public class PRProductLocalServiceWrapper implements PRProductLocalService {
 		int end,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _prProductLocalService.dynamicQuery(dynamicQuery, start, end,
+		return _prUserLocalService.dynamicQuery(dynamicQuery, start, end,
 			orderByComparator);
 	}
 
@@ -146,105 +145,91 @@ public class PRProductLocalServiceWrapper implements PRProductLocalService {
 	public long dynamicQueryCount(
 		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _prProductLocalService.dynamicQueryCount(dynamicQuery);
+		return _prUserLocalService.dynamicQueryCount(dynamicQuery);
 	}
 
 	/**
-	* Gets the p r product with the primary key.
+	* Gets the p r user with the primary key.
 	*
-	* @param productId the primary key of the p r product to get
-	* @return the p r product
-	* @throws PortalException if a p r product with the primary key could not be found
+	* @param prUserId the primary key of the p r user to get
+	* @return the p r user
+	* @throws PortalException if a p r user with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.inkwell.internet.productregistration.model.PRProduct getPRProduct(
-		long productId)
+	public com.inkwell.internet.productregistration.model.PRUser getPRUser(
+		long prUserId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return _prProductLocalService.getPRProduct(productId);
+		return _prUserLocalService.getPRUser(prUserId);
 	}
 
 	/**
-	* Gets a range of all the p r products.
+	* Gets a range of all the p r users.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
 	* </p>
 	*
-	* @param start the lower bound of the range of p r products to return
-	* @param end the upper bound of the range of p r products to return (not inclusive)
-	* @return the range of p r products
+	* @param start the lower bound of the range of p r users to return
+	* @param end the upper bound of the range of p r users to return (not inclusive)
+	* @return the range of p r users
 	* @throws SystemException if a system exception occurred
 	*/
-	public java.util.List<com.inkwell.internet.productregistration.model.PRProduct> getPRProducts(
+	public java.util.List<com.inkwell.internet.productregistration.model.PRUser> getPRUsers(
 		int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _prProductLocalService.getPRProducts(start, end);
+		return _prUserLocalService.getPRUsers(start, end);
 	}
 
 	/**
-	* Gets the number of p r products.
+	* Gets the number of p r users.
 	*
-	* @return the number of p r products
+	* @return the number of p r users
 	* @throws SystemException if a system exception occurred
 	*/
-	public int getPRProductsCount()
+	public int getPRUsersCount()
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _prProductLocalService.getPRProductsCount();
+		return _prUserLocalService.getPRUsersCount();
 	}
 
 	/**
-	* Updates the p r product in the database. Also notifies the appropriate model listeners.
+	* Updates the p r user in the database. Also notifies the appropriate model listeners.
 	*
-	* @param prProduct the p r product to update
-	* @return the p r product that was updated
+	* @param prUser the p r user to update
+	* @return the p r user that was updated
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.inkwell.internet.productregistration.model.PRProduct updatePRProduct(
-		com.inkwell.internet.productregistration.model.PRProduct prProduct)
+	public com.inkwell.internet.productregistration.model.PRUser updatePRUser(
+		com.inkwell.internet.productregistration.model.PRUser prUser)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _prProductLocalService.updatePRProduct(prProduct);
+		return _prUserLocalService.updatePRUser(prUser);
 	}
 
 	/**
-	* Updates the p r product in the database. Also notifies the appropriate model listeners.
+	* Updates the p r user in the database. Also notifies the appropriate model listeners.
 	*
-	* @param prProduct the p r product to update
-	* @param merge whether to merge the p r product with the current session. See {@link com.liferay.portal.service.persistence.BatchSession#update(com.liferay.portal.kernel.dao.orm.Session, com.liferay.portal.model.BaseModel, boolean)} for an explanation.
-	* @return the p r product that was updated
+	* @param prUser the p r user to update
+	* @param merge whether to merge the p r user with the current session. See {@link com.liferay.portal.service.persistence.BatchSession#update(com.liferay.portal.kernel.dao.orm.Session, com.liferay.portal.model.BaseModel, boolean)} for an explanation.
+	* @return the p r user that was updated
 	* @throws SystemException if a system exception occurred
 	*/
-	public com.inkwell.internet.productregistration.model.PRProduct updatePRProduct(
-		com.inkwell.internet.productregistration.model.PRProduct prProduct,
+	public com.inkwell.internet.productregistration.model.PRUser updatePRUser(
+		com.inkwell.internet.productregistration.model.PRUser prUser,
 		boolean merge)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _prProductLocalService.updatePRProduct(prProduct, merge);
+		return _prUserLocalService.updatePRUser(prUser, merge);
 	}
 
-	public com.inkwell.internet.productregistration.model.PRProduct addProduct(
-		com.inkwell.internet.productregistration.model.PRProduct newProduct,
-		long userId)
+	public com.inkwell.internet.productregistration.model.PRUser addPRUser(
+		com.inkwell.internet.productregistration.model.PRUser user, long userId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return _prProductLocalService.addProduct(newProduct, userId);
+		return _prUserLocalService.addPRUser(user, userId);
 	}
 
-	public void deleteProduct(long productId)
-		throws com.inkwell.internet.productregistration.NoSuchProductException,
-			com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
-		_prProductLocalService.deleteProduct(productId);
+	public PRUserLocalService getWrappedPRUserLocalService() {
+		return _prUserLocalService;
 	}
 
-	public java.util.List<com.inkwell.internet.productregistration.model.PRProduct> getAllProducts(
-		long groupId)
-		throws com.liferay.portal.kernel.exception.SystemException {
-		return _prProductLocalService.getAllProducts(groupId);
-	}
-
-	public PRProductLocalService getWrappedPRProductLocalService() {
-		return _prProductLocalService;
-	}
-
-	private PRProductLocalService _prProductLocalService;
+	private PRUserLocalService _prUserLocalService;
 }

@@ -15,6 +15,16 @@
 package com.inkwell.internet.productregistration.service.impl;
 
 import com.inkwell.internet.productregistration.service.base.PRProductLocalServiceBaseImpl;
+import com.inkwell.internet.productregistration.model.PRProduct;
+import java.util.Collections;
+import java.util.List;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.inkwell.internet.productregistration.NoSuchProductException;
+
+import com.liferay.portal.model.ResourceConstants;
 
 /**
  * The implementation of the p r product local service.

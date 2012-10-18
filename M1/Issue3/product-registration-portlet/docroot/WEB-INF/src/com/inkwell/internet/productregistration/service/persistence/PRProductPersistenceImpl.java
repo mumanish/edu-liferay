@@ -1867,6 +1867,10 @@ public class PRProductPersistenceImpl extends BasePersistenceImpl<PRProduct>
 
 	@BeanReference(type = PRProductPersistence.class)
 	protected PRProductPersistence prProductPersistence;
+	@BeanReference(type = PRUserPersistence.class)
+	protected PRUserPersistence prUserPersistence;
+	@BeanReference(type = PRRegistrationPersistence.class)
+	protected PRRegistrationPersistence prRegistrationPersistence;
 	@BeanReference(type = ResourcePersistence.class)
 	protected ResourcePersistence resourcePersistence;
 	@BeanReference(type = UserPersistence.class)
