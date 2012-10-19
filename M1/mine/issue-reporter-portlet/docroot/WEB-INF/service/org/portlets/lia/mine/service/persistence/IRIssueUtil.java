@@ -1,0 +1,434 @@
+/**
+ * Copyright (c) 2000-2011 Liferay, Inc. All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+
+package org.portlets.lia.mine.service.persistence;
+
+import com.liferay.portal.kernel.bean.PortletBeanLocatorUtil;
+import com.liferay.portal.kernel.dao.orm.DynamicQuery;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.service.ServiceContext;
+
+import org.portlets.lia.mine.model.IRIssue;
+
+import java.util.List;
+
+/**
+ * The persistence utility for the i r issue service. This utility wraps {@link IRIssuePersistenceImpl} and provides direct access to the database for CRUD operations. This utility should only be used by the service layer, as it must operate within a transaction. Never access this utility in a JSP, controller, model, or other front-end class.
+ *
+ * <p>
+ * Never modify this class directly. Modify <code>service.xml</code> and rerun ServiceBuilder to regenerate this class.
+ * </p>
+ *
+ * <p>
+ * Caching information and settings can be found in <code>portal.properties</code>
+ * </p>
+ *
+ * @author Vladimir Frolov
+ * @see IRIssuePersistence
+ * @see IRIssuePersistenceImpl
+ * @generated
+ */
+public class IRIssueUtil {
+	/**
+	 * @see com.liferay.portal.service.persistence.BasePersistence#clearCache()
+	 */
+	public static void clearCache() {
+		getPersistence().clearCache();
+	}
+
+	/**
+	 * @see com.liferay.portal.service.persistence.BasePersistence#clearCache(com.liferay.portal.model.BaseModel)
+	 */
+	public static void clearCache(IRIssue irIssue) {
+		getPersistence().clearCache(irIssue);
+	}
+
+	/**
+	 * @see com.liferay.portal.service.persistence.BasePersistence#countWithDynamicQuery(DynamicQuery)
+	 */
+	public long countWithDynamicQuery(DynamicQuery dynamicQuery)
+		throws SystemException {
+		return getPersistence().countWithDynamicQuery(dynamicQuery);
+	}
+
+	/**
+	 * @see com.liferay.portal.service.persistence.BasePersistence#findWithDynamicQuery(DynamicQuery)
+	 */
+	public static List<IRIssue> findWithDynamicQuery(DynamicQuery dynamicQuery)
+		throws SystemException {
+		return getPersistence().findWithDynamicQuery(dynamicQuery);
+	}
+
+	/**
+	 * @see com.liferay.portal.service.persistence.BasePersistence#findWithDynamicQuery(DynamicQuery, int, int)
+	 */
+	public static List<IRIssue> findWithDynamicQuery(
+		DynamicQuery dynamicQuery, int start, int end)
+		throws SystemException {
+		return getPersistence().findWithDynamicQuery(dynamicQuery, start, end);
+	}
+
+	/**
+	 * @see com.liferay.portal.service.persistence.BasePersistence#findWithDynamicQuery(DynamicQuery, int, int, OrderByComparator)
+	 */
+	public static List<IRIssue> findWithDynamicQuery(
+		DynamicQuery dynamicQuery, int start, int end,
+		OrderByComparator orderByComparator) throws SystemException {
+		return getPersistence()
+				   .findWithDynamicQuery(dynamicQuery, start, end,
+			orderByComparator);
+	}
+
+	/**
+	 * @see com.liferay.portal.service.persistence.BasePersistence#remove(com.liferay.portal.model.BaseModel)
+	 */
+	public static IRIssue remove(IRIssue irIssue) throws SystemException {
+		return getPersistence().remove(irIssue);
+	}
+
+	/**
+	 * @see com.liferay.portal.service.persistence.BasePersistence#update(com.liferay.portal.model.BaseModel, boolean)
+	 */
+	public static IRIssue update(IRIssue irIssue, boolean merge)
+		throws SystemException {
+		return getPersistence().update(irIssue, merge);
+	}
+
+	/**
+	 * @see com.liferay.portal.service.persistence.BasePersistence#update(com.liferay.portal.model.BaseModel, boolean, ServiceContext)
+	 */
+	public static IRIssue update(IRIssue irIssue, boolean merge,
+		ServiceContext serviceContext) throws SystemException {
+		return getPersistence().update(irIssue, merge, serviceContext);
+	}
+
+	/**
+	* Caches the i r issue in the entity cache if it is enabled.
+	*
+	* @param irIssue the i r issue to cache
+	*/
+	public static void cacheResult(org.portlets.lia.mine.model.IRIssue irIssue) {
+		getPersistence().cacheResult(irIssue);
+	}
+
+	/**
+	* Caches the i r issues in the entity cache if it is enabled.
+	*
+	* @param irIssues the i r issues to cache
+	*/
+	public static void cacheResult(
+		java.util.List<org.portlets.lia.mine.model.IRIssue> irIssues) {
+		getPersistence().cacheResult(irIssues);
+	}
+
+	/**
+	* Creates a new i r issue with the primary key. Does not add the i r issue to the database.
+	*
+	* @param issueId the primary key for the new i r issue
+	* @return the new i r issue
+	*/
+	public static org.portlets.lia.mine.model.IRIssue create(long issueId) {
+		return getPersistence().create(issueId);
+	}
+
+	/**
+	* Removes the i r issue with the primary key from the database. Also notifies the appropriate model listeners.
+	*
+	* @param issueId the primary key of the i r issue to remove
+	* @return the i r issue that was removed
+	* @throws org.portlets.lia.mine.NoSuchIssueException if a i r issue with the primary key could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static org.portlets.lia.mine.model.IRIssue remove(long issueId)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			org.portlets.lia.mine.NoSuchIssueException {
+		return getPersistence().remove(issueId);
+	}
+
+	public static org.portlets.lia.mine.model.IRIssue updateImpl(
+		org.portlets.lia.mine.model.IRIssue irIssue, boolean merge)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().updateImpl(irIssue, merge);
+	}
+
+	/**
+	* Finds the i r issue with the primary key or throws a {@link org.portlets.lia.mine.NoSuchIssueException} if it could not be found.
+	*
+	* @param issueId the primary key of the i r issue to find
+	* @return the i r issue
+	* @throws org.portlets.lia.mine.NoSuchIssueException if a i r issue with the primary key could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static org.portlets.lia.mine.model.IRIssue findByPrimaryKey(
+		long issueId)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			org.portlets.lia.mine.NoSuchIssueException {
+		return getPersistence().findByPrimaryKey(issueId);
+	}
+
+	/**
+	* Finds the i r issue with the primary key or returns <code>null</code> if it could not be found.
+	*
+	* @param issueId the primary key of the i r issue to find
+	* @return the i r issue, or <code>null</code> if a i r issue with the primary key could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static org.portlets.lia.mine.model.IRIssue fetchByPrimaryKey(
+		long issueId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().fetchByPrimaryKey(issueId);
+	}
+
+	/**
+	* Finds all the i r issues where summary = &#63; and requester = &#63;.
+	*
+	* @param summary the summary to search with
+	* @param requester the requester to search with
+	* @return the matching i r issues
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<org.portlets.lia.mine.model.IRIssue> findByS_R(
+		java.lang.String summary, java.lang.String requester)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findByS_R(summary, requester);
+	}
+
+	/**
+	* Finds a range of all the i r issues where summary = &#63; and requester = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	* </p>
+	*
+	* @param summary the summary to search with
+	* @param requester the requester to search with
+	* @param start the lower bound of the range of i r issues to return
+	* @param end the upper bound of the range of i r issues to return (not inclusive)
+	* @return the range of matching i r issues
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<org.portlets.lia.mine.model.IRIssue> findByS_R(
+		java.lang.String summary, java.lang.String requester, int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findByS_R(summary, requester, start, end);
+	}
+
+	/**
+	* Finds an ordered range of all the i r issues where summary = &#63; and requester = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	* </p>
+	*
+	* @param summary the summary to search with
+	* @param requester the requester to search with
+	* @param start the lower bound of the range of i r issues to return
+	* @param end the upper bound of the range of i r issues to return (not inclusive)
+	* @param orderByComparator the comparator to order the results by
+	* @return the ordered range of matching i r issues
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<org.portlets.lia.mine.model.IRIssue> findByS_R(
+		java.lang.String summary, java.lang.String requester, int start,
+		int end,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence()
+				   .findByS_R(summary, requester, start, end, orderByComparator);
+	}
+
+	/**
+	* Finds the first i r issue in the ordered set where summary = &#63; and requester = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	* </p>
+	*
+	* @param summary the summary to search with
+	* @param requester the requester to search with
+	* @param orderByComparator the comparator to order the set by
+	* @return the first matching i r issue
+	* @throws org.portlets.lia.mine.NoSuchIssueException if a matching i r issue could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static org.portlets.lia.mine.model.IRIssue findByS_R_First(
+		java.lang.String summary, java.lang.String requester,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			org.portlets.lia.mine.NoSuchIssueException {
+		return getPersistence()
+				   .findByS_R_First(summary, requester, orderByComparator);
+	}
+
+	/**
+	* Finds the last i r issue in the ordered set where summary = &#63; and requester = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	* </p>
+	*
+	* @param summary the summary to search with
+	* @param requester the requester to search with
+	* @param orderByComparator the comparator to order the set by
+	* @return the last matching i r issue
+	* @throws org.portlets.lia.mine.NoSuchIssueException if a matching i r issue could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static org.portlets.lia.mine.model.IRIssue findByS_R_Last(
+		java.lang.String summary, java.lang.String requester,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			org.portlets.lia.mine.NoSuchIssueException {
+		return getPersistence()
+				   .findByS_R_Last(summary, requester, orderByComparator);
+	}
+
+	/**
+	* Finds the i r issues before and after the current i r issue in the ordered set where summary = &#63; and requester = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	* </p>
+	*
+	* @param issueId the primary key of the current i r issue
+	* @param summary the summary to search with
+	* @param requester the requester to search with
+	* @param orderByComparator the comparator to order the set by
+	* @return the previous, current, and next i r issue
+	* @throws org.portlets.lia.mine.NoSuchIssueException if a i r issue with the primary key could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public static org.portlets.lia.mine.model.IRIssue[] findByS_R_PrevAndNext(
+		long issueId, java.lang.String summary, java.lang.String requester,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			org.portlets.lia.mine.NoSuchIssueException {
+		return getPersistence()
+				   .findByS_R_PrevAndNext(issueId, summary, requester,
+			orderByComparator);
+	}
+
+	/**
+	* Finds all the i r issues.
+	*
+	* @return the i r issues
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<org.portlets.lia.mine.model.IRIssue> findAll()
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findAll();
+	}
+
+	/**
+	* Finds a range of all the i r issues.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	* </p>
+	*
+	* @param start the lower bound of the range of i r issues to return
+	* @param end the upper bound of the range of i r issues to return (not inclusive)
+	* @return the range of i r issues
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<org.portlets.lia.mine.model.IRIssue> findAll(
+		int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findAll(start, end);
+	}
+
+	/**
+	* Finds an ordered range of all the i r issues.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	* </p>
+	*
+	* @param start the lower bound of the range of i r issues to return
+	* @param end the upper bound of the range of i r issues to return (not inclusive)
+	* @param orderByComparator the comparator to order the results by
+	* @return the ordered range of i r issues
+	* @throws SystemException if a system exception occurred
+	*/
+	public static java.util.List<org.portlets.lia.mine.model.IRIssue> findAll(
+		int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().findAll(start, end, orderByComparator);
+	}
+
+	/**
+	* Removes all the i r issues where summary = &#63; and requester = &#63; from the database.
+	*
+	* @param summary the summary to search with
+	* @param requester the requester to search with
+	* @throws SystemException if a system exception occurred
+	*/
+	public static void removeByS_R(java.lang.String summary,
+		java.lang.String requester)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		getPersistence().removeByS_R(summary, requester);
+	}
+
+	/**
+	* Removes all the i r issues from the database.
+	*
+	* @throws SystemException if a system exception occurred
+	*/
+	public static void removeAll()
+		throws com.liferay.portal.kernel.exception.SystemException {
+		getPersistence().removeAll();
+	}
+
+	/**
+	* Counts all the i r issues where summary = &#63; and requester = &#63;.
+	*
+	* @param summary the summary to search with
+	* @param requester the requester to search with
+	* @return the number of matching i r issues
+	* @throws SystemException if a system exception occurred
+	*/
+	public static int countByS_R(java.lang.String summary,
+		java.lang.String requester)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().countByS_R(summary, requester);
+	}
+
+	/**
+	* Counts all the i r issues.
+	*
+	* @return the number of i r issues
+	* @throws SystemException if a system exception occurred
+	*/
+	public static int countAll()
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return getPersistence().countAll();
+	}
+
+	public static IRIssuePersistence getPersistence() {
+		if (_persistence == null) {
+			_persistence = (IRIssuePersistence)PortletBeanLocatorUtil.locate(org.portlets.lia.mine.service.ClpSerializer.SERVLET_CONTEXT_NAME,
+					IRIssuePersistence.class.getName());
+		}
+
+		return _persistence;
+	}
+
+	public void setPersistence(IRIssuePersistence persistence) {
+		_persistence = persistence;
+	}
+
+	private static IRIssuePersistence _persistence;
+}

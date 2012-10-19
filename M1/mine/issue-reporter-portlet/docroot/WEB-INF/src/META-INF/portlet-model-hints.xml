@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model-hints>
+	<model name="org.portlets.lia.mine.model.IRIssue">
+		<field name="issueId" type="long" />
+		<field name="summary" type="String" />
+		<field name="requester" type="String" />
+		<field name="priority" type="String" />
+	</model>
+</model-hints>
