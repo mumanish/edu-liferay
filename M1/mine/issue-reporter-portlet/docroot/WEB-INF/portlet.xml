@@ -18,6 +18,7 @@
 		<supports>
 			<mime-type>text/html</mime-type>
 		</supports>
+		<resource-bundle>content.Labels</resource-bundle>
 		<portlet-info>
 			<title>Issue Reporter</title>
 			<short-title>Issue Reporter</short-title>

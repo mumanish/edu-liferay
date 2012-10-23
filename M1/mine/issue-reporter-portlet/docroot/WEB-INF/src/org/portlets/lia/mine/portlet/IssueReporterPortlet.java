@@ -28,8 +28,8 @@ public class IssueReporterPortlet extends MVCPortlet {
 
 	public void addIssue(ActionRequest request, ActionResponse response)throws Exception {
 
-			IssueLocalServiceUtil.addIssue(10169, "Start page has a broken link",
-			"Vladimir Frolov", "High");
+			IssueLocalServiceUtil.addIssue(10169, request.getParameter("summary"),
+			request.getParameter("requester"), request.getParameter("priority"));
 
 			response.setRenderParameter("jspPage", viewJSP);
 	}
