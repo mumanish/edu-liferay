@@ -18,10 +18,10 @@ import com.liferay.portal.kernel.bean.PortletBeanLocatorUtil;
 import com.liferay.portal.kernel.util.ClassLoaderProxy;
 
 /**
- * The utility for the i r issue local service. This utility wraps {@link org.portlets.lia.mine.service.impl.IRIssueLocalServiceImpl} and is the primary access point for service operations in application layer code running on the local server.
+ * The utility for the issue local service. This utility wraps {@link org.portlets.lia.mine.service.impl.IssueLocalServiceImpl} and is the primary access point for service operations in application layer code running on the local server.
  *
  * <p>
- * Never modify this class directly. Add custom service methods to {@link org.portlets.lia.mine.service.impl.IRIssueLocalServiceImpl} and rerun ServiceBuilder to regenerate this class.
+ * Never modify this class directly. Add custom service methods to {@link org.portlets.lia.mine.service.impl.IssueLocalServiceImpl} and rerun ServiceBuilder to regenerate this class.
  * </p>
  *
  * <p>
@@ -29,59 +29,57 @@ import com.liferay.portal.kernel.util.ClassLoaderProxy;
  * </p>
  *
  * @author Vladimir Frolov
- * @see IRIssueLocalService
- * @see org.portlets.lia.mine.service.base.IRIssueLocalServiceBaseImpl
- * @see org.portlets.lia.mine.service.impl.IRIssueLocalServiceImpl
+ * @see IssueLocalService
+ * @see org.portlets.lia.mine.service.base.IssueLocalServiceBaseImpl
+ * @see org.portlets.lia.mine.service.impl.IssueLocalServiceImpl
  * @generated
  */
-public class IRIssueLocalServiceUtil {
+public class IssueLocalServiceUtil {
 	/**
-	* Adds the i r issue to the database. Also notifies the appropriate model listeners.
+	* Adds the issue to the database. Also notifies the appropriate model listeners.
 	*
-	* @param irIssue the i r issue to add
-	* @return the i r issue that was added
+	* @param issue the issue to add
+	* @return the issue that was added
 	* @throws SystemException if a system exception occurred
 	*/
-	public static org.portlets.lia.mine.model.IRIssue addIRIssue(
-		org.portlets.lia.mine.model.IRIssue irIssue)
+	public static org.portlets.lia.mine.model.Issue addIssue(
+		org.portlets.lia.mine.model.Issue issue)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().addIRIssue(irIssue);
+		return getService().addIssue(issue);
 	}
 
 	/**
-	* Creates a new i r issue with the primary key. Does not add the i r issue to the database.
+	* Creates a new issue with the primary key. Does not add the issue to the database.
 	*
-	* @param issueId the primary key for the new i r issue
-	* @return the new i r issue
+	* @param issueId the primary key for the new issue
+	* @return the new issue
 	*/
-	public static org.portlets.lia.mine.model.IRIssue createIRIssue(
-		long issueId) {
-		return getService().createIRIssue(issueId);
+	public static org.portlets.lia.mine.model.Issue createIssue(long issueId) {
+		return getService().createIssue(issueId);
 	}
 
 	/**
-	* Deletes the i r issue with the primary key from the database. Also notifies the appropriate model listeners.
+	* Deletes the issue with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param issueId the primary key of the i r issue to delete
-	* @throws PortalException if a i r issue with the primary key could not be found
+	* @param issueId the primary key of the issue to delete
+	* @throws PortalException if a issue with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static void deleteIRIssue(long issueId)
+	public static void deleteIssue(long issueId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		getService().deleteIRIssue(issueId);
+		getService().deleteIssue(issueId);
 	}
 
 	/**
-	* Deletes the i r issue from the database. Also notifies the appropriate model listeners.
+	* Deletes the issue from the database. Also notifies the appropriate model listeners.
 	*
-	* @param irIssue the i r issue to delete
+	* @param issue the issue to delete
 	* @throws SystemException if a system exception occurred
 	*/
-	public static void deleteIRIssue(
-		org.portlets.lia.mine.model.IRIssue irIssue)
+	public static void deleteIssue(org.portlets.lia.mine.model.Issue issue)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		getService().deleteIRIssue(irIssue);
+		getService().deleteIssue(issue);
 	}
 
 	/**
@@ -156,90 +154,98 @@ public class IRIssueLocalServiceUtil {
 	}
 
 	/**
-	* Gets the i r issue with the primary key.
+	* Gets the issue with the primary key.
 	*
-	* @param issueId the primary key of the i r issue to get
-	* @return the i r issue
-	* @throws PortalException if a i r issue with the primary key could not be found
+	* @param issueId the primary key of the issue to get
+	* @return the issue
+	* @throws PortalException if a issue with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public static org.portlets.lia.mine.model.IRIssue getIRIssue(long issueId)
+	public static org.portlets.lia.mine.model.Issue getIssue(long issueId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().getIRIssue(issueId);
+		return getService().getIssue(issueId);
 	}
 
 	/**
-	* Gets a range of all the i r issues.
+	* Gets a range of all the issues.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
 	* </p>
 	*
-	* @param start the lower bound of the range of i r issues to return
-	* @param end the upper bound of the range of i r issues to return (not inclusive)
-	* @return the range of i r issues
+	* @param start the lower bound of the range of issues to return
+	* @param end the upper bound of the range of issues to return (not inclusive)
+	* @return the range of issues
 	* @throws SystemException if a system exception occurred
 	*/
-	public static java.util.List<org.portlets.lia.mine.model.IRIssue> getIRIssues(
+	public static java.util.List<org.portlets.lia.mine.model.Issue> getIssues(
 		int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getIRIssues(start, end);
+		return getService().getIssues(start, end);
 	}
 
 	/**
-	* Gets the number of i r issues.
+	* Gets the number of issues.
 	*
-	* @return the number of i r issues
+	* @return the number of issues
 	* @throws SystemException if a system exception occurred
 	*/
-	public static int getIRIssuesCount()
+	public static int getIssuesCount()
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().getIRIssuesCount();
+		return getService().getIssuesCount();
 	}
 
 	/**
-	* Updates the i r issue in the database. Also notifies the appropriate model listeners.
+	* Updates the issue in the database. Also notifies the appropriate model listeners.
 	*
-	* @param irIssue the i r issue to update
-	* @return the i r issue that was updated
+	* @param issue the issue to update
+	* @return the issue that was updated
 	* @throws SystemException if a system exception occurred
 	*/
-	public static org.portlets.lia.mine.model.IRIssue updateIRIssue(
-		org.portlets.lia.mine.model.IRIssue irIssue)
+	public static org.portlets.lia.mine.model.Issue updateIssue(
+		org.portlets.lia.mine.model.Issue issue)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().updateIRIssue(irIssue);
+		return getService().updateIssue(issue);
 	}
 
 	/**
-	* Updates the i r issue in the database. Also notifies the appropriate model listeners.
+	* Updates the issue in the database. Also notifies the appropriate model listeners.
 	*
-	* @param irIssue the i r issue to update
-	* @param merge whether to merge the i r issue with the current session. See {@link com.liferay.portal.service.persistence.BatchSession#update(com.liferay.portal.kernel.dao.orm.Session, com.liferay.portal.model.BaseModel, boolean)} for an explanation.
-	* @return the i r issue that was updated
+	* @param issue the issue to update
+	* @param merge whether to merge the issue with the current session. See {@link com.liferay.portal.service.persistence.BatchSession#update(com.liferay.portal.kernel.dao.orm.Session, com.liferay.portal.model.BaseModel, boolean)} for an explanation.
+	* @return the issue that was updated
 	* @throws SystemException if a system exception occurred
 	*/
-	public static org.portlets.lia.mine.model.IRIssue updateIRIssue(
-		org.portlets.lia.mine.model.IRIssue irIssue, boolean merge)
+	public static org.portlets.lia.mine.model.Issue updateIssue(
+		org.portlets.lia.mine.model.Issue issue, boolean merge)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return getService().updateIRIssue(irIssue, merge);
+		return getService().updateIssue(issue, merge);
+	}
+
+	public static org.portlets.lia.mine.model.Issue addIssue(long userId,
+		java.lang.String summary, java.lang.String requester,
+		java.lang.String priority)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return getService().addIssue(userId, summary, requester, priority);
 	}
 
 	public static void clearService() {
 		_service = null;
 	}
 
-	public static IRIssueLocalService getService() {
+	public static IssueLocalService getService() {
 		if (_service == null) {
 			Object obj = PortletBeanLocatorUtil.locate(ClpSerializer.SERVLET_CONTEXT_NAME,
-					IRIssueLocalService.class.getName());
+					IssueLocalService.class.getName());
 			ClassLoader portletClassLoader = (ClassLoader)PortletBeanLocatorUtil.locate(ClpSerializer.SERVLET_CONTEXT_NAME,
 					"portletClassLoader");
 
 			ClassLoaderProxy classLoaderProxy = new ClassLoaderProxy(obj,
 					portletClassLoader);
 
-			_service = new IRIssueLocalServiceClp(classLoaderProxy);
+			_service = new IssueLocalServiceClp(classLoaderProxy);
 
 			ClpSerializer.setClassLoader(portletClassLoader);
 		}
@@ -247,9 +253,9 @@ public class IRIssueLocalServiceUtil {
 		return _service;
 	}
 
-	public void setService(IRIssueLocalService service) {
+	public void setService(IssueLocalService service) {
 		_service = service;
 	}
 
-	private static IRIssueLocalService _service;
+	private static IssueLocalService _service;
 }

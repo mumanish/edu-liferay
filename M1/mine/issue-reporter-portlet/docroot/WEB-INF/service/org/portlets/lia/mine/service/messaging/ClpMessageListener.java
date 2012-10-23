@@ -20,7 +20,8 @@ import com.liferay.portal.kernel.messaging.Message;
 import com.liferay.portal.kernel.messaging.MessageListener;
 
 import org.portlets.lia.mine.service.ClpSerializer;
-import org.portlets.lia.mine.service.IRIssueLocalServiceUtil;
+import org.portlets.lia.mine.service.IssueLocalServiceUtil;
+import org.portlets.lia.mine.service.IssueServiceUtil;
 
 /**
  * @author Brian Wing Shun Chan
@@ -43,7 +44,9 @@ public class ClpMessageListener implements MessageListener {
 
 		if (command.equals("undeploy") &&
 				servletContextName.equals(SERVLET_CONTEXT_NAME)) {
-			IRIssueLocalServiceUtil.clearService();
+			IssueLocalServiceUtil.clearService();
+
+			IssueServiceUtil.clearService();
 		}
 	}
 

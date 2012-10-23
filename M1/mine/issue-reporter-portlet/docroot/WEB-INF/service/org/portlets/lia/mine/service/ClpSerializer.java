@@ -18,11 +18,12 @@ import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.model.BaseModel;
 
-import org.portlets.lia.mine.model.IRIssueClp;
+import org.portlets.lia.mine.model.IssueClp;
 
 import java.lang.reflect.Method;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -40,8 +41,8 @@ public class ClpSerializer {
 
 		String oldModelClassName = oldModelClass.getName();
 
-		if (oldModelClassName.equals(IRIssueClp.class.getName())) {
-			IRIssueClp oldCplModel = (IRIssueClp)oldModel;
+		if (oldModelClassName.equals(IssueClp.class.getName())) {
+			IssueClp oldCplModel = (IssueClp)oldModel;
 
 			ClassLoader contextClassLoader = Thread.currentThread()
 												   .getContextClassLoader();
@@ -50,7 +51,7 @@ public class ClpSerializer {
 				Thread.currentThread().setContextClassLoader(_classLoader);
 
 				try {
-					Class<?> newModelClass = Class.forName("org.portlets.lia.mine.model.impl.IRIssueImpl",
+					Class<?> newModelClass = Class.forName("org.portlets.lia.mine.model.impl.IssueImpl",
 							true, _classLoader);
 
 					Object newModel = newModelClass.newInstance();
@@ -62,26 +63,68 @@ public class ClpSerializer {
 
 					method0.invoke(newModel, value0);
 
-					Method method1 = newModelClass.getMethod("setSummary",
-							new Class[] { String.class });
+					Method method1 = newModelClass.getMethod("setGroupId",
+							new Class[] { Long.TYPE });
 
-					String value1 = oldCplModel.getSummary();
+					Long value1 = new Long(oldCplModel.getGroupId());
 
 					method1.invoke(newModel, value1);
 
-					Method method2 = newModelClass.getMethod("setRequester",
-							new Class[] { String.class });
+					Method method2 = newModelClass.getMethod("setCompanyId",
+							new Class[] { Long.TYPE });
 
-					String value2 = oldCplModel.getRequester();
+					Long value2 = new Long(oldCplModel.getCompanyId());
 
 					method2.invoke(newModel, value2);
 
-					Method method3 = newModelClass.getMethod("setPriority",
-							new Class[] { String.class });
+					Method method3 = newModelClass.getMethod("setUserId",
+							new Class[] { Long.TYPE });
 
-					String value3 = oldCplModel.getPriority();
+					Long value3 = new Long(oldCplModel.getUserId());
 
 					method3.invoke(newModel, value3);
+
+					Method method4 = newModelClass.getMethod("setUserName",
+							new Class[] { String.class });
+
+					String value4 = oldCplModel.getUserName();
+
+					method4.invoke(newModel, value4);
+
+					Method method5 = newModelClass.getMethod("setCreateDate",
+							new Class[] { Date.class });
+
+					Date value5 = oldCplModel.getCreateDate();
+
+					method5.invoke(newModel, value5);
+
+					Method method6 = newModelClass.getMethod("setModifiedDate",
+							new Class[] { Date.class });
+
+					Date value6 = oldCplModel.getModifiedDate();
+
+					method6.invoke(newModel, value6);
+
+					Method method7 = newModelClass.getMethod("setSummary",
+							new Class[] { String.class });
+
+					String value7 = oldCplModel.getSummary();
+
+					method7.invoke(newModel, value7);
+
+					Method method8 = newModelClass.getMethod("setRequester",
+							new Class[] { String.class });
+
+					String value8 = oldCplModel.getRequester();
+
+					method8.invoke(newModel, value8);
+
+					Method method9 = newModelClass.getMethod("setPriority",
+							new Class[] { String.class });
+
+					String value9 = oldCplModel.getPriority();
+
+					method9.invoke(newModel, value9);
 
 					return newModel;
 				}
@@ -127,7 +170,7 @@ public class ClpSerializer {
 		String oldModelClassName = oldModelClass.getName();
 
 		if (oldModelClassName.equals(
-					"org.portlets.lia.mine.model.impl.IRIssueImpl")) {
+					"org.portlets.lia.mine.model.impl.IssueImpl")) {
 			ClassLoader contextClassLoader = Thread.currentThread()
 												   .getContextClassLoader();
 
@@ -135,7 +178,7 @@ public class ClpSerializer {
 				Thread.currentThread().setContextClassLoader(_classLoader);
 
 				try {
-					IRIssueClp newModel = new IRIssueClp();
+					IssueClp newModel = new IssueClp();
 
 					Method method0 = oldModelClass.getMethod("getIssueId");
 
@@ -143,26 +186,63 @@ public class ClpSerializer {
 
 					newModel.setIssueId(value0);
 
-					Method method1 = oldModelClass.getMethod("getSummary");
+					Method method1 = oldModelClass.getMethod("getGroupId");
 
-					String value1 = (String)method1.invoke(oldModel,
+					Long value1 = (Long)method1.invoke(oldModel, (Object[])null);
+
+					newModel.setGroupId(value1);
+
+					Method method2 = oldModelClass.getMethod("getCompanyId");
+
+					Long value2 = (Long)method2.invoke(oldModel, (Object[])null);
+
+					newModel.setCompanyId(value2);
+
+					Method method3 = oldModelClass.getMethod("getUserId");
+
+					Long value3 = (Long)method3.invoke(oldModel, (Object[])null);
+
+					newModel.setUserId(value3);
+
+					Method method4 = oldModelClass.getMethod("getUserName");
+
+					String value4 = (String)method4.invoke(oldModel,
 							(Object[])null);
 
-					newModel.setSummary(value1);
+					newModel.setUserName(value4);
 
-					Method method2 = oldModelClass.getMethod("getRequester");
+					Method method5 = oldModelClass.getMethod("getCreateDate");
 
-					String value2 = (String)method2.invoke(oldModel,
+					Date value5 = (Date)method5.invoke(oldModel, (Object[])null);
+
+					newModel.setCreateDate(value5);
+
+					Method method6 = oldModelClass.getMethod("getModifiedDate");
+
+					Date value6 = (Date)method6.invoke(oldModel, (Object[])null);
+
+					newModel.setModifiedDate(value6);
+
+					Method method7 = oldModelClass.getMethod("getSummary");
+
+					String value7 = (String)method7.invoke(oldModel,
 							(Object[])null);
 
-					newModel.setRequester(value2);
+					newModel.setSummary(value7);
 
-					Method method3 = oldModelClass.getMethod("getPriority");
+					Method method8 = oldModelClass.getMethod("getRequester");
 
-					String value3 = (String)method3.invoke(oldModel,
+					String value8 = (String)method8.invoke(oldModel,
 							(Object[])null);
 
-					newModel.setPriority(value3);
+					newModel.setRequester(value8);
+
+					Method method9 = oldModelClass.getMethod("getPriority");
+
+					String value9 = (String)method9.invoke(oldModel,
+							(Object[])null);
+
+					newModel.setPriority(value9);
 
 					return newModel;
 				}

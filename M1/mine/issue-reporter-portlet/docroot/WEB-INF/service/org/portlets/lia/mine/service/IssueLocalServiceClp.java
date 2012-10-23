@@ -21,18 +21,18 @@ import com.liferay.portal.kernel.util.MethodKey;
 /**
  * @author Vladimir Frolov
  */
-public class IRIssueLocalServiceClp implements IRIssueLocalService {
-	public IRIssueLocalServiceClp(ClassLoaderProxy classLoaderProxy) {
+public class IssueLocalServiceClp implements IssueLocalService {
+	public IssueLocalServiceClp(ClassLoaderProxy classLoaderProxy) {
 		_classLoaderProxy = classLoaderProxy;
 	}
 
-	public org.portlets.lia.mine.model.IRIssue addIRIssue(
-		org.portlets.lia.mine.model.IRIssue irIssue)
+	public org.portlets.lia.mine.model.Issue addIssue(
+		org.portlets.lia.mine.model.Issue issue)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
-		MethodHandler methodHandler = new MethodHandler(_addIRIssueMethodKey0,
-				irIssue);
+		MethodHandler methodHandler = new MethodHandler(_addIssueMethodKey0,
+				issue);
 
 		try {
 			returnObj = _classLoaderProxy.invoke(methodHandler);
@@ -51,13 +51,13 @@ public class IRIssueLocalServiceClp implements IRIssueLocalService {
 			}
 		}
 
-		return (org.portlets.lia.mine.model.IRIssue)ClpSerializer.translateOutput(returnObj);
+		return (org.portlets.lia.mine.model.Issue)ClpSerializer.translateOutput(returnObj);
 	}
 
-	public org.portlets.lia.mine.model.IRIssue createIRIssue(long issueId) {
+	public org.portlets.lia.mine.model.Issue createIssue(long issueId) {
 		Object returnObj = null;
 
-		MethodHandler methodHandler = new MethodHandler(_createIRIssueMethodKey1,
+		MethodHandler methodHandler = new MethodHandler(_createIssueMethodKey1,
 				issueId);
 
 		try {
@@ -73,13 +73,13 @@ public class IRIssueLocalServiceClp implements IRIssueLocalService {
 			}
 		}
 
-		return (org.portlets.lia.mine.model.IRIssue)ClpSerializer.translateOutput(returnObj);
+		return (org.portlets.lia.mine.model.Issue)ClpSerializer.translateOutput(returnObj);
 	}
 
-	public void deleteIRIssue(long issueId)
+	public void deleteIssue(long issueId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		MethodHandler methodHandler = new MethodHandler(_deleteIRIssueMethodKey2,
+		MethodHandler methodHandler = new MethodHandler(_deleteIssueMethodKey2,
 				issueId);
 
 		try {
@@ -104,10 +104,10 @@ public class IRIssueLocalServiceClp implements IRIssueLocalService {
 		}
 	}
 
-	public void deleteIRIssue(org.portlets.lia.mine.model.IRIssue irIssue)
+	public void deleteIssue(org.portlets.lia.mine.model.Issue issue)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		MethodHandler methodHandler = new MethodHandler(_deleteIRIssueMethodKey3,
-				irIssue);
+		MethodHandler methodHandler = new MethodHandler(_deleteIssueMethodKey3,
+				issue);
 
 		try {
 			_classLoaderProxy.invoke(methodHandler);
@@ -244,12 +244,12 @@ public class IRIssueLocalServiceClp implements IRIssueLocalService {
 		return ((Long)returnObj).longValue();
 	}
 
-	public org.portlets.lia.mine.model.IRIssue getIRIssue(long issueId)
+	public org.portlets.lia.mine.model.Issue getIssue(long issueId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
-		MethodHandler methodHandler = new MethodHandler(_getIRIssueMethodKey8,
+		MethodHandler methodHandler = new MethodHandler(_getIssueMethodKey8,
 				issueId);
 
 		try {
@@ -273,15 +273,15 @@ public class IRIssueLocalServiceClp implements IRIssueLocalService {
 			}
 		}
 
-		return (org.portlets.lia.mine.model.IRIssue)ClpSerializer.translateOutput(returnObj);
+		return (org.portlets.lia.mine.model.Issue)ClpSerializer.translateOutput(returnObj);
 	}
 
-	public java.util.List<org.portlets.lia.mine.model.IRIssue> getIRIssues(
+	public java.util.List<org.portlets.lia.mine.model.Issue> getIssues(
 		int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
-		MethodHandler methodHandler = new MethodHandler(_getIRIssuesMethodKey9,
+		MethodHandler methodHandler = new MethodHandler(_getIssuesMethodKey9,
 				start, end);
 
 		try {
@@ -301,14 +301,14 @@ public class IRIssueLocalServiceClp implements IRIssueLocalService {
 			}
 		}
 
-		return (java.util.List<org.portlets.lia.mine.model.IRIssue>)ClpSerializer.translateOutput(returnObj);
+		return (java.util.List<org.portlets.lia.mine.model.Issue>)ClpSerializer.translateOutput(returnObj);
 	}
 
-	public int getIRIssuesCount()
+	public int getIssuesCount()
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
-		MethodHandler methodHandler = new MethodHandler(_getIRIssuesCountMethodKey10);
+		MethodHandler methodHandler = new MethodHandler(_getIssuesCountMethodKey10);
 
 		try {
 			returnObj = _classLoaderProxy.invoke(methodHandler);
@@ -330,13 +330,13 @@ public class IRIssueLocalServiceClp implements IRIssueLocalService {
 		return ((Integer)returnObj).intValue();
 	}
 
-	public org.portlets.lia.mine.model.IRIssue updateIRIssue(
-		org.portlets.lia.mine.model.IRIssue irIssue)
+	public org.portlets.lia.mine.model.Issue updateIssue(
+		org.portlets.lia.mine.model.Issue issue)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
-		MethodHandler methodHandler = new MethodHandler(_updateIRIssueMethodKey11,
-				irIssue);
+		MethodHandler methodHandler = new MethodHandler(_updateIssueMethodKey11,
+				issue);
 
 		try {
 			returnObj = _classLoaderProxy.invoke(methodHandler);
@@ -355,16 +355,16 @@ public class IRIssueLocalServiceClp implements IRIssueLocalService {
 			}
 		}
 
-		return (org.portlets.lia.mine.model.IRIssue)ClpSerializer.translateOutput(returnObj);
+		return (org.portlets.lia.mine.model.Issue)ClpSerializer.translateOutput(returnObj);
 	}
 
-	public org.portlets.lia.mine.model.IRIssue updateIRIssue(
-		org.portlets.lia.mine.model.IRIssue irIssue, boolean merge)
+	public org.portlets.lia.mine.model.Issue updateIssue(
+		org.portlets.lia.mine.model.Issue issue, boolean merge)
 		throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
-		MethodHandler methodHandler = new MethodHandler(_updateIRIssueMethodKey12,
-				irIssue, merge);
+		MethodHandler methodHandler = new MethodHandler(_updateIssueMethodKey12,
+				issue, merge);
 
 		try {
 			returnObj = _classLoaderProxy.invoke(methodHandler);
@@ -383,7 +383,41 @@ public class IRIssueLocalServiceClp implements IRIssueLocalService {
 			}
 		}
 
-		return (org.portlets.lia.mine.model.IRIssue)ClpSerializer.translateOutput(returnObj);
+		return (org.portlets.lia.mine.model.Issue)ClpSerializer.translateOutput(returnObj);
+	}
+
+	public org.portlets.lia.mine.model.Issue addIssue(long userId,
+		java.lang.String summary, java.lang.String requester,
+		java.lang.String priority)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		Object returnObj = null;
+
+		MethodHandler methodHandler = new MethodHandler(_addIssueMethodKey13,
+				userId, summary, requester, priority);
+
+		try {
+			returnObj = _classLoaderProxy.invoke(methodHandler);
+		}
+		catch (Throwable t) {
+			if (t instanceof com.liferay.portal.kernel.exception.PortalException) {
+				throw (com.liferay.portal.kernel.exception.PortalException)t;
+			}
+
+			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+				throw (com.liferay.portal.kernel.exception.SystemException)t;
+			}
+
+			if (t instanceof RuntimeException) {
+				throw (RuntimeException)t;
+			}
+			else {
+				throw new RuntimeException(t.getClass().getName() +
+					" is not a valid exception");
+			}
+		}
+
+		return (org.portlets.lia.mine.model.Issue)ClpSerializer.translateOutput(returnObj);
 	}
 
 	public ClassLoaderProxy getClassLoaderProxy() {
@@ -391,14 +425,14 @@ public class IRIssueLocalServiceClp implements IRIssueLocalService {
 	}
 
 	private ClassLoaderProxy _classLoaderProxy;
-	private MethodKey _addIRIssueMethodKey0 = new MethodKey(_classLoaderProxy.getClassName(),
-			"addIRIssue", org.portlets.lia.mine.model.IRIssue.class);
-	private MethodKey _createIRIssueMethodKey1 = new MethodKey(_classLoaderProxy.getClassName(),
-			"createIRIssue", long.class);
-	private MethodKey _deleteIRIssueMethodKey2 = new MethodKey(_classLoaderProxy.getClassName(),
-			"deleteIRIssue", long.class);
-	private MethodKey _deleteIRIssueMethodKey3 = new MethodKey(_classLoaderProxy.getClassName(),
-			"deleteIRIssue", org.portlets.lia.mine.model.IRIssue.class);
+	private MethodKey _addIssueMethodKey0 = new MethodKey(_classLoaderProxy.getClassName(),
+			"addIssue", org.portlets.lia.mine.model.Issue.class);
+	private MethodKey _createIssueMethodKey1 = new MethodKey(_classLoaderProxy.getClassName(),
+			"createIssue", long.class);
+	private MethodKey _deleteIssueMethodKey2 = new MethodKey(_classLoaderProxy.getClassName(),
+			"deleteIssue", long.class);
+	private MethodKey _deleteIssueMethodKey3 = new MethodKey(_classLoaderProxy.getClassName(),
+			"deleteIssue", org.portlets.lia.mine.model.Issue.class);
 	private MethodKey _dynamicQueryMethodKey4 = new MethodKey(_classLoaderProxy.getClassName(),
 			"dynamicQuery", com.liferay.portal.kernel.dao.orm.DynamicQuery.class);
 	private MethodKey _dynamicQueryMethodKey5 = new MethodKey(_classLoaderProxy.getClassName(),
@@ -412,15 +446,18 @@ public class IRIssueLocalServiceClp implements IRIssueLocalService {
 	private MethodKey _dynamicQueryCountMethodKey7 = new MethodKey(_classLoaderProxy.getClassName(),
 			"dynamicQueryCount",
 			com.liferay.portal.kernel.dao.orm.DynamicQuery.class);
-	private MethodKey _getIRIssueMethodKey8 = new MethodKey(_classLoaderProxy.getClassName(),
-			"getIRIssue", long.class);
-	private MethodKey _getIRIssuesMethodKey9 = new MethodKey(_classLoaderProxy.getClassName(),
-			"getIRIssues", int.class, int.class);
-	private MethodKey _getIRIssuesCountMethodKey10 = new MethodKey(_classLoaderProxy.getClassName(),
-			"getIRIssuesCount");
-	private MethodKey _updateIRIssueMethodKey11 = new MethodKey(_classLoaderProxy.getClassName(),
-			"updateIRIssue", org.portlets.lia.mine.model.IRIssue.class);
-	private MethodKey _updateIRIssueMethodKey12 = new MethodKey(_classLoaderProxy.getClassName(),
-			"updateIRIssue", org.portlets.lia.mine.model.IRIssue.class,
+	private MethodKey _getIssueMethodKey8 = new MethodKey(_classLoaderProxy.getClassName(),
+			"getIssue", long.class);
+	private MethodKey _getIssuesMethodKey9 = new MethodKey(_classLoaderProxy.getClassName(),
+			"getIssues", int.class, int.class);
+	private MethodKey _getIssuesCountMethodKey10 = new MethodKey(_classLoaderProxy.getClassName(),
+			"getIssuesCount");
+	private MethodKey _updateIssueMethodKey11 = new MethodKey(_classLoaderProxy.getClassName(),
+			"updateIssue", org.portlets.lia.mine.model.Issue.class);
+	private MethodKey _updateIssueMethodKey12 = new MethodKey(_classLoaderProxy.getClassName(),
+			"updateIssue", org.portlets.lia.mine.model.Issue.class,
 			boolean.class);
+	private MethodKey _addIssueMethodKey13 = new MethodKey(_classLoaderProxy.getClassName(),
+			"addIssue", long.class, java.lang.String.class,
+			java.lang.String.class, java.lang.String.class);
 }

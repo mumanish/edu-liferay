@@ -14,20 +14,20 @@
 
 package org.portlets.lia.mine.model.impl;
 
-import org.portlets.lia.mine.model.IRIssue;
+import org.portlets.lia.mine.model.Issue;
 
 /**
- * The model implementation for the IRIssue service. Represents a row in the &quot;IR_IRIssue&quot; database table, with each column mapped to a property of this class.
+ * The model implementation for the Issue service. Represents a row in the &quot;Reporter_Issue&quot; database table, with each column mapped to a property of this class.
  *
  * <p>
- * Helper methods and all application logic should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link org.portlets.lia.mine.model.IRIssue} interface.
+ * Helper methods and all application logic should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link org.portlets.lia.mine.model.Issue} interface.
  * </p>
  *
  * <p>
- * Never reference this class directly. All methods that expect a i r issue model instance should use the {@link IRIssue} interface instead.
+ * Never reference this class directly. All methods that expect a issue model instance should use the {@link Issue} interface instead.
  * </p>
  */
-public class IRIssueImpl extends IRIssueModelImpl implements IRIssue {
-	public IRIssueImpl() {
+public class IssueImpl extends IssueModelImpl implements Issue {
+	public IssueImpl() {
 	}
 }

@@ -1,4 +1,3 @@
-<%
 /**
  * Copyright (c) 2000-2011 Liferay, Inc. All rights reserved.
  *
@@ -12,24 +11,22 @@
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
-%>
 
-<%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
-<%@ page import="org.portlets.lia.mine.service.IssueLocalServiceUtil" %>
+package org.portlets.lia.mine.service;
 
-<%@ page import = "java.util.*" %>
-<jsp:useBean id="addIssue" class="java.lang.String" scope="request" />
+import com.liferay.portal.kernel.util.ClassLoaderProxy;
 
+/**
+ * @author Vladimir Frolov
+ */
+public class IssueServiceClp implements IssueService {
+	public IssueServiceClp(ClassLoaderProxy classLoaderProxy) {
+		_classLoaderProxy = classLoaderProxy;
+	}
 
-<portlet:defineObjects />
-<portlet:actionURL name="addIssue" var="addIssueURL" />
+	public ClassLoaderProxy getClassLoaderProxy() {
+		return _classLoaderProxy;
+	}
 
-<form
-	id = "<portlet:namespace />wtForm"
-	action = "<%= addIssueURL.toString() %>"
-	method = "post">
-
-<input type = "submit" id = "addButton" title = "Report" value = "Report">
-</form>
-
-
+	private ClassLoaderProxy _classLoaderProxy;
+}

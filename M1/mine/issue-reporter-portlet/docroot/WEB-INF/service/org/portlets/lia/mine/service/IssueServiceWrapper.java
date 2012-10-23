@@ -1,4 +1,3 @@
-<%
 /**
  * Copyright (c) 2000-2011 Liferay, Inc. All rights reserved.
  *
@@ -12,24 +11,26 @@
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
-%>
 
-<%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
-<%@ page import="org.portlets.lia.mine.service.IssueLocalServiceUtil" %>
+package org.portlets.lia.mine.service;
 
-<%@ page import = "java.util.*" %>
-<jsp:useBean id="addIssue" class="java.lang.String" scope="request" />
+/**
+ * <p>
+ * This class is a wrapper for {@link IssueService}.
+ * </p>
+ *
+ * @author    Vladimir Frolov
+ * @see       IssueService
+ * @generated
+ */
+public class IssueServiceWrapper implements IssueService {
+	public IssueServiceWrapper(IssueService issueService) {
+		_issueService = issueService;
+	}
 
+	public IssueService getWrappedIssueService() {
+		return _issueService;
+	}
 
-<portlet:defineObjects />
-<portlet:actionURL name="addIssue" var="addIssueURL" />
-
-<form
-	id = "<portlet:namespace />wtForm"
-	action = "<%= addIssueURL.toString() %>"
-	method = "post">
-
-<input type = "submit" id = "addButton" title = "Report" value = "Report">
-</form>
-
-
+	private IssueService _issueService;
+}

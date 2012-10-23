@@ -1,0 +1,1 @@
+Liferay.Service.register("Liferay.Service.Reporter", "org.portlets.lia.mine.service");

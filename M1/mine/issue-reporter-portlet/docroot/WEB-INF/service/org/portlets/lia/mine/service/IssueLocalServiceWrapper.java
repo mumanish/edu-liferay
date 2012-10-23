@@ -16,63 +16,63 @@ package org.portlets.lia.mine.service;
 
 /**
  * <p>
- * This class is a wrapper for {@link IRIssueLocalService}.
+ * This class is a wrapper for {@link IssueLocalService}.
  * </p>
  *
  * @author    Vladimir Frolov
- * @see       IRIssueLocalService
+ * @see       IssueLocalService
  * @generated
  */
-public class IRIssueLocalServiceWrapper implements IRIssueLocalService {
-	public IRIssueLocalServiceWrapper(IRIssueLocalService irIssueLocalService) {
-		_irIssueLocalService = irIssueLocalService;
+public class IssueLocalServiceWrapper implements IssueLocalService {
+	public IssueLocalServiceWrapper(IssueLocalService issueLocalService) {
+		_issueLocalService = issueLocalService;
 	}
 
 	/**
-	* Adds the i r issue to the database. Also notifies the appropriate model listeners.
+	* Adds the issue to the database. Also notifies the appropriate model listeners.
 	*
-	* @param irIssue the i r issue to add
-	* @return the i r issue that was added
+	* @param issue the issue to add
+	* @return the issue that was added
 	* @throws SystemException if a system exception occurred
 	*/
-	public org.portlets.lia.mine.model.IRIssue addIRIssue(
-		org.portlets.lia.mine.model.IRIssue irIssue)
+	public org.portlets.lia.mine.model.Issue addIssue(
+		org.portlets.lia.mine.model.Issue issue)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _irIssueLocalService.addIRIssue(irIssue);
+		return _issueLocalService.addIssue(issue);
 	}
 
 	/**
-	* Creates a new i r issue with the primary key. Does not add the i r issue to the database.
+	* Creates a new issue with the primary key. Does not add the issue to the database.
 	*
-	* @param issueId the primary key for the new i r issue
-	* @return the new i r issue
+	* @param issueId the primary key for the new issue
+	* @return the new issue
 	*/
-	public org.portlets.lia.mine.model.IRIssue createIRIssue(long issueId) {
-		return _irIssueLocalService.createIRIssue(issueId);
+	public org.portlets.lia.mine.model.Issue createIssue(long issueId) {
+		return _issueLocalService.createIssue(issueId);
 	}
 
 	/**
-	* Deletes the i r issue with the primary key from the database. Also notifies the appropriate model listeners.
+	* Deletes the issue with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param issueId the primary key of the i r issue to delete
-	* @throws PortalException if a i r issue with the primary key could not be found
+	* @param issueId the primary key of the issue to delete
+	* @throws PortalException if a issue with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public void deleteIRIssue(long issueId)
+	public void deleteIssue(long issueId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		_irIssueLocalService.deleteIRIssue(issueId);
+		_issueLocalService.deleteIssue(issueId);
 	}
 
 	/**
-	* Deletes the i r issue from the database. Also notifies the appropriate model listeners.
+	* Deletes the issue from the database. Also notifies the appropriate model listeners.
 	*
-	* @param irIssue the i r issue to delete
+	* @param issue the issue to delete
 	* @throws SystemException if a system exception occurred
 	*/
-	public void deleteIRIssue(org.portlets.lia.mine.model.IRIssue irIssue)
+	public void deleteIssue(org.portlets.lia.mine.model.Issue issue)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		_irIssueLocalService.deleteIRIssue(irIssue);
+		_issueLocalService.deleteIssue(issue);
 	}
 
 	/**
@@ -86,7 +86,7 @@ public class IRIssueLocalServiceWrapper implements IRIssueLocalService {
 	public java.util.List dynamicQuery(
 		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _irIssueLocalService.dynamicQuery(dynamicQuery);
+		return _issueLocalService.dynamicQuery(dynamicQuery);
 	}
 
 	/**
@@ -106,7 +106,7 @@ public class IRIssueLocalServiceWrapper implements IRIssueLocalService {
 	public java.util.List dynamicQuery(
 		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
 		int end) throws com.liferay.portal.kernel.exception.SystemException {
-		return _irIssueLocalService.dynamicQuery(dynamicQuery, start, end);
+		return _issueLocalService.dynamicQuery(dynamicQuery, start, end);
 	}
 
 	/**
@@ -129,7 +129,7 @@ public class IRIssueLocalServiceWrapper implements IRIssueLocalService {
 		int end,
 		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _irIssueLocalService.dynamicQuery(dynamicQuery, start, end,
+		return _issueLocalService.dynamicQuery(dynamicQuery, start, end,
 			orderByComparator);
 	}
 
@@ -143,82 +143,90 @@ public class IRIssueLocalServiceWrapper implements IRIssueLocalService {
 	public long dynamicQueryCount(
 		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _irIssueLocalService.dynamicQueryCount(dynamicQuery);
+		return _issueLocalService.dynamicQueryCount(dynamicQuery);
 	}
 
 	/**
-	* Gets the i r issue with the primary key.
+	* Gets the issue with the primary key.
 	*
-	* @param issueId the primary key of the i r issue to get
-	* @return the i r issue
-	* @throws PortalException if a i r issue with the primary key could not be found
+	* @param issueId the primary key of the issue to get
+	* @return the issue
+	* @throws PortalException if a issue with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public org.portlets.lia.mine.model.IRIssue getIRIssue(long issueId)
+	public org.portlets.lia.mine.model.Issue getIssue(long issueId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return _irIssueLocalService.getIRIssue(issueId);
+		return _issueLocalService.getIssue(issueId);
 	}
 
 	/**
-	* Gets a range of all the i r issues.
+	* Gets a range of all the issues.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
 	* </p>
 	*
-	* @param start the lower bound of the range of i r issues to return
-	* @param end the upper bound of the range of i r issues to return (not inclusive)
-	* @return the range of i r issues
+	* @param start the lower bound of the range of issues to return
+	* @param end the upper bound of the range of issues to return (not inclusive)
+	* @return the range of issues
 	* @throws SystemException if a system exception occurred
 	*/
-	public java.util.List<org.portlets.lia.mine.model.IRIssue> getIRIssues(
+	public java.util.List<org.portlets.lia.mine.model.Issue> getIssues(
 		int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _irIssueLocalService.getIRIssues(start, end);
+		return _issueLocalService.getIssues(start, end);
 	}
 
 	/**
-	* Gets the number of i r issues.
+	* Gets the number of issues.
 	*
-	* @return the number of i r issues
+	* @return the number of issues
 	* @throws SystemException if a system exception occurred
 	*/
-	public int getIRIssuesCount()
+	public int getIssuesCount()
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _irIssueLocalService.getIRIssuesCount();
+		return _issueLocalService.getIssuesCount();
 	}
 
 	/**
-	* Updates the i r issue in the database. Also notifies the appropriate model listeners.
+	* Updates the issue in the database. Also notifies the appropriate model listeners.
 	*
-	* @param irIssue the i r issue to update
-	* @return the i r issue that was updated
+	* @param issue the issue to update
+	* @return the issue that was updated
 	* @throws SystemException if a system exception occurred
 	*/
-	public org.portlets.lia.mine.model.IRIssue updateIRIssue(
-		org.portlets.lia.mine.model.IRIssue irIssue)
+	public org.portlets.lia.mine.model.Issue updateIssue(
+		org.portlets.lia.mine.model.Issue issue)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _irIssueLocalService.updateIRIssue(irIssue);
+		return _issueLocalService.updateIssue(issue);
 	}
 
 	/**
-	* Updates the i r issue in the database. Also notifies the appropriate model listeners.
+	* Updates the issue in the database. Also notifies the appropriate model listeners.
 	*
-	* @param irIssue the i r issue to update
-	* @param merge whether to merge the i r issue with the current session. See {@link com.liferay.portal.service.persistence.BatchSession#update(com.liferay.portal.kernel.dao.orm.Session, com.liferay.portal.model.BaseModel, boolean)} for an explanation.
-	* @return the i r issue that was updated
+	* @param issue the issue to update
+	* @param merge whether to merge the issue with the current session. See {@link com.liferay.portal.service.persistence.BatchSession#update(com.liferay.portal.kernel.dao.orm.Session, com.liferay.portal.model.BaseModel, boolean)} for an explanation.
+	* @return the issue that was updated
 	* @throws SystemException if a system exception occurred
 	*/
-	public org.portlets.lia.mine.model.IRIssue updateIRIssue(
-		org.portlets.lia.mine.model.IRIssue irIssue, boolean merge)
+	public org.portlets.lia.mine.model.Issue updateIssue(
+		org.portlets.lia.mine.model.Issue issue, boolean merge)
 		throws com.liferay.portal.kernel.exception.SystemException {
-		return _irIssueLocalService.updateIRIssue(irIssue, merge);
+		return _issueLocalService.updateIssue(issue, merge);
 	}
 
-	public IRIssueLocalService getWrappedIRIssueLocalService() {
-		return _irIssueLocalService;
+	public org.portlets.lia.mine.model.Issue addIssue(long userId,
+		java.lang.String summary, java.lang.String requester,
+		java.lang.String priority)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _issueLocalService.addIssue(userId, summary, requester, priority);
 	}
 
-	private IRIssueLocalService _irIssueLocalService;
+	public IssueLocalService getWrappedIssueLocalService() {
+		return _issueLocalService;
+	}
+
+	private IssueLocalService _issueLocalService;
 }

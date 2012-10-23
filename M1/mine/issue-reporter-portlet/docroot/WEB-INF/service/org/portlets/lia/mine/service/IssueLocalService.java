@@ -21,10 +21,10 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 
 /**
- * The interface for the i r issue local service.
+ * The interface for the issue local service.
  *
  * <p>
- * Never modify or reference this interface directly. Always use {@link IRIssueLocalServiceUtil} to access the i r issue local service. Add custom service methods to {@link org.portlets.lia.mine.service.impl.IRIssueLocalServiceImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
+ * Never modify or reference this interface directly. Always use {@link IssueLocalServiceUtil} to access the issue local service. Add custom service methods to {@link org.portlets.lia.mine.service.impl.IssueLocalServiceImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
  * </p>
  *
  * <p>
@@ -32,51 +32,51 @@ import com.liferay.portal.kernel.exception.SystemException;
  * </p>
  *
  * @author Vladimir Frolov
- * @see IRIssueLocalServiceUtil
- * @see org.portlets.lia.mine.service.base.IRIssueLocalServiceBaseImpl
- * @see org.portlets.lia.mine.service.impl.IRIssueLocalServiceImpl
+ * @see IssueLocalServiceUtil
+ * @see org.portlets.lia.mine.service.base.IssueLocalServiceBaseImpl
+ * @see org.portlets.lia.mine.service.impl.IssueLocalServiceImpl
  * @generated
  */
 @Transactional(isolation = Isolation.PORTAL, rollbackFor =  {
 	PortalException.class, SystemException.class})
-public interface IRIssueLocalService {
+public interface IssueLocalService {
 	/**
-	* Adds the i r issue to the database. Also notifies the appropriate model listeners.
+	* Adds the issue to the database. Also notifies the appropriate model listeners.
 	*
-	* @param irIssue the i r issue to add
-	* @return the i r issue that was added
+	* @param issue the issue to add
+	* @return the issue that was added
 	* @throws SystemException if a system exception occurred
 	*/
-	public org.portlets.lia.mine.model.IRIssue addIRIssue(
-		org.portlets.lia.mine.model.IRIssue irIssue)
+	public org.portlets.lia.mine.model.Issue addIssue(
+		org.portlets.lia.mine.model.Issue issue)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
-	* Creates a new i r issue with the primary key. Does not add the i r issue to the database.
+	* Creates a new issue with the primary key. Does not add the issue to the database.
 	*
-	* @param issueId the primary key for the new i r issue
-	* @return the new i r issue
+	* @param issueId the primary key for the new issue
+	* @return the new issue
 	*/
-	public org.portlets.lia.mine.model.IRIssue createIRIssue(long issueId);
+	public org.portlets.lia.mine.model.Issue createIssue(long issueId);
 
 	/**
-	* Deletes the i r issue with the primary key from the database. Also notifies the appropriate model listeners.
+	* Deletes the issue with the primary key from the database. Also notifies the appropriate model listeners.
 	*
-	* @param issueId the primary key of the i r issue to delete
-	* @throws PortalException if a i r issue with the primary key could not be found
+	* @param issueId the primary key of the issue to delete
+	* @throws PortalException if a issue with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
-	public void deleteIRIssue(long issueId)
+	public void deleteIssue(long issueId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
 	/**
-	* Deletes the i r issue from the database. Also notifies the appropriate model listeners.
+	* Deletes the issue from the database. Also notifies the appropriate model listeners.
 	*
-	* @param irIssue the i r issue to delete
+	* @param issue the issue to delete
 	* @throws SystemException if a system exception occurred
 	*/
-	public void deleteIRIssue(org.portlets.lia.mine.model.IRIssue irIssue)
+	public void deleteIssue(org.portlets.lia.mine.model.Issue issue)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
@@ -142,65 +142,71 @@ public interface IRIssueLocalService {
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
-	* Gets the i r issue with the primary key.
+	* Gets the issue with the primary key.
 	*
-	* @param issueId the primary key of the i r issue to get
-	* @return the i r issue
-	* @throws PortalException if a i r issue with the primary key could not be found
+	* @param issueId the primary key of the issue to get
+	* @return the issue
+	* @throws PortalException if a issue with the primary key could not be found
 	* @throws SystemException if a system exception occurred
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public org.portlets.lia.mine.model.IRIssue getIRIssue(long issueId)
+	public org.portlets.lia.mine.model.Issue getIssue(long issueId)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 
 	/**
-	* Gets a range of all the i r issues.
+	* Gets a range of all the issues.
 	*
 	* <p>
 	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
 	* </p>
 	*
-	* @param start the lower bound of the range of i r issues to return
-	* @param end the upper bound of the range of i r issues to return (not inclusive)
-	* @return the range of i r issues
+	* @param start the lower bound of the range of issues to return
+	* @param end the upper bound of the range of issues to return (not inclusive)
+	* @return the range of issues
 	* @throws SystemException if a system exception occurred
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public java.util.List<org.portlets.lia.mine.model.IRIssue> getIRIssues(
+	public java.util.List<org.portlets.lia.mine.model.Issue> getIssues(
 		int start, int end)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
-	* Gets the number of i r issues.
+	* Gets the number of issues.
 	*
-	* @return the number of i r issues
+	* @return the number of issues
 	* @throws SystemException if a system exception occurred
 	*/
 	@Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-	public int getIRIssuesCount()
+	public int getIssuesCount()
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
-	* Updates the i r issue in the database. Also notifies the appropriate model listeners.
+	* Updates the issue in the database. Also notifies the appropriate model listeners.
 	*
-	* @param irIssue the i r issue to update
-	* @return the i r issue that was updated
+	* @param issue the issue to update
+	* @return the issue that was updated
 	* @throws SystemException if a system exception occurred
 	*/
-	public org.portlets.lia.mine.model.IRIssue updateIRIssue(
-		org.portlets.lia.mine.model.IRIssue irIssue)
+	public org.portlets.lia.mine.model.Issue updateIssue(
+		org.portlets.lia.mine.model.Issue issue)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
-	* Updates the i r issue in the database. Also notifies the appropriate model listeners.
+	* Updates the issue in the database. Also notifies the appropriate model listeners.
 	*
-	* @param irIssue the i r issue to update
-	* @param merge whether to merge the i r issue with the current session. See {@link com.liferay.portal.service.persistence.BatchSession#update(com.liferay.portal.kernel.dao.orm.Session, com.liferay.portal.model.BaseModel, boolean)} for an explanation.
-	* @return the i r issue that was updated
+	* @param issue the issue to update
+	* @param merge whether to merge the issue with the current session. See {@link com.liferay.portal.service.persistence.BatchSession#update(com.liferay.portal.kernel.dao.orm.Session, com.liferay.portal.model.BaseModel, boolean)} for an explanation.
+	* @return the issue that was updated
 	* @throws SystemException if a system exception occurred
 	*/
-	public org.portlets.lia.mine.model.IRIssue updateIRIssue(
-		org.portlets.lia.mine.model.IRIssue irIssue, boolean merge)
+	public org.portlets.lia.mine.model.Issue updateIssue(
+		org.portlets.lia.mine.model.Issue issue, boolean merge)
 		throws com.liferay.portal.kernel.exception.SystemException;
+
+	public org.portlets.lia.mine.model.Issue addIssue(long userId,
+		java.lang.String summary, java.lang.String requester,
+		java.lang.String priority)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException;
 }

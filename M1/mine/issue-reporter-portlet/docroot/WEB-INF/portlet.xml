@@ -9,7 +9,7 @@
 	<portlet>
 		<portlet-name>issue-reporter</portlet-name>
 		<display-name>Issue Reporter</display-name>
-		<portlet-class>com.liferay.util.bridges.mvc.MVCPortlet</portlet-class>
+		<portlet-class>org.portlets.lia.mine.portlet.IssueReporterPortlet</portlet-class>
 		<init-param>
 			<name>view-jsp</name>
 			<value>/view.jsp</value>

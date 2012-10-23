@@ -15,21 +15,21 @@
 package org.portlets.lia.mine.model;
 
 /**
- * The model interface for the IRIssue service. Represents a row in the &quot;IR_IRIssue&quot; database table, with each column mapped to a property of this class.
+ * The model interface for the Issue service. Represents a row in the &quot;Reporter_Issue&quot; database table, with each column mapped to a property of this class.
  *
  * <p>
- * Never modify this interface directly. Add methods to {@link org.portlets.lia.mine.model.impl.IRIssueImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
+ * Never modify this interface directly. Add methods to {@link org.portlets.lia.mine.model.impl.IssueImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
  * </p>
  *
  * <p>
- * Never reference this interface directly. All methods that expect a i r issue model instance should use the {@link IRIssue} interface instead.
+ * Never reference this interface directly. All methods that expect a issue model instance should use the {@link Issue} interface instead.
  * </p>
  *
  * @author Vladimir Frolov
- * @see IRIssueModel
- * @see org.portlets.lia.mine.model.impl.IRIssueImpl
- * @see org.portlets.lia.mine.model.impl.IRIssueModelImpl
+ * @see IssueModel
+ * @see org.portlets.lia.mine.model.impl.IssueImpl
+ * @see org.portlets.lia.mine.model.impl.IssueModelImpl
  * @generated
  */
-public interface IRIssue extends IRIssueModel {
+public interface Issue extends IssueModel {
 }

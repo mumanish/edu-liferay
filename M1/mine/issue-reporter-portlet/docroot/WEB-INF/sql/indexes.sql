@@ -1,1 +1,0 @@
-create index IX_A98A676 on IR_IRIssue (summary, requester);
