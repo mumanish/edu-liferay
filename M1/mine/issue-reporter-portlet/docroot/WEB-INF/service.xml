@@ -19,5 +19,15 @@
         <column name="summary" type="String" />
         <column name="requester" type="String" />
         <column name="priority" type="String" />
+
+
+    <finder name="UserId" return-type="Collection">
+      <finder-column name="userId" />
+    </finder>
+
+    <finder name="CompanyId" return-type="Collection">
+      <finder-column name="companyId" />
+    </finder>
+
     </entity>
 </service-builder>

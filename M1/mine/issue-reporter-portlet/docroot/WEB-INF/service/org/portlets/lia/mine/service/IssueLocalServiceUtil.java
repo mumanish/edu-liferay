@@ -231,6 +231,11 @@ public class IssueLocalServiceUtil {
 		return getService().addIssue(userId, summary, requester, priority);
 	}
 
+	public static java.util.List<org.portlets.lia.mine.model.Issue> retrieveIssues(
+		long userId) throws com.liferay.portal.kernel.exception.SystemException {
+		return getService().retrieveIssues(userId);
+	}
+
 	public static void clearService() {
 		_service = null;
 	}

@@ -20,8 +20,6 @@
 <%@ page import="org.portlets.lia.mine.service.IssueLocalServiceUtil" %>
 <%@ page import = "java.util.*" %>
 
-<jsp:useBean id="addIssue" class="java.lang.String" scope="request" />
-
 
 <portlet:defineObjects />
 <portlet:actionURL name="addIssue" var="addIssueURL" />

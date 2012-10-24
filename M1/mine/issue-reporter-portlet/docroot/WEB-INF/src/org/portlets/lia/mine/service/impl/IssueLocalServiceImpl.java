@@ -18,6 +18,8 @@ import org.portlets.lia.mine.service.base.IssueLocalServiceBaseImpl;
 
 import org.portlets.lia.mine.model.Issue;
 import com.liferay.portal.model.User;
+import java.io.*;
+import java.util.*;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
@@ -53,6 +55,7 @@ public class IssueLocalServiceImpl extends IssueLocalServiceBaseImpl {
 
     Issue issue = issuePersistence.create(issueId);
 
+
     issue.setSummary(summary);
     issue.setRequester(requester);
     issue.setPriority(priority);
@@ -65,4 +68,12 @@ public class IssueLocalServiceImpl extends IssueLocalServiceBaseImpl {
 
     return issuePersistence.update(issue, true);
 	}
+
+
+public List<Issue> retrieveIssues(long userId)throws SystemException {
+
+        List<Issue> issues = issuePersistence.findByUserId(userId);
+        return issues;
+    }
+
 }

@@ -21,21 +21,32 @@ import com.liferay.portal.kernel.util.WebKeys;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.util.bridges.mvc.MVCPortlet;
+import org.portlets.lia.mine.model.Issue;
+import com.liferay.portal.model.User;
 
 
-public class IssueReporterPortlet extends MVCPortlet {
+public class IssueAdminPortlet extends MVCPortlet {
 
+protected String doneJSP = "/admin/done.jsp";
 
-	protected String doneJSP = "/done.jsp";
-
-	public void addIssue(ActionRequest request, ActionResponse response)throws Exception {
+	public void viewIssue(ActionRequest request, ActionResponse response)throws Exception {
 
 		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(WebKeys.THEME_DISPLAY);
 
-		IssueLocalServiceUtil.addIssue(themeDisplay.getUserId(), 
-			request.getParameter("summary"), request.getParameter("requester"), 
-				request.getParameter("priority"));
+		List<Issue> issues = IssueLocalServiceUtil.retrieveIssues(themeDisplay.getUserId());
 
+		Iterator i = null;
+		Issue[] issuesArr = new Issue[99];
+
+		int id = 1;
+			for (i = issues.iterator(); i.hasNext();) {
+			issuesArr[id] = (Issue)i.next();
+			id++;
+			}
+
+
+
+		request.setAttribute("test", issuesArr[3].getSummary());
 		response.setRenderParameter("jspPage", doneJSP);
 	}
 

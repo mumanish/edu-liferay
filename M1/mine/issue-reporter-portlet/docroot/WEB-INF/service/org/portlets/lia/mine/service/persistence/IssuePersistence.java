@@ -97,6 +97,213 @@ public interface IssuePersistence extends BasePersistence<Issue> {
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
+	* Finds all the issues where userId = &#63;.
+	*
+	* @param userId the user id to search with
+	* @return the matching issues
+	* @throws SystemException if a system exception occurred
+	*/
+	public java.util.List<org.portlets.lia.mine.model.Issue> findByUserId(
+		long userId) throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Finds a range of all the issues where userId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	* </p>
+	*
+	* @param userId the user id to search with
+	* @param start the lower bound of the range of issues to return
+	* @param end the upper bound of the range of issues to return (not inclusive)
+	* @return the range of matching issues
+	* @throws SystemException if a system exception occurred
+	*/
+	public java.util.List<org.portlets.lia.mine.model.Issue> findByUserId(
+		long userId, int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Finds an ordered range of all the issues where userId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	* </p>
+	*
+	* @param userId the user id to search with
+	* @param start the lower bound of the range of issues to return
+	* @param end the upper bound of the range of issues to return (not inclusive)
+	* @param orderByComparator the comparator to order the results by
+	* @return the ordered range of matching issues
+	* @throws SystemException if a system exception occurred
+	*/
+	public java.util.List<org.portlets.lia.mine.model.Issue> findByUserId(
+		long userId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Finds the first issue in the ordered set where userId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	* </p>
+	*
+	* @param userId the user id to search with
+	* @param orderByComparator the comparator to order the set by
+	* @return the first matching issue
+	* @throws org.portlets.lia.mine.NoSuchIssueException if a matching issue could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public org.portlets.lia.mine.model.Issue findByUserId_First(long userId,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			org.portlets.lia.mine.NoSuchIssueException;
+
+	/**
+	* Finds the last issue in the ordered set where userId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	* </p>
+	*
+	* @param userId the user id to search with
+	* @param orderByComparator the comparator to order the set by
+	* @return the last matching issue
+	* @throws org.portlets.lia.mine.NoSuchIssueException if a matching issue could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public org.portlets.lia.mine.model.Issue findByUserId_Last(long userId,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			org.portlets.lia.mine.NoSuchIssueException;
+
+	/**
+	* Finds the issues before and after the current issue in the ordered set where userId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	* </p>
+	*
+	* @param issueId the primary key of the current issue
+	* @param userId the user id to search with
+	* @param orderByComparator the comparator to order the set by
+	* @return the previous, current, and next issue
+	* @throws org.portlets.lia.mine.NoSuchIssueException if a issue with the primary key could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public org.portlets.lia.mine.model.Issue[] findByUserId_PrevAndNext(
+		long issueId, long userId,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			org.portlets.lia.mine.NoSuchIssueException;
+
+	/**
+	* Finds all the issues where companyId = &#63;.
+	*
+	* @param companyId the company id to search with
+	* @return the matching issues
+	* @throws SystemException if a system exception occurred
+	*/
+	public java.util.List<org.portlets.lia.mine.model.Issue> findByCompanyId(
+		long companyId)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Finds a range of all the issues where companyId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	* </p>
+	*
+	* @param companyId the company id to search with
+	* @param start the lower bound of the range of issues to return
+	* @param end the upper bound of the range of issues to return (not inclusive)
+	* @return the range of matching issues
+	* @throws SystemException if a system exception occurred
+	*/
+	public java.util.List<org.portlets.lia.mine.model.Issue> findByCompanyId(
+		long companyId, int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Finds an ordered range of all the issues where companyId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	* </p>
+	*
+	* @param companyId the company id to search with
+	* @param start the lower bound of the range of issues to return
+	* @param end the upper bound of the range of issues to return (not inclusive)
+	* @param orderByComparator the comparator to order the results by
+	* @return the ordered range of matching issues
+	* @throws SystemException if a system exception occurred
+	*/
+	public java.util.List<org.portlets.lia.mine.model.Issue> findByCompanyId(
+		long companyId, int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Finds the first issue in the ordered set where companyId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	* </p>
+	*
+	* @param companyId the company id to search with
+	* @param orderByComparator the comparator to order the set by
+	* @return the first matching issue
+	* @throws org.portlets.lia.mine.NoSuchIssueException if a matching issue could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public org.portlets.lia.mine.model.Issue findByCompanyId_First(
+		long companyId,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			org.portlets.lia.mine.NoSuchIssueException;
+
+	/**
+	* Finds the last issue in the ordered set where companyId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	* </p>
+	*
+	* @param companyId the company id to search with
+	* @param orderByComparator the comparator to order the set by
+	* @return the last matching issue
+	* @throws org.portlets.lia.mine.NoSuchIssueException if a matching issue could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public org.portlets.lia.mine.model.Issue findByCompanyId_Last(
+		long companyId,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			org.portlets.lia.mine.NoSuchIssueException;
+
+	/**
+	* Finds the issues before and after the current issue in the ordered set where companyId = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set.
+	* </p>
+	*
+	* @param issueId the primary key of the current issue
+	* @param companyId the company id to search with
+	* @param orderByComparator the comparator to order the set by
+	* @return the previous, current, and next issue
+	* @throws org.portlets.lia.mine.NoSuchIssueException if a issue with the primary key could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	public org.portlets.lia.mine.model.Issue[] findByCompanyId_PrevAndNext(
+		long issueId, long companyId,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException,
+			org.portlets.lia.mine.NoSuchIssueException;
+
+	/**
 	* Finds all the issues.
 	*
 	* @return the issues
@@ -140,11 +347,49 @@ public interface IssuePersistence extends BasePersistence<Issue> {
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**
+	* Removes all the issues where userId = &#63; from the database.
+	*
+	* @param userId the user id to search with
+	* @throws SystemException if a system exception occurred
+	*/
+	public void removeByUserId(long userId)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Removes all the issues where companyId = &#63; from the database.
+	*
+	* @param companyId the company id to search with
+	* @throws SystemException if a system exception occurred
+	*/
+	public void removeByCompanyId(long companyId)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
 	* Removes all the issues from the database.
 	*
 	* @throws SystemException if a system exception occurred
 	*/
 	public void removeAll()
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Counts all the issues where userId = &#63;.
+	*
+	* @param userId the user id to search with
+	* @return the number of matching issues
+	* @throws SystemException if a system exception occurred
+	*/
+	public int countByUserId(long userId)
+		throws com.liferay.portal.kernel.exception.SystemException;
+
+	/**
+	* Counts all the issues where companyId = &#63;.
+	*
+	* @param companyId the company id to search with
+	* @return the number of matching issues
+	* @throws SystemException if a system exception occurred
+	*/
+	public int countByCompanyId(long companyId)
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	/**

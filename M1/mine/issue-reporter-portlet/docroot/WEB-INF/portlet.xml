@@ -37,4 +37,42 @@
 			<role-name>user</role-name>
 		</security-role-ref>
 	</portlet>
+
+	<portlet>
+		<portlet-name>issue-reporter-admin</portlet-name>
+		<display-name>Issues Administration</display-name>
+		<portlet-class>org.portlets.lia.mine.portlet.IssueAdminPortlet</portlet-class>
+
+		<init-param>
+			<name>view-jsp</name>
+			<value>/admin/view.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+
+		<resource-bundle>content.Labels</resource-bundle>
+
+		<portlet-info>
+			<title>Issues Administration</title>
+			<short-title>Issues Administration</short-title>
+			<keywords>Issues Administration</keywords>
+		</portlet-info>
+
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	
 </portlet-app>

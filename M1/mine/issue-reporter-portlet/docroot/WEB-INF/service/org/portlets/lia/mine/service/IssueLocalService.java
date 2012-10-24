@@ -209,4 +209,7 @@ public interface IssueLocalService {
 		java.lang.String priority)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
+
+	public java.util.List<org.portlets.lia.mine.model.Issue> retrieveIssues(
+		long userId) throws com.liferay.portal.kernel.exception.SystemException;
 }

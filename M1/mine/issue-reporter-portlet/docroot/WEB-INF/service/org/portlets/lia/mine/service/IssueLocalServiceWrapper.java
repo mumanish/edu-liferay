@@ -224,6 +224,11 @@ public class IssueLocalServiceWrapper implements IssueLocalService {
 		return _issueLocalService.addIssue(userId, summary, requester, priority);
 	}
 
+	public java.util.List<org.portlets.lia.mine.model.Issue> retrieveIssues(
+		long userId) throws com.liferay.portal.kernel.exception.SystemException {
+		return _issueLocalService.retrieveIssues(userId);
+	}
+
 	public IssueLocalService getWrappedIssueLocalService() {
 		return _issueLocalService;
 	}

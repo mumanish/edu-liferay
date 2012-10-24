@@ -420,6 +420,33 @@ public class IssueLocalServiceClp implements IssueLocalService {
 		return (org.portlets.lia.mine.model.Issue)ClpSerializer.translateOutput(returnObj);
 	}
 
+	public java.util.List<org.portlets.lia.mine.model.Issue> retrieveIssues(
+		long userId) throws com.liferay.portal.kernel.exception.SystemException {
+		Object returnObj = null;
+
+		MethodHandler methodHandler = new MethodHandler(_retrieveIssuesMethodKey14,
+				userId);
+
+		try {
+			returnObj = _classLoaderProxy.invoke(methodHandler);
+		}
+		catch (Throwable t) {
+			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+				throw (com.liferay.portal.kernel.exception.SystemException)t;
+			}
+
+			if (t instanceof RuntimeException) {
+				throw (RuntimeException)t;
+			}
+			else {
+				throw new RuntimeException(t.getClass().getName() +
+					" is not a valid exception");
+			}
+		}
+
+		return (java.util.List<org.portlets.lia.mine.model.Issue>)ClpSerializer.translateOutput(returnObj);
+	}
+
 	public ClassLoaderProxy getClassLoaderProxy() {
 		return _classLoaderProxy;
 	}
@@ -460,4 +487,6 @@ public class IssueLocalServiceClp implements IssueLocalService {
 	private MethodKey _addIssueMethodKey13 = new MethodKey(_classLoaderProxy.getClassName(),
 			"addIssue", long.class, java.lang.String.class,
 			java.lang.String.class, java.lang.String.class);
+	private MethodKey _retrieveIssuesMethodKey14 = new MethodKey(_classLoaderProxy.getClassName(),
+			"retrieveIssues", long.class);
 }

@@ -5,4 +5,8 @@
 	<category name="My Portlets">
 		<portlet id="issue-reporter" />
 	</category>
+
+	<category name="category.hidden">
+		<portlet id="issue-reporter-admin" />
+	</category>
 </display>
