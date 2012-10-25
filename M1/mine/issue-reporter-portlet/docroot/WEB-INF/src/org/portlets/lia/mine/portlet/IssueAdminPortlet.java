@@ -38,15 +38,13 @@ protected String doneJSP = "/admin/done.jsp";
 		Iterator i = null;
 		Issue[] issuesArr = new Issue[99];
 
-		int id = 1;
+		ArrayList issuesList = new ArrayList();
+
 			for (i = issues.iterator(); i.hasNext();) {
-			issuesArr[id] = (Issue)i.next();
-			id++;
+			issuesList.add((Issue)i.next());
 			}
 
-
-
-		request.setAttribute("test", issuesArr[3].getSummary());
+		request.setAttribute("issues", issuesList);
 		response.setRenderParameter("jspPage", doneJSP);
 	}
 
