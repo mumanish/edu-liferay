@@ -35,12 +35,9 @@ protected String doneJSP = "/admin/done.jsp";
 
 		List<Issue> issues = IssueLocalServiceUtil.retrieveIssues(themeDisplay.getUserId());
 
-		Iterator i = null;
-		Issue[] issuesArr = new Issue[99];
-
 		ArrayList issuesList = new ArrayList();
 
-			for (i = issues.iterator(); i.hasNext();) {
+			for (Iterator i = issues.iterator(); i.hasNext();) {
 			issuesList.add((Issue)i.next());
 			}
 
