@@ -8,13 +8,20 @@
 <%@ page import="org.portlets.lia.mine.model.Issue" %>
 <%@ page import = "java.util.*" %>
 <%@ page import = "com.liferay.portal.kernel.util.ListUtil" %>
+<%@ page import = "javax.portlet.PortletURL" %>
+
+
 
 <jsp:useBean id="issues" class="java.util.ArrayList" scope = "request" />
 
-<liferay-ui:search-container delta = "75">
+<portlet:defineObjects />
+
+
+<!-- TODO: pagination actions -->
+
+<liferay-ui:search-container delta = "10">
 
 <liferay-ui:search-container-results>
-
 <%
 	List<Issue> results2 = ListUtil.subList(
 		issues, searchContainer.getStart(), searchContainer.getEnd());
@@ -23,14 +30,17 @@
 	pageContext.setAttribute("results", results2);
 	pageContext.setAttribute("total", total2);
 %>
-
 </liferay-ui:search-container-results>
-
 
 <liferay-ui:search-container-row
 	className="org.portlets.lia.mine.model.Issue"
 	keyProperty="issueId"
 	modelVar="issue">
+
+	<liferay-ui:search-container-column-text
+		name="issue-id"
+		property="issueId"
+		/>
 
 	<liferay-ui:search-container-column-text
 		name="issue-summary"
@@ -46,9 +56,16 @@
 		name="issue-priority"
 		property="priority"
 		/>
+
+	<liferay-ui:search-container-column-jsp
+		path="/admin/admin_actions.jsp"
+		align="right"
+		/>
+
 </liferay-ui:search-container-row>
 
-<liferay-ui:search-iterator />
+
+<liferay-ui:search-iterator/>
 
 </liferay-ui:search-container>
 

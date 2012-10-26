@@ -18,6 +18,7 @@ import java.io.*;
 import java.util.*;
 import com.liferay.portal.theme.ThemeDisplay;
 import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.util.bridges.mvc.MVCPortlet;
@@ -37,6 +38,7 @@ protected String doneJSP = "/admin/done.jsp";
 
 		ArrayList issuesList = new ArrayList();
 
+
 			for (Iterator i = issues.iterator(); i.hasNext();) {
 			issuesList.add((Issue)i.next());
 			}
@@ -44,5 +46,15 @@ protected String doneJSP = "/admin/done.jsp";
 		request.setAttribute("issues", issuesList);
 		response.setRenderParameter("jspPage", doneJSP);
 	}
+
+
+	public void deleteIssue(ActionRequest request, ActionResponse response)
+		throws Exception {
+
+			long issueKey = ParamUtil.getLong(request, "resourcePrimKey");
+			IssueLocalServiceUtil.deleteIssue(issueKey);
+
+			viewIssue(request, response);
+		}
 
 }

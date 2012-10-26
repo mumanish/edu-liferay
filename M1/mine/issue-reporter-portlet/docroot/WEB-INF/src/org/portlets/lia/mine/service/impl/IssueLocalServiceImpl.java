@@ -26,6 +26,10 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.service.persistence.UserUtil;
 import java.util.Date;
 import com.liferay.counter.service.CounterLocalServiceUtil;
+import com.liferay.portal.model.ResourceConstants;
+import org.portlets.lia.mine.NoSuchIssueException;
+
+
 /**
  * The implementation of the issue local service.
  *
@@ -76,4 +80,20 @@ public List<Issue> retrieveIssues(long userId)throws SystemException {
         return issues;
     }
 
+public void deleteIssue(long issueId)
+    throws NoSuchIssueException, SystemException, PortalException {
+        Issue issue = issuePersistence.findByPrimaryKey(issueId);
+        deleteIssue(issue);
+}
+
+public void deleteIssue(Issue issue)
+    throws SystemException {
+        try {
+        resourceLocalService.deleteResource(
+            issue.getCompanyId(), Issue.class.getName(),
+            ResourceConstants.SCOPE_INDIVIDUAL, issue.getPrimaryKey());
+        issuePersistence.remove(issue);
+        }
+        catch (PortalException ex) {}
+    }
 }

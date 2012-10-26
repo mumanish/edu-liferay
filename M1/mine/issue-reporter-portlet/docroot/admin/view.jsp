@@ -4,8 +4,6 @@
 
 
 
-
-
 <portlet:defineObjects />
 
 <portlet:actionURL name="viewIssue" var="viewIssueURL" />
