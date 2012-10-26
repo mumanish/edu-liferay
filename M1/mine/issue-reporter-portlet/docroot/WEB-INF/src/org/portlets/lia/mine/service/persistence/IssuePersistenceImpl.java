@@ -292,6 +292,9 @@ public class IssuePersistenceImpl extends BasePersistenceImpl<Issue>
 		issueImpl.setSummary(issue.getSummary());
 		issueImpl.setRequester(issue.getRequester());
 		issueImpl.setPriority(issue.getPriority());
+		issueImpl.setDescription(issue.getDescription());
+		issueImpl.setAssignee(issue.getAssignee());
+		issueImpl.setStatus(issue.getStatus());
 
 		return issueImpl;
 	}

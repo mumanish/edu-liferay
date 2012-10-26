@@ -33,8 +33,8 @@ public class IssueReporterPortlet extends MVCPortlet {
 		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(WebKeys.THEME_DISPLAY);
 
 		IssueLocalServiceUtil.addIssue(themeDisplay.getUserId(), 
-			request.getParameter("summary"), request.getParameter("requester"), 
-				request.getParameter("priority"));
+			request.getParameter("summary"), request.getParameter("description"), request.getParameter("requester"), "Not assigned",
+				request.getParameter("priority"), "New");
 
 		response.setRenderParameter("jspPage", doneJSP);
 	}

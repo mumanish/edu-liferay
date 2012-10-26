@@ -44,6 +44,9 @@ public class IssueSoap implements Serializable {
 		soapModel.setSummary(model.getSummary());
 		soapModel.setRequester(model.getRequester());
 		soapModel.setPriority(model.getPriority());
+		soapModel.setDescription(model.getDescription());
+		soapModel.setAssignee(model.getAssignee());
+		soapModel.setStatus(model.getStatus());
 
 		return soapModel;
 	}
@@ -176,6 +179,30 @@ public class IssueSoap implements Serializable {
 		_priority = priority;
 	}
 
+	public String getDescription() {
+		return _description;
+	}
+
+	public void setDescription(String description) {
+		_description = description;
+	}
+
+	public String getAssignee() {
+		return _assignee;
+	}
+
+	public void setAssignee(String assignee) {
+		_assignee = assignee;
+	}
+
+	public String getStatus() {
+		return _status;
+	}
+
+	public void setStatus(String status) {
+		_status = status;
+	}
+
 	private long _issueId;
 	private long _groupId;
 	private long _companyId;
@@ -186,4 +213,7 @@ public class IssueSoap implements Serializable {
 	private String _summary;
 	private String _requester;
 	private String _priority;
+	private String _description;
+	private String _assignee;
+	private String _status;
 }

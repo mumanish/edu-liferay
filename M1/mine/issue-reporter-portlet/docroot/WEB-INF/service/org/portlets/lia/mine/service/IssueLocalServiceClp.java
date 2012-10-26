@@ -78,7 +78,8 @@ public class IssueLocalServiceClp implements IssueLocalService {
 
 	public void deleteIssue(long issueId)
 		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
+			com.liferay.portal.kernel.exception.SystemException,
+			org.portlets.lia.mine.NoSuchIssueException {
 		MethodHandler methodHandler = new MethodHandler(_deleteIssueMethodKey2,
 				issueId);
 
@@ -92,6 +93,10 @@ public class IssueLocalServiceClp implements IssueLocalService {
 
 			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
 				throw (com.liferay.portal.kernel.exception.SystemException)t;
+			}
+
+			if (t instanceof org.portlets.lia.mine.NoSuchIssueException) {
+				throw (org.portlets.lia.mine.NoSuchIssueException)t;
 			}
 
 			if (t instanceof RuntimeException) {
@@ -387,14 +392,16 @@ public class IssueLocalServiceClp implements IssueLocalService {
 	}
 
 	public org.portlets.lia.mine.model.Issue addIssue(long userId,
-		java.lang.String summary, java.lang.String requester,
-		java.lang.String priority)
+		java.lang.String summary, java.lang.String description,
+		java.lang.String requester, java.lang.String assignee,
+		java.lang.String priority, java.lang.String status)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		MethodHandler methodHandler = new MethodHandler(_addIssueMethodKey13,
-				userId, summary, requester, priority);
+				userId, summary, description, requester, assignee, priority,
+				status);
 
 		try {
 			returnObj = _classLoaderProxy.invoke(methodHandler);
@@ -486,7 +493,9 @@ public class IssueLocalServiceClp implements IssueLocalService {
 			boolean.class);
 	private MethodKey _addIssueMethodKey13 = new MethodKey(_classLoaderProxy.getClassName(),
 			"addIssue", long.class, java.lang.String.class,
-			java.lang.String.class, java.lang.String.class);
+			java.lang.String.class, java.lang.String.class,
+			java.lang.String.class, java.lang.String.class,
+			java.lang.String.class);
 	private MethodKey _retrieveIssuesMethodKey14 = new MethodKey(_classLoaderProxy.getClassName(),
 			"retrieveIssues", long.class);
 }

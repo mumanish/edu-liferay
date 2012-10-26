@@ -126,6 +126,27 @@ public class ClpSerializer {
 
 					method9.invoke(newModel, value9);
 
+					Method method10 = newModelClass.getMethod("setDescription",
+							new Class[] { String.class });
+
+					String value10 = oldCplModel.getDescription();
+
+					method10.invoke(newModel, value10);
+
+					Method method11 = newModelClass.getMethod("setAssignee",
+							new Class[] { String.class });
+
+					String value11 = oldCplModel.getAssignee();
+
+					method11.invoke(newModel, value11);
+
+					Method method12 = newModelClass.getMethod("setStatus",
+							new Class[] { String.class });
+
+					String value12 = oldCplModel.getStatus();
+
+					method12.invoke(newModel, value12);
+
 					return newModel;
 				}
 				catch (Exception e) {
@@ -243,6 +264,27 @@ public class ClpSerializer {
 							(Object[])null);
 
 					newModel.setPriority(value9);
+
+					Method method10 = oldModelClass.getMethod("getDescription");
+
+					String value10 = (String)method10.invoke(oldModel,
+							(Object[])null);
+
+					newModel.setDescription(value10);
+
+					Method method11 = oldModelClass.getMethod("getAssignee");
+
+					String value11 = (String)method11.invoke(oldModel,
+							(Object[])null);
+
+					newModel.setAssignee(value11);
+
+					Method method12 = oldModelClass.getMethod("getStatus");
+
+					String value12 = (String)method12.invoke(oldModel,
+							(Object[])null);
+
+					newModel.setStatus(value12);
 
 					return newModel;
 				}

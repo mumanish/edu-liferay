@@ -67,7 +67,8 @@ public class IssueLocalServiceUtil {
 	*/
 	public static void deleteIssue(long issueId)
 		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException {
+			com.liferay.portal.kernel.exception.SystemException,
+			org.portlets.lia.mine.NoSuchIssueException {
 		getService().deleteIssue(issueId);
 	}
 
@@ -224,11 +225,14 @@ public class IssueLocalServiceUtil {
 	}
 
 	public static org.portlets.lia.mine.model.Issue addIssue(long userId,
-		java.lang.String summary, java.lang.String requester,
-		java.lang.String priority)
+		java.lang.String summary, java.lang.String description,
+		java.lang.String requester, java.lang.String assignee,
+		java.lang.String priority, java.lang.String status)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
-		return getService().addIssue(userId, summary, requester, priority);
+		return getService()
+				   .addIssue(userId, summary, description, requester, assignee,
+			priority, status);
 	}
 
 	public static java.util.List<org.portlets.lia.mine.model.Issue> retrieveIssues(

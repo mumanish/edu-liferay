@@ -133,6 +133,30 @@ public class IssueClp extends BaseModelImpl<Issue> implements Issue {
 		_priority = priority;
 	}
 
+	public String getDescription() {
+		return _description;
+	}
+
+	public void setDescription(String description) {
+		_description = description;
+	}
+
+	public String getAssignee() {
+		return _assignee;
+	}
+
+	public void setAssignee(String assignee) {
+		_assignee = assignee;
+	}
+
+	public String getStatus() {
+		return _status;
+	}
+
+	public void setStatus(String status) {
+		_status = status;
+	}
+
 	public Issue toEscapedModel() {
 		if (isEscapedModel()) {
 			return this;
@@ -156,6 +180,9 @@ public class IssueClp extends BaseModelImpl<Issue> implements Issue {
 		clone.setSummary(getSummary());
 		clone.setRequester(getRequester());
 		clone.setPriority(getPriority());
+		clone.setDescription(getDescription());
+		clone.setAssignee(getAssignee());
+		clone.setStatus(getStatus());
 
 		return clone;
 	}
@@ -203,7 +230,7 @@ public class IssueClp extends BaseModelImpl<Issue> implements Issue {
 	}
 
 	public String toString() {
-		StringBundler sb = new StringBundler(21);
+		StringBundler sb = new StringBundler(27);
 
 		sb.append("{issueId=");
 		sb.append(getIssueId());
@@ -225,13 +252,19 @@ public class IssueClp extends BaseModelImpl<Issue> implements Issue {
 		sb.append(getRequester());
 		sb.append(", priority=");
 		sb.append(getPriority());
+		sb.append(", description=");
+		sb.append(getDescription());
+		sb.append(", assignee=");
+		sb.append(getAssignee());
+		sb.append(", status=");
+		sb.append(getStatus());
 		sb.append("}");
 
 		return sb.toString();
 	}
 
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(34);
+		StringBundler sb = new StringBundler(43);
 
 		sb.append("<model><model-name>");
 		sb.append("org.portlets.lia.mine.model.Issue");
@@ -277,6 +310,18 @@ public class IssueClp extends BaseModelImpl<Issue> implements Issue {
 			"<column><column-name>priority</column-name><column-value><![CDATA[");
 		sb.append(getPriority());
 		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>description</column-name><column-value><![CDATA[");
+		sb.append(getDescription());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>assignee</column-name><column-value><![CDATA[");
+		sb.append(getAssignee());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>status</column-name><column-value><![CDATA[");
+		sb.append(getStatus());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
@@ -294,4 +339,7 @@ public class IssueClp extends BaseModelImpl<Issue> implements Issue {
 	private String _summary;
 	private String _requester;
 	private String _priority;
+	private String _description;
+	private String _assignee;
+	private String _status;
 }

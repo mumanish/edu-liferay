@@ -8,5 +8,8 @@ create table Reporter_Issue (
 	modifiedDate DATE null,
 	summary VARCHAR(75) null,
 	requester VARCHAR(75) null,
-	priority VARCHAR(75) null
+	priority VARCHAR(75) null,
+	description VARCHAR(75) null,
+	assignee VARCHAR(75) null,
+	status VARCHAR(75) null
 );

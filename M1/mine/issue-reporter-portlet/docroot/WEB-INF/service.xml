@@ -19,6 +19,10 @@
         <column name="summary" type="String" />
         <column name="requester" type="String" />
         <column name="priority" type="String" />
+        <column name="description" type="String" />
+
+        <column name="assignee" type="String" />
+        <column name="status" type="String" />
 
 
     <finder name="UserId" return-type="Collection">

@@ -29,9 +29,11 @@
 	<aui:input name="summary" size="75" value = "Sample summary must be viewed" />
 	<aui:input name="requester" size="15" value = "Vladimir Frolov" />
 	<aui:input name="priority" size="15" value = "Emergency" />
+	<aui:input type = "textarea" name="description" />
 
 	<aui:button-row>
 		<aui:button type = "submit" value = "Report" />
+		<aui:button type = "submit" value = "Check Status" />
 	</aui:button-row>
 
 </aui:fieldset>

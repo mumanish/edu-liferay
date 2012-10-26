@@ -69,9 +69,12 @@ public class IssueModelImpl extends BaseModelImpl<Issue> implements IssueModel {
 			{ "modifiedDate", new Integer(Types.TIMESTAMP) },
 			{ "summary", new Integer(Types.VARCHAR) },
 			{ "requester", new Integer(Types.VARCHAR) },
-			{ "priority", new Integer(Types.VARCHAR) }
+			{ "priority", new Integer(Types.VARCHAR) },
+			{ "description", new Integer(Types.VARCHAR) },
+			{ "assignee", new Integer(Types.VARCHAR) },
+			{ "status", new Integer(Types.VARCHAR) }
 		};
-	public static final String TABLE_SQL_CREATE = "create table Reporter_Issue (issueId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,summary VARCHAR(75) null,requester VARCHAR(75) null,priority VARCHAR(75) null)";
+	public static final String TABLE_SQL_CREATE = "create table Reporter_Issue (issueId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,summary VARCHAR(75) null,requester VARCHAR(75) null,priority VARCHAR(75) null,description VARCHAR(75) null,assignee VARCHAR(75) null,status VARCHAR(75) null)";
 	public static final String TABLE_SQL_DROP = "drop table Reporter_Issue";
 	public static final String DATA_SOURCE = "liferayDataSource";
 	public static final String SESSION_FACTORY = "liferaySessionFactory";
@@ -102,6 +105,9 @@ public class IssueModelImpl extends BaseModelImpl<Issue> implements IssueModel {
 		model.setSummary(soapModel.getSummary());
 		model.setRequester(soapModel.getRequester());
 		model.setPriority(soapModel.getPriority());
+		model.setDescription(soapModel.getDescription());
+		model.setAssignee(soapModel.getAssignee());
+		model.setStatus(soapModel.getStatus());
 
 		return model;
 	}
@@ -248,6 +254,45 @@ public class IssueModelImpl extends BaseModelImpl<Issue> implements IssueModel {
 		_priority = priority;
 	}
 
+	public String getDescription() {
+		if (_description == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _description;
+		}
+	}
+
+	public void setDescription(String description) {
+		_description = description;
+	}
+
+	public String getAssignee() {
+		if (_assignee == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _assignee;
+		}
+	}
+
+	public void setAssignee(String assignee) {
+		_assignee = assignee;
+	}
+
+	public String getStatus() {
+		if (_status == null) {
+			return StringPool.BLANK;
+		}
+		else {
+			return _status;
+		}
+	}
+
+	public void setStatus(String status) {
+		_status = status;
+	}
+
 	public Issue toEscapedModel() {
 		if (isEscapedModel()) {
 			return (Issue)this;
@@ -293,6 +338,12 @@ public class IssueModelImpl extends BaseModelImpl<Issue> implements IssueModel {
 		issueImpl.setRequester(getRequester());
 
 		issueImpl.setPriority(getPriority());
+
+		issueImpl.setDescription(getDescription());
+
+		issueImpl.setAssignee(getAssignee());
+
+		issueImpl.setStatus(getStatus());
 
 		return issueImpl;
 	}
@@ -340,7 +391,7 @@ public class IssueModelImpl extends BaseModelImpl<Issue> implements IssueModel {
 	}
 
 	public String toString() {
-		StringBundler sb = new StringBundler(21);
+		StringBundler sb = new StringBundler(27);
 
 		sb.append("{issueId=");
 		sb.append(getIssueId());
@@ -362,13 +413,19 @@ public class IssueModelImpl extends BaseModelImpl<Issue> implements IssueModel {
 		sb.append(getRequester());
 		sb.append(", priority=");
 		sb.append(getPriority());
+		sb.append(", description=");
+		sb.append(getDescription());
+		sb.append(", assignee=");
+		sb.append(getAssignee());
+		sb.append(", status=");
+		sb.append(getStatus());
 		sb.append("}");
 
 		return sb.toString();
 	}
 
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(34);
+		StringBundler sb = new StringBundler(43);
 
 		sb.append("<model><model-name>");
 		sb.append("org.portlets.lia.mine.model.Issue");
@@ -414,6 +471,18 @@ public class IssueModelImpl extends BaseModelImpl<Issue> implements IssueModel {
 			"<column><column-name>priority</column-name><column-value><![CDATA[");
 		sb.append(getPriority());
 		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>description</column-name><column-value><![CDATA[");
+		sb.append(getDescription());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>assignee</column-name><column-value><![CDATA[");
+		sb.append(getAssignee());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>status</column-name><column-value><![CDATA[");
+		sb.append(getStatus());
+		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
 
@@ -431,5 +500,8 @@ public class IssueModelImpl extends BaseModelImpl<Issue> implements IssueModel {
 	private String _summary;
 	private String _requester;
 	private String _priority;
+	private String _description;
+	private String _assignee;
+	private String _status;
 	private transient ExpandoBridge _expandoBridge;
 }

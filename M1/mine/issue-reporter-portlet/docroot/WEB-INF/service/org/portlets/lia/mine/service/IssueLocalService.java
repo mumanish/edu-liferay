@@ -68,7 +68,8 @@ public interface IssueLocalService {
 	*/
 	public void deleteIssue(long issueId)
 		throws com.liferay.portal.kernel.exception.PortalException,
-			com.liferay.portal.kernel.exception.SystemException;
+			com.liferay.portal.kernel.exception.SystemException,
+			org.portlets.lia.mine.NoSuchIssueException;
 
 	/**
 	* Deletes the issue from the database. Also notifies the appropriate model listeners.
@@ -205,8 +206,9 @@ public interface IssueLocalService {
 		throws com.liferay.portal.kernel.exception.SystemException;
 
 	public org.portlets.lia.mine.model.Issue addIssue(long userId,
-		java.lang.String summary, java.lang.String requester,
-		java.lang.String priority)
+		java.lang.String summary, java.lang.String description,
+		java.lang.String requester, java.lang.String assignee,
+		java.lang.String priority, java.lang.String status)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 

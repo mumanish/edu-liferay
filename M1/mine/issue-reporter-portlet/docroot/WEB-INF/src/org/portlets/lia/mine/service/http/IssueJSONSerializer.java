@@ -60,6 +60,9 @@ public class IssueJSONSerializer {
 		jsonObj.put("summary", model.getSummary());
 		jsonObj.put("requester", model.getRequester());
 		jsonObj.put("priority", model.getPriority());
+		jsonObj.put("description", model.getDescription());
+		jsonObj.put("assignee", model.getAssignee());
+		jsonObj.put("status", model.getStatus());
 
 		return jsonObj;
 	}

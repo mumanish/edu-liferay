@@ -87,7 +87,8 @@ public abstract class IssueLocalServiceBaseImpl implements IssueLocalService {
 	 * @throws SystemException if a system exception occurred
 	 */
 	public void deleteIssue(long issueId)
-		throws PortalException, SystemException {
+		throws PortalException, SystemException,
+			org.portlets.lia.mine.NoSuchIssueException {
 		issuePersistence.remove(issueId);
 	}
 

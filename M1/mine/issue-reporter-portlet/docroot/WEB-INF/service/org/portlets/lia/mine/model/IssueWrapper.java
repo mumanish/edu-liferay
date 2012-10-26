@@ -125,6 +125,30 @@ public class IssueWrapper implements Issue {
 		_issue.setPriority(priority);
 	}
 
+	public java.lang.String getDescription() {
+		return _issue.getDescription();
+	}
+
+	public void setDescription(java.lang.String description) {
+		_issue.setDescription(description);
+	}
+
+	public java.lang.String getAssignee() {
+		return _issue.getAssignee();
+	}
+
+	public void setAssignee(java.lang.String assignee) {
+		_issue.setAssignee(assignee);
+	}
+
+	public java.lang.String getStatus() {
+		return _issue.getStatus();
+	}
+
+	public void setStatus(java.lang.String status) {
+		_issue.setStatus(status);
+	}
+
 	public org.portlets.lia.mine.model.Issue toEscapedModel() {
 		return _issue.toEscapedModel();
 	}

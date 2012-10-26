@@ -217,6 +217,51 @@ public interface IssueModel extends BaseModel<Issue> {
 	public void setPriority(String priority);
 
 	/**
+	 * Gets the description of this issue.
+	 *
+	 * @return the description of this issue
+	 */
+	@AutoEscape
+	public String getDescription();
+
+	/**
+	 * Sets the description of this issue.
+	 *
+	 * @param description the description of this issue
+	 */
+	public void setDescription(String description);
+
+	/**
+	 * Gets the assignee of this issue.
+	 *
+	 * @return the assignee of this issue
+	 */
+	@AutoEscape
+	public String getAssignee();
+
+	/**
+	 * Sets the assignee of this issue.
+	 *
+	 * @param assignee the assignee of this issue
+	 */
+	public void setAssignee(String assignee);
+
+	/**
+	 * Gets the status of this issue.
+	 *
+	 * @return the status of this issue
+	 */
+	@AutoEscape
+	public String getStatus();
+
+	/**
+	 * Sets the status of this issue.
+	 *
+	 * @param status the status of this issue
+	 */
+	public void setStatus(String status);
+
+	/**
 	 * Gets a copy of this issue as an escaped model instance by wrapping it with an {@link com.liferay.portal.kernel.bean.AutoEscapeBeanHandler}.
 	 *
 	 * @return the escaped model instance

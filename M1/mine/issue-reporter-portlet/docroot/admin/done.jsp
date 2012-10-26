@@ -38,23 +38,33 @@
 	modelVar="issue">
 
 	<liferay-ui:search-container-column-text
-		name="issue-id"
+		name="id"
 		property="issueId"
 		/>
 
 	<liferay-ui:search-container-column-text
-		name="issue-summary"
+		name="summary"
 		property="summary"
 		/>
 
 	<liferay-ui:search-container-column-text
-		name="issue-requester"
+		name="requester"
 		property="requester"
 		/>
 
 	<liferay-ui:search-container-column-text
-		name="issue-priority"
+		name="assignee"
+		property="assignee"
+		/>
+
+	<liferay-ui:search-container-column-text
+		name="priority"
 		property="priority"
+		/>
+
+	<liferay-ui:search-container-column-text
+		name="status"
+		property="status"
 		/>
 
 	<liferay-ui:search-container-column-jsp
