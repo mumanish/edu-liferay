@@ -24,11 +24,14 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.util.bridges.mvc.MVCPortlet;
 import org.portlets.lia.mine.model.Issue;
 import com.liferay.portal.model.User;
+import org.portlets.lia.mine.model.impl.IssueImpl;
+
 
 
 public class IssueAdminPortlet extends MVCPortlet {
 
 protected String doneJSP = "/admin/done.jsp";
+protected String editJSP = "/admin/edit_issue.jsp";
 
 	public void viewIssue(ActionRequest request, ActionResponse response)throws Exception {
 
@@ -56,5 +59,46 @@ protected String doneJSP = "/admin/done.jsp";
 
 			viewIssue(request, response);
 		}
+
+	public void editIssue (ActionRequest request, ActionResponse response)
+	throws Exception {
+
+			long issueKey = ParamUtil.getLong(request, "resourcePrimKey");
+			Issue issue = IssueLocalServiceUtil.getIssue(issueKey);
+
+			request.setAttribute("issue", issue);
+			response.setRenderParameter("jspPage", editJSP);
+	}
+
+	public void updateIssue(ActionRequest request, ActionResponse response)
+		throws Exception {
+
+			long issueKey = ParamUtil.getLong(request, "resourcePrimKey");
+
+			Issue issue = IssueLocalServiceUtil.getIssue(issueKey);
+			Issue requestIssue = issueFromRequest(request);
+
+			issue.setAssignee(requestIssue.getAssignee());
+			issue.setPriority(requestIssue.getPriority());
+			issue.setStatus(requestIssue.getStatus());
+
+
+			IssueLocalServiceUtil.updateIssue(issue);
+
+		}
+
+
+
+	public static Issue issueFromRequest (ActionRequest request) {
+
+		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(WebKeys.
+				THEME_DISPLAY);
+		Issue issue = new IssueImpl();
+
+		issue.setAssignee(ParamUtil.getString(request, "issueAssignee"));
+		issue.setPriority(ParamUtil.getString(request, "issuePriority"));
+		issue.setStatus(ParamUtil.getString(request, "issueStatus"));
+		return issue;
+	}
 
 }

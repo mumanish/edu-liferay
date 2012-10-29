@@ -36,33 +36,45 @@
 
 
 <%
-	ResultRow row = (ResultRow)request.getAttribute(WebKeys.SEARCH_CONTAINER_RESULT_ROW);
-	Issue myIssue = (Issue)row.getObject();
-	ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(WebKeys.THEME_DISPLAY);
-	
-	long groupId = themeDisplay.getLayout().getGroupId();
-	String name = Issue.class.getName();
-	String primKey = String.valueOf(myIssue.getPrimaryKey());
-
-
+	Issue issue = (Issue)request.getAttribute("issue");
 %>
 
-<liferay-ui:icon-menu>
+<portlet:actionURL name = "updateIssue" var = "updateIssueURL" />
 
-<portlet:actionURL name="editIssue" var="editURL">
-	<portlet:param name ="resourcePrimKey" value="<%= primKey %>" />
-</portlet:actionURL>
+<h5>Edit issue</h5><p>
 
-<liferay-ui:icon image="edit" message="Edit" url="<%= editURL.toString() %>" />
+<aui:form
+	name="fm" action="<%= updateIssueURL.toString() %>" 
+	method="post" >
+
+<aui:fieldset>
+	
+	<aui:input
+		name="resourcePrimKey"
+		value="<%= issue.getIssueId() %>"
+		type="hidden" />
 
 
-<portlet:actionURL name="deleteIssue" var="deleteURL">
-	<portlet:param name="resourcePrimKey" value="<%= primKey %>" />
-</portlet:actionURL>
-
-<liferay-ui:icon-delete url="<%= deleteURL.toString() %>" />
-
+	<aui:input
+		name="issueAssignee"
+		value="<%= issue.getAssignee() %>"
+		size="20" />
 
 
-</liferay-ui:icon-menu>
+	<aui:input
+		name="issuePriority"
+		value="<%= issue.getPriority() %>"
+		size="20" />
 
+
+	<aui:input
+		name="issueStatus"
+		value="<%= issue.getStatus() %>"
+		size="20" />
+
+	<aui:button-row>
+		<aui:button type = "submit" value = "Save" />
+	</aui:button-row>
+
+</aui:fieldset>
+</aui:form>
