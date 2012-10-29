@@ -36,33 +36,33 @@
 
 
 <%
-	ResultRow row = (ResultRow)request.getAttribute(WebKeys.SEARCH_CONTAINER_RESULT_ROW);
-	Issue myIssue = (Issue)row.getObject();
-	ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(WebKeys.THEME_DISPLAY);
-	
-	long groupId = themeDisplay.getLayout().getGroupId();
-	String name = Issue.class.getName();
-	String primKey = String.valueOf(myIssue.getPrimaryKey());
-
-
+	Issue issue = (Issue)request.getAttribute("issue");
 %>
 
-<liferay-ui:icon-menu>
+<portlet:actionURL name = "changePriority" var = "chPriorityURL" />
 
-<portlet:actionURL name="editIssue" var="editURL">
-	<portlet:param name ="resourcePrimKey" value="<%= primKey %>" />
-</portlet:actionURL>
+<h5>Change Priority:</h5><p>
 
-<liferay-ui:icon image="edit" message="Edit" url="<%= editURL.toString() %>" />
+<aui:form
+	name="chp" action="<%= chPriorityURL.toString() %>" 
+	method="post" >
+
+<aui:fieldset>
+	
+	<aui:input
+		name="resourcePrimKey"
+		value="<%= issue.getIssueId() %>"
+		type="hidden" />
 
 
-<portlet:actionURL name="deleteIssue" var="deleteURL">
-	<portlet:param name="resourcePrimKey" value="<%= primKey %>" />
-</portlet:actionURL>
+	<aui:input
+		name="issuePriority"
+		value="<%= issue.getPriority() %>"
+		size="20" />
 
-<liferay-ui:icon-delete url="<%= deleteURL.toString() %>" />
+	<aui:button-row>
+		<aui:button type = "submit" value = "Save" />
+	</aui:button-row>
 
-
-
-</liferay-ui:icon-menu>
-
+</aui:fieldset>
+</aui:form>

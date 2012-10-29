@@ -68,7 +68,7 @@
 		/>
 
 	<liferay-ui:search-container-column-jsp
-		path="/admin/admin_actions.jsp"
+		path="/admin/menu_actions.jsp"
 		align="right"
 		/>
 

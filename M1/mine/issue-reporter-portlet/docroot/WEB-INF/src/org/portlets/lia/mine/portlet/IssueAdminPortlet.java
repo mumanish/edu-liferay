@@ -30,8 +30,12 @@ import org.portlets.lia.mine.model.impl.IssueImpl;
 
 public class IssueAdminPortlet extends MVCPortlet {
 
-protected String doneJSP = "/admin/done.jsp";
+protected String viewJSP = "/admin/view_issues.jsp";
 protected String editJSP = "/admin/edit_issue.jsp";
+protected String chAssigneeJSP = "/admin/actions/change_assignee.jsp";
+protected String chPriorityJSP = "/admin/actions/change_priority.jsp";
+protected String chStatusJSP = "/admin/actions/change_status.jsp";
+
 
 	public void viewIssue(ActionRequest request, ActionResponse response)throws Exception {
 
@@ -47,7 +51,7 @@ protected String editJSP = "/admin/edit_issue.jsp";
 			}
 
 		request.setAttribute("issues", issuesList);
-		response.setRenderParameter("jspPage", doneJSP);
+		response.setRenderParameter("jspPage", viewJSP);
 	}
 
 
@@ -82,7 +86,6 @@ protected String editJSP = "/admin/edit_issue.jsp";
 			issue.setPriority(requestIssue.getPriority());
 			issue.setStatus(requestIssue.getStatus());
 
-
 			IssueLocalServiceUtil.updateIssue(issue);
 
 		}
@@ -100,5 +103,88 @@ protected String editJSP = "/admin/edit_issue.jsp";
 		issue.setStatus(ParamUtil.getString(request, "issueStatus"));
 		return issue;
 	}
+
+
+	/* task actions */
+
+
+	public void changeAssigneeMenu(ActionRequest request, ActionResponse response)
+		throws Exception {
+
+			long issueKey = ParamUtil.getLong(request, "resourcePrimKey");
+			Issue issue = IssueLocalServiceUtil.getIssue(issueKey);
+
+			request.setAttribute("issue", issue);
+			response.setRenderParameter("jspPage", chAssigneeJSP);
+		}
+
+
+	public void changeAssignee(ActionRequest request, ActionResponse response)
+		throws Exception {
+
+			long issueKey = ParamUtil.getLong(request, "resourcePrimKey");
+
+			Issue issue = IssueLocalServiceUtil.getIssue(issueKey);
+			Issue requestIssue = issueFromRequest(request);
+
+			issue.setAssignee(requestIssue.getAssignee());
+
+			IssueLocalServiceUtil.updateIssue(issue);
+
+
+		}
+
+	public void changePriorityMenu(ActionRequest request, ActionResponse response)
+		throws Exception {
+
+			long issueKey = ParamUtil.getLong(request, "resourcePrimKey");
+			Issue issue = IssueLocalServiceUtil.getIssue(issueKey);
+
+			request.setAttribute("issue", issue);
+			response.setRenderParameter("jspPage", chPriorityJSP);
+
+		}
+
+	public void changePriority(ActionRequest request, ActionResponse response)
+		throws Exception {
+
+			long issueKey = ParamUtil.getLong(request, "resourcePrimKey");
+
+			Issue issue = IssueLocalServiceUtil.getIssue(issueKey);
+			Issue requestIssue = issueFromRequest(request);
+
+			issue.setPriority(requestIssue.getPriority());
+
+			IssueLocalServiceUtil.updateIssue(issue);
+
+		}	
+
+	public void changeStatusMenu(ActionRequest request, ActionResponse response)
+		throws Exception {
+
+			long issueKey = ParamUtil.getLong(request, "resourcePrimKey");
+			Issue issue = IssueLocalServiceUtil.getIssue(issueKey);
+
+			request.setAttribute("issue", issue);
+			response.setRenderParameter("jspPage", chStatusJSP);
+
+		}
+
+	public void changeStatus(ActionRequest request, ActionResponse response)
+		throws Exception {
+
+			long issueKey = ParamUtil.getLong(request, "resourcePrimKey");
+
+			Issue issue = IssueLocalServiceUtil.getIssue(issueKey);
+			Issue requestIssue = issueFromRequest(request);
+
+			issue.setStatus(requestIssue.getStatus());
+
+			IssueLocalServiceUtil.updateIssue(issue);
+
+
+		}	
+
+	
 
 }
