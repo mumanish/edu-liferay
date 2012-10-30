@@ -32,6 +32,7 @@ public class IssueAdminPortlet extends MVCPortlet {
 
 protected String viewJSP = "/admin/view_issues.jsp";
 protected String editJSP = "/admin/edit_issue.jsp";
+protected String fullJSP = "/admin/full_issue.jsp";
 protected String chAssigneeJSP = "/admin/actions/change_assignee.jsp";
 protected String chPriorityJSP = "/admin/actions/change_priority.jsp";
 protected String chStatusJSP = "/admin/actions/change_status.jsp";
@@ -106,6 +107,17 @@ protected String chStatusJSP = "/admin/actions/change_status.jsp";
 
 
 	/* task actions */
+
+
+	public void viewFullIssue(ActionRequest request, ActionResponse response)
+		throws Exception {
+
+			long issueKey = ParamUtil.getLong(request, "resourcePrimKey");
+			Issue issue = IssueLocalServiceUtil.getIssue(issueKey);
+
+			request.setAttribute("issue", issue);
+			response.setRenderParameter("jspPage", fullJSP);
+		}
 
 
 	public void changeAssigneeMenu(ActionRequest request, ActionResponse response)

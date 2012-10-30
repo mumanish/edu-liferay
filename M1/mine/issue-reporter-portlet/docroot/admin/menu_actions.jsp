@@ -49,6 +49,10 @@
 
 <liferay-ui:icon-menu>
 
+<portlet:actionURL name="viewFullIssue" var="fullURL">
+	<portlet:param name="resourcePrimKey" value="<%= primKey %>" />
+</portlet:actionURL>
+
 <portlet:actionURL name="editIssue" var="editURL">
 	<portlet:param name="resourcePrimKey" value="<%= primKey %>" />
 </portlet:actionURL>
@@ -65,6 +69,7 @@
 	<portlet:param name="resourcePrimKey" value="<%= primKey %>" />
 </portlet:actionURL>
 
+<liferay-ui:icon image="edit" message="View Full Issue" url="<%= fullURL.toString() %>" />
 
 <liferay-ui:icon image="edit" message="Change Assignee" url="<%= chAssigneeMenuURL.toString() %>" />
 <liferay-ui:icon image="edit" message="Change Priority" url="<%= chPriorityURL.toString() %>" />
