@@ -34,6 +34,7 @@ public class IssueReporterPortlet extends MVCPortlet {
 	protected String doneJSP = "/done.jsp";
 	protected String checkStatusRedirJSP = "/check_status.jsp";
 	protected String checkStatusJSP = "/check_status_done.jsp";
+	protected String viewJSP = "/view.jsp";
 	
 
 	public void addIssue(ActionRequest request, ActionResponse response)throws Exception {
@@ -70,6 +71,12 @@ public class IssueReporterPortlet extends MVCPortlet {
 			request.setAttribute("status", issue.getStatus());
 			request.setAttribute("id", request.getParameter("id"));
 			response.setRenderParameter("jspPage", checkStatusJSP);
+		}
+
+	public void viewIssueForm(ActionRequest request, ActionResponse response) 
+		throws Exception {
+
+			response.setRenderParameter("jspPage", viewJSP);
 		}
 
 }

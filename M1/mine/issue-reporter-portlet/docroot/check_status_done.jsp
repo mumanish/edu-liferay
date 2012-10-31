@@ -1,13 +1,13 @@
-<%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
-<%@ taglib uri="http://liferay.com/tld/aui" prefix="aui" %>
+<%@ include file="/init.jsp" %>
 
-<%@ page import="org.portlets.lia.mine.service.IssueLocalServiceUtil" %>
-<%@ page import = "java.util.*" %>
 
 <jsp:useBean id="status" class="java.lang.String" scope="request" />
 <jsp:useBean id="id" class="java.lang.String" scope="request" />
 
-<portlet:defineObjects />
+<portlet:actionURL name="viewIssueForm" var="viewIssueFormURL" />
 
 
-Issue ID-<%= id %> status is: <h4><b><%= status %></b></h4>
+Issue ID-<%= id %> status is: <h4><b><%= status %></b></h4><p>
+
+
+<aui:button onClick="<%=viewIssueFormURL.toString() %>" value="Cancel" />
