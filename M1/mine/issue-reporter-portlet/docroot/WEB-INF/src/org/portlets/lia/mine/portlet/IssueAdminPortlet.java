@@ -88,6 +88,7 @@ protected String chStatusJSP = "/admin/actions/change_status.jsp";
 			issue.setStatus(requestIssue.getStatus());
 
 			IssueLocalServiceUtil.updateIssue(issue);
+			this.viewIssue(request, response);
 
 		}
 
@@ -142,6 +143,7 @@ protected String chStatusJSP = "/admin/actions/change_status.jsp";
 			issue.setAssignee(requestIssue.getAssignee());
 
 			IssueLocalServiceUtil.updateIssue(issue);
+			this.viewIssue(request, response);
 
 
 		}
@@ -168,6 +170,7 @@ protected String chStatusJSP = "/admin/actions/change_status.jsp";
 			issue.setPriority(requestIssue.getPriority());
 
 			IssueLocalServiceUtil.updateIssue(issue);
+			this.viewIssue(request, response);
 
 		}	
 
@@ -193,6 +196,7 @@ protected String chStatusJSP = "/admin/actions/change_status.jsp";
 			issue.setStatus(requestIssue.getStatus());
 
 			IssueLocalServiceUtil.updateIssue(issue);
+			this.viewIssue(request, response);
 
 
 		}	

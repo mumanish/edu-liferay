@@ -74,7 +74,7 @@ public class IssueModelImpl extends BaseModelImpl<Issue> implements IssueModel {
 			{ "assignee", new Integer(Types.VARCHAR) },
 			{ "status", new Integer(Types.VARCHAR) }
 		};
-	public static final String TABLE_SQL_CREATE = "create table Reporter_Issue (issueId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,summary VARCHAR(75) null,requester VARCHAR(75) null,priority VARCHAR(75) null,description VARCHAR(75) null,assignee VARCHAR(75) null,status VARCHAR(75) null)";
+	public static final String TABLE_SQL_CREATE = "create table Reporter_Issue (issueId LONG not null primary key,groupId LONG,companyId LONG,userId LONG,userName VARCHAR(75) null,createDate DATE null,modifiedDate DATE null,summary VARCHAR(75) null,requester VARCHAR(75) null,priority VARCHAR(75) null,description TEXT null,assignee VARCHAR(75) null,status VARCHAR(75) null)";
 	public static final String TABLE_SQL_DROP = "drop table Reporter_Issue";
 	public static final String DATA_SOURCE = "liferayDataSource";
 	public static final String SESSION_FACTORY = "liferaySessionFactory";

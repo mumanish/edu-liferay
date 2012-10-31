@@ -39,7 +39,8 @@
 	Issue issue = (Issue)request.getAttribute("issue");
 %>
 
-<portlet:actionURL name = "changePriority" var = "chPriorityURL" />
+<portlet:actionURL name="changePriority" var="chPriorityURL" />
+<portlet:actionURL name="viewIssue" var="viewIssueURL" />
 
 <h5>Change Priority:</h5><p>
 
@@ -90,6 +91,11 @@
 
 	<aui:button-row>
 		<aui:button type = "submit" value = "Save" />
+
+		<aui:button name = "viewIssueURL" 
+			onClick="<%=viewIssueURL.toString() %>" 
+			type = "button" value = "Cancel" />
+			
 	</aui:button-row>
 
 </aui:fieldset>

@@ -72,7 +72,5 @@ public class IssueReporterPortlet extends MVCPortlet {
 			response.setRenderParameter("jspPage", checkStatusJSP);
 		}
 
-
-
 }
 

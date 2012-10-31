@@ -9,7 +9,7 @@ create table Reporter_Issue (
 	summary VARCHAR(75) null,
 	requester VARCHAR(75) null,
 	priority VARCHAR(75) null,
-	description VARCHAR(75) null,
+	description TEXT null,
 	assignee VARCHAR(75) null,
 	status VARCHAR(75) null
 );

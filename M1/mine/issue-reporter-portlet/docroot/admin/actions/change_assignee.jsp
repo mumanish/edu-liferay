@@ -39,6 +39,8 @@
 %>
 
 <portlet:actionURL name = "changeAssignee" var = "chAssigneeURL" />
+<portlet:actionURL name="viewIssue" var="viewIssueURL" />
+
 
 <h5>Change Assignee:</h5><p>
 
@@ -61,6 +63,11 @@
 
 	<aui:button-row>
 		<aui:button type = "submit" value = "Save" />
+
+		<aui:button name = "viewIssueURL" 
+			onClick="<%=viewIssueURL.toString() %>" 
+			type = "button" value = "Cancel" />
+			
 	</aui:button-row>
 
 </aui:fieldset>
