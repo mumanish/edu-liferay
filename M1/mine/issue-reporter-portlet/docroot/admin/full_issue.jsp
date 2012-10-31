@@ -25,8 +25,6 @@
 <%@ page import="com.liferay.portal.theme.ThemeDisplay" %>
 <%@ page import="com.liferay.portal.kernel.util.WebKeys" %>
 
-
-
 <%@ page import="org.portlets.lia.mine.service.IssueLocalServiceUtil" %>
 <%@ page import="org.portlets.lia.mine.model.Issue" %>
 <%@ page import = "java.util.*" %>
@@ -52,13 +50,11 @@ Assignee: <%= issue.getAssignee() %><p>
 Priority: <%= issue.getPriority() %><p>
 Status: <%= issue.getStatus() %><p>
 ---<p>
-Create Date: <%= issue.getCreateDate() %><p>
-Modified Date: <%= issue.getModifiedDate() %><p>
+Created Date: <%= issue.getCreateDate() %><p>
 
-
-	<aui:button-row>
-		<aui:button type = "submit" value = "Cancel" />
-	</aui:button-row>
+<aui:button-row>
+	<aui:button type = "submit" value = "Cancel" />
+</aui:button-row>
 
 </aui:fieldset>
 </aui:form>

@@ -23,19 +23,21 @@
 
 <portlet:defineObjects />
 <portlet:actionURL name="addIssue" var="addIssueURL" />
+<portlet:actionURL name="checkStatusRedir" var="checkStatusRedirURL" />
 
 <aui:form action="<%= addIssueURL.toString() %>" method="post">
 <aui:fieldset>
 	<aui:input name="summary" size="75" value = "Sample summary must be viewed" />
 	<aui:input name="requester" size="15" value = "Vladimir Frolov" />
 	<aui:input name="priority" size="15" value = "Emergency" />
-	<aui:input type = "textarea" name="description" />
+	<aui:input type="textarea" name="description" />
 
 	<aui:button-row>
 		<aui:button type = "submit" value = "Report" />
-		<aui:button type = "submit" value = "Check Status" />
-	</aui:button-row>
-
+		<aui:button name = "checkStatusRedirURL" 
+					onClick="<%=checkStatusRedirURL.toString() %>" 
+					type = "button" value = "Check Status" />
+		</aui:button-row>
 </aui:fieldset>
 </aui:form>
 

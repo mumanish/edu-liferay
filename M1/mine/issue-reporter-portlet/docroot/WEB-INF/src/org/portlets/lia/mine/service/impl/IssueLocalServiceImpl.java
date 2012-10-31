@@ -51,11 +51,10 @@ import org.portlets.lia.mine.NoSuchIssueException;
  */
 public class IssueLocalServiceImpl extends IssueLocalServiceBaseImpl {
 
-	public Issue addIssue(long userId, String summary, String description, String requester, String assignee, String priority, String status)
+	public Issue addIssue(long userId, long issueId, String summary, String description, String requester, String assignee, String priority, String status)
         throws PortalException, SystemException {
     User user = UserUtil.findByPrimaryKey(userId);
     Date now = new Date();
-    long issueId = CounterLocalServiceUtil.increment(Issue.class.getName());
 
     Issue issue = issuePersistence.create(issueId);
 

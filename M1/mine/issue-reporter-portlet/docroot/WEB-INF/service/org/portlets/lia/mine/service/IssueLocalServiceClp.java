@@ -392,7 +392,7 @@ public class IssueLocalServiceClp implements IssueLocalService {
 	}
 
 	public org.portlets.lia.mine.model.Issue addIssue(long userId,
-		java.lang.String summary, java.lang.String description,
+		long issueId, java.lang.String summary, java.lang.String description,
 		java.lang.String requester, java.lang.String assignee,
 		java.lang.String priority, java.lang.String status)
 		throws com.liferay.portal.kernel.exception.PortalException,
@@ -400,8 +400,8 @@ public class IssueLocalServiceClp implements IssueLocalService {
 		Object returnObj = null;
 
 		MethodHandler methodHandler = new MethodHandler(_addIssueMethodKey13,
-				userId, summary, description, requester, assignee, priority,
-				status);
+				userId, issueId, summary, description, requester, assignee,
+				priority, status);
 
 		try {
 			returnObj = _classLoaderProxy.invoke(methodHandler);
@@ -492,7 +492,7 @@ public class IssueLocalServiceClp implements IssueLocalService {
 			"updateIssue", org.portlets.lia.mine.model.Issue.class,
 			boolean.class);
 	private MethodKey _addIssueMethodKey13 = new MethodKey(_classLoaderProxy.getClassName(),
-			"addIssue", long.class, java.lang.String.class,
+			"addIssue", long.class, long.class, java.lang.String.class,
 			java.lang.String.class, java.lang.String.class,
 			java.lang.String.class, java.lang.String.class,
 			java.lang.String.class);

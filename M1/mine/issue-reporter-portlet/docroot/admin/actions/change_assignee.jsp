@@ -34,7 +34,6 @@
 
 
 
-
 <%
 	Issue issue = (Issue)request.getAttribute("issue");
 %>

@@ -19,7 +19,7 @@
 
 <!-- TODO: pagination actions -->
 
-<liferay-ui:search-container delta = "10">
+<liferay-ui:search-container delta = "20">
 
 <liferay-ui:search-container-results>
 <%
