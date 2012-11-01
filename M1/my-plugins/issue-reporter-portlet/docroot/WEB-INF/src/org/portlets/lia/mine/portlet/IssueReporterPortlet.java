@@ -23,6 +23,8 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.util.bridges.mvc.MVCPortlet;
 import org.portlets.lia.mine.model.Issue;
+import org.portlets.lia.mine.model.impl.IssueImpl;
+
 
 import com.liferay.counter.service.CounterLocalServiceUtil;
 
@@ -45,12 +47,22 @@ public class IssueReporterPortlet extends MVCPortlet {
 		Long issueId = CounterLocalServiceUtil.increment(Issue.class.getName());
 		String id = issueId.toString();
 
+		Issue issue = new IssueImpl();
+		issue.setAssignee("Not Assigned");
+		issue.setStatus("New");
+
+		issue.setSummary(request.getParameter("summary"));
+		issue.setDescription(request.getParameter("description"));
+		issue.setRequester(request.getParameter("requester"));
+		issue.setPriority(request.getParameter("priority"));
+
 
 		IssueLocalServiceUtil.addIssue(themeDisplay.getUserId(), issueId,
-			request.getParameter("summary"), request.getParameter("description"), request.getParameter("requester"), "Not assigned",
-				request.getParameter("priority"), "New");
+			issue.getSummary(), issue.getDescription(), issue.getRequester(), issue.getAssignee(), issue.getPriority(), issue.getStatus());
 
 		request.setAttribute("issue_id", id);
+		request.setAttribute("issue", issue);
+
 		response.setRenderParameter("jspPage", doneJSP);
 	}
 
