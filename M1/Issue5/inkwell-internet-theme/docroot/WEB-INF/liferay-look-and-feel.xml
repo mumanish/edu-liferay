@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 6.0.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_6_0_0.dtd">
+
+<look-and-feel>
+	<compatibility>
+		<version>6.0.6+</version>
+	</compatibility>
+	<theme id="inkwell-internet" name="Inkwell Internet">
+		<color-scheme id="01" name="Purple">
+			<css-class>purple</css-class>
+			<color-scheme-images-path>
+			${images-path}/color_schemes/${css-class}
+			</color-scheme-images-path>
+		</color-scheme>
+	</theme>
+
+
+	<theme id="inkwell-internet2" name="Inkwell Internet2" />
+</look-and-feel>
