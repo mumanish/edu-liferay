@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="org.portlets.tessa.service.TessaLocalService" class="org.portlets.tessa.service.impl.TessaLocalServiceImpl" />
+	<bean id="org.portlets.tessa.service.TessaLocalServiceUtil" class="org.portlets.tessa.service.TessaLocalServiceUtil">
+		<property name="service" ref="org.portlets.tessa.service.TessaLocalService" />
+	</bean>
+	<bean id="org.portlets.tessa.service.persistence.TessaPersistence" class="org.portlets.tessa.service.persistence.TessaPersistenceImpl" parent="basePersistence" />
+</beans>

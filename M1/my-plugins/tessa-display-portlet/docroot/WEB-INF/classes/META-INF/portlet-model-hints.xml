@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<model-hints>
+	<model name="org.portlets.tessa.model.Tessa">
+		<field name="uuid" type="String" />
+		<field name="tessaId" type="long" />
+		<field name="tessaText" type="String" />
+		<field name="companyId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="userId" type="long" />
+	</model>
+</model-hints>
