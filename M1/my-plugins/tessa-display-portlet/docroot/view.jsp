@@ -21,6 +21,14 @@
 <portlet:defineObjects />
 
 <portlet:actionURL name="addTessa" var="addTessaURL" />
+
+<%
+Tessa tessa = (Tessa)request.getAttribute(org.portlets.tessa.util.WebKeys.TESSA_ENTRY);
+String redirect = ParamUtil.getString(request, "redirect");
+
+long resourcePrimKey = BeanParamUtil.getLong(tessa, request, "tessaId");
+%>
+
 <aui:form action="<%= addTessaURL.toString() %>" method="post">
 <aui:fieldset>
 	<aui:input name="tessaText" size="75" value = "Sample summary must be viewed" />

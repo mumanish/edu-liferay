@@ -25,6 +25,10 @@ import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.service.persistence.UserUtil;
 import java.util.Date;
+import com.liferay.portal.kernel.search.Indexer;
+import com.liferay.portal.kernel.search.IndexerRegistryUtil;
+
+
 import com.liferay.counter.service.CounterLocalServiceUtil;
 import com.liferay.portal.model.ResourceConstants;
 import com.liferay.portal.service.ServiceContext;
@@ -52,20 +56,21 @@ import com.liferay.portal.service.ServiceContextFactory;
  */
 public class TessaLocalServiceImpl extends TessaLocalServiceBaseImpl {
 
-		public Tessa addTessa(long userId, long tessaId, String tessaText,
+	public Tessa addTessa(long userId, long tessaId, String tessaText,
 			ServiceContext serviceContext) throws PortalException, SystemException {
 
     User user = UserUtil.findByPrimaryKey(userId);
 
-    Tessa tessa = tessaPersistence.create(tessaId);
+   Tessa tessa = tessaPersistence.create(counterLocalService.increment(Tessa.class.getName()));
 
 
     tessa.setTessaText(tessaText);
 
     tessa.setCompanyId(user.getCompanyId());
     tessa.setUserId(user.getUserId());
+    
 
-    tessaPersistence.update(tessa, true);
+    tessaPersistence.update(tessa, false);
 
     assetEntryLocalService.updateEntry(
 		userId, tessa.getGroupId(), Tessa.class.getName(),
@@ -74,6 +79,15 @@ public class TessaLocalServiceImpl extends TessaLocalServiceBaseImpl {
 
 	    return tessa;
 	}
+
+   public Tessa getTessa(long tessaId)
+        throws SystemException {
+
+        Tessa tessa = tessaPersistence.fetchByPrimaryKey(tessaId);
+
+        return tessa;
+
+    }
 
 
 }
