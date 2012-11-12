@@ -29,4 +29,8 @@
 <%@ page import = "java.util.*" %>
 <%@ page import = "com.liferay.portal.kernel.util.ListUtil" %>
 
+<%@ page import="com.liferay.portal.kernel.search.SearchContext" %>
+<%@ page import="com.liferay.portal.kernel.search.SearchContextFactory" %>
+
+
 <portlet:defineObjects />

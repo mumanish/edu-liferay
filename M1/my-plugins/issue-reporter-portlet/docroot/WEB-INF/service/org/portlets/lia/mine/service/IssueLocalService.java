@@ -208,7 +208,14 @@ public interface IssueLocalService {
 	public org.portlets.lia.mine.model.Issue addIssue(long userId,
 		long issueId, java.lang.String summary, java.lang.String description,
 		java.lang.String requester, java.lang.String assignee,
-		java.lang.String priority, java.lang.String status)
+		java.lang.String priority, java.lang.String status,
+		com.liferay.portal.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException;
+
+	public org.portlets.lia.mine.model.Issue updateStatus(long userId,
+		long resourcePrimKey, int status,
+		com.liferay.portal.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException;
 

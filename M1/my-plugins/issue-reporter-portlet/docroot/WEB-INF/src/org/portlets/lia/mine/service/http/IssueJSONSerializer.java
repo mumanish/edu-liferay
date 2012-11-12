@@ -62,7 +62,20 @@ public class IssueJSONSerializer {
 		jsonObj.put("priority", model.getPriority());
 		jsonObj.put("description", model.getDescription());
 		jsonObj.put("assignee", model.getAssignee());
+		jsonObj.put("statusx", model.getStatusx());
 		jsonObj.put("status", model.getStatus());
+		jsonObj.put("statusByUserId", model.getStatusByUserId());
+		jsonObj.put("statusByUserName", model.getStatusByUserName());
+
+		Date statusDate = model.getStatusDate();
+
+		String statusDateJSON = StringPool.BLANK;
+
+		if (statusDate != null) {
+			statusDateJSON = String.valueOf(statusDate.getTime());
+		}
+
+		jsonObj.put("statusDate", statusDateJSON);
 
 		return jsonObj;
 	}

@@ -394,14 +394,49 @@ public class IssueLocalServiceClp implements IssueLocalService {
 	public org.portlets.lia.mine.model.Issue addIssue(long userId,
 		long issueId, java.lang.String summary, java.lang.String description,
 		java.lang.String requester, java.lang.String assignee,
-		java.lang.String priority, java.lang.String status)
+		java.lang.String priority, java.lang.String status,
+		com.liferay.portal.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
 		MethodHandler methodHandler = new MethodHandler(_addIssueMethodKey13,
 				userId, issueId, summary, description, requester, assignee,
-				priority, status);
+				priority, status, serviceContext);
+
+		try {
+			returnObj = _classLoaderProxy.invoke(methodHandler);
+		}
+		catch (Throwable t) {
+			if (t instanceof com.liferay.portal.kernel.exception.PortalException) {
+				throw (com.liferay.portal.kernel.exception.PortalException)t;
+			}
+
+			if (t instanceof com.liferay.portal.kernel.exception.SystemException) {
+				throw (com.liferay.portal.kernel.exception.SystemException)t;
+			}
+
+			if (t instanceof RuntimeException) {
+				throw (RuntimeException)t;
+			}
+			else {
+				throw new RuntimeException(t.getClass().getName() +
+					" is not a valid exception");
+			}
+		}
+
+		return (org.portlets.lia.mine.model.Issue)ClpSerializer.translateOutput(returnObj);
+	}
+
+	public org.portlets.lia.mine.model.Issue updateStatus(long userId,
+		long resourcePrimKey, int status,
+		com.liferay.portal.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		Object returnObj = null;
+
+		MethodHandler methodHandler = new MethodHandler(_updateStatusMethodKey14,
+				userId, resourcePrimKey, status, serviceContext);
 
 		try {
 			returnObj = _classLoaderProxy.invoke(methodHandler);
@@ -431,7 +466,7 @@ public class IssueLocalServiceClp implements IssueLocalService {
 		long userId) throws com.liferay.portal.kernel.exception.SystemException {
 		Object returnObj = null;
 
-		MethodHandler methodHandler = new MethodHandler(_retrieveIssuesMethodKey14,
+		MethodHandler methodHandler = new MethodHandler(_retrieveIssuesMethodKey15,
 				userId);
 
 		try {
@@ -495,7 +530,11 @@ public class IssueLocalServiceClp implements IssueLocalService {
 			"addIssue", long.class, long.class, java.lang.String.class,
 			java.lang.String.class, java.lang.String.class,
 			java.lang.String.class, java.lang.String.class,
-			java.lang.String.class);
-	private MethodKey _retrieveIssuesMethodKey14 = new MethodKey(_classLoaderProxy.getClassName(),
+			java.lang.String.class,
+			com.liferay.portal.service.ServiceContext.class);
+	private MethodKey _updateStatusMethodKey14 = new MethodKey(_classLoaderProxy.getClassName(),
+			"updateStatus", long.class, long.class, int.class,
+			com.liferay.portal.service.ServiceContext.class);
+	private MethodKey _retrieveIssuesMethodKey15 = new MethodKey(_classLoaderProxy.getClassName(),
 			"retrieveIssues", long.class);
 }

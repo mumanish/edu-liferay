@@ -16,6 +16,10 @@
 			<hint name="max-length">4575</hint>
 		</field>
 		<field name="assignee" type="String" />
-		<field name="status" type="String" />
+		<field name="statusx" type="String" />
+		<field name="status" type="int" />
+		<field name="statusByUserId" type="long" />
+		<field name="statusByUserName" type="String" />
+		<field name="statusDate" type="Date" />
 	</model>
 </model-hints>

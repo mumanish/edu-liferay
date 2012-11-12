@@ -17,6 +17,7 @@ package org.portlets.lia.mine.model;
 import com.liferay.portal.kernel.bean.AutoEscapeBeanHandler;
 import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.portal.kernel.util.StringBundler;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.model.impl.BaseModelImpl;
 import com.liferay.portal.util.PortalUtil;
 
@@ -149,12 +150,89 @@ public class IssueClp extends BaseModelImpl<Issue> implements Issue {
 		_assignee = assignee;
 	}
 
-	public String getStatus() {
+	public String getStatusx() {
+		return _statusx;
+	}
+
+	public void setStatusx(String statusx) {
+		_statusx = statusx;
+	}
+
+	public int getStatus() {
 		return _status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(int status) {
 		_status = status;
+	}
+
+	public long getStatusByUserId() {
+		return _statusByUserId;
+	}
+
+	public void setStatusByUserId(long statusByUserId) {
+		_statusByUserId = statusByUserId;
+	}
+
+	public String getStatusByUserUuid() throws SystemException {
+		return PortalUtil.getUserValue(getStatusByUserId(), "uuid",
+			_statusByUserUuid);
+	}
+
+	public void setStatusByUserUuid(String statusByUserUuid) {
+		_statusByUserUuid = statusByUserUuid;
+	}
+
+	public String getStatusByUserName() {
+		return _statusByUserName;
+	}
+
+	public void setStatusByUserName(String statusByUserName) {
+		_statusByUserName = statusByUserName;
+	}
+
+	public Date getStatusDate() {
+		return _statusDate;
+	}
+
+	public void setStatusDate(Date statusDate) {
+		_statusDate = statusDate;
+	}
+
+	public boolean isApproved() {
+		if (getStatus() == WorkflowConstants.STATUS_APPROVED) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	public boolean isDraft() {
+		if (getStatus() == WorkflowConstants.STATUS_DRAFT) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	public boolean isExpired() {
+		if (getStatus() == WorkflowConstants.STATUS_EXPIRED) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	public boolean isPending() {
+		if (getStatus() == WorkflowConstants.STATUS_PENDING) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	public Issue toEscapedModel() {
@@ -182,7 +260,11 @@ public class IssueClp extends BaseModelImpl<Issue> implements Issue {
 		clone.setPriority(getPriority());
 		clone.setDescription(getDescription());
 		clone.setAssignee(getAssignee());
+		clone.setStatusx(getStatusx());
 		clone.setStatus(getStatus());
+		clone.setStatusByUserId(getStatusByUserId());
+		clone.setStatusByUserName(getStatusByUserName());
+		clone.setStatusDate(getStatusDate());
 
 		return clone;
 	}
@@ -230,7 +312,7 @@ public class IssueClp extends BaseModelImpl<Issue> implements Issue {
 	}
 
 	public String toString() {
-		StringBundler sb = new StringBundler(27);
+		StringBundler sb = new StringBundler(35);
 
 		sb.append("{issueId=");
 		sb.append(getIssueId());
@@ -256,15 +338,23 @@ public class IssueClp extends BaseModelImpl<Issue> implements Issue {
 		sb.append(getDescription());
 		sb.append(", assignee=");
 		sb.append(getAssignee());
+		sb.append(", statusx=");
+		sb.append(getStatusx());
 		sb.append(", status=");
 		sb.append(getStatus());
+		sb.append(", statusByUserId=");
+		sb.append(getStatusByUserId());
+		sb.append(", statusByUserName=");
+		sb.append(getStatusByUserName());
+		sb.append(", statusDate=");
+		sb.append(getStatusDate());
 		sb.append("}");
 
 		return sb.toString();
 	}
 
 	public String toXmlString() {
-		StringBundler sb = new StringBundler(43);
+		StringBundler sb = new StringBundler(55);
 
 		sb.append("<model><model-name>");
 		sb.append("org.portlets.lia.mine.model.Issue");
@@ -319,8 +409,24 @@ public class IssueClp extends BaseModelImpl<Issue> implements Issue {
 		sb.append(getAssignee());
 		sb.append("]]></column-value></column>");
 		sb.append(
+			"<column><column-name>statusx</column-name><column-value><![CDATA[");
+		sb.append(getStatusx());
+		sb.append("]]></column-value></column>");
+		sb.append(
 			"<column><column-name>status</column-name><column-value><![CDATA[");
 		sb.append(getStatus());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>statusByUserId</column-name><column-value><![CDATA[");
+		sb.append(getStatusByUserId());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>statusByUserName</column-name><column-value><![CDATA[");
+		sb.append(getStatusByUserName());
+		sb.append("]]></column-value></column>");
+		sb.append(
+			"<column><column-name>statusDate</column-name><column-value><![CDATA[");
+		sb.append(getStatusDate());
 		sb.append("]]></column-value></column>");
 
 		sb.append("</model>");
@@ -341,5 +447,10 @@ public class IssueClp extends BaseModelImpl<Issue> implements Issue {
 	private String _priority;
 	private String _description;
 	private String _assignee;
-	private String _status;
+	private String _statusx;
+	private int _status;
+	private long _statusByUserId;
+	private String _statusByUserUuid;
+	private String _statusByUserName;
+	private Date _statusDate;
 }

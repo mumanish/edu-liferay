@@ -85,7 +85,7 @@ protected String chStatusJSP = "/admin/actions/change_status.jsp";
 
 			issue.setAssignee(requestIssue.getAssignee());
 			issue.setPriority(requestIssue.getPriority());
-			issue.setStatus(requestIssue.getStatus());
+			issue.setStatusx(requestIssue.getStatusx());
 
 			IssueLocalServiceUtil.updateIssue(issue);
 			this.viewIssue(request, response);
@@ -102,7 +102,7 @@ protected String chStatusJSP = "/admin/actions/change_status.jsp";
 
 		issue.setAssignee(ParamUtil.getString(request, "issueAssignee"));
 		issue.setPriority(ParamUtil.getString(request, "issuePriority"));
-		issue.setStatus(ParamUtil.getString(request, "issueStatus"));
+		issue.setStatusx(ParamUtil.getString(request, "issueStatus"));
 		return issue;
 	}
 
@@ -193,7 +193,7 @@ protected String chStatusJSP = "/admin/actions/change_status.jsp";
 			Issue issue = IssueLocalServiceUtil.getIssue(issueKey);
 			Issue requestIssue = issueFromRequest(request);
 
-			issue.setStatus(requestIssue.getStatus());
+			issue.setStatusx(requestIssue.getStatusx());
 
 			IssueLocalServiceUtil.updateIssue(issue);
 			this.viewIssue(request, response);

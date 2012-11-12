@@ -247,19 +247,119 @@ public interface IssueModel extends BaseModel<Issue> {
 	public void setAssignee(String assignee);
 
 	/**
+	 * Gets the statusx of this issue.
+	 *
+	 * @return the statusx of this issue
+	 */
+	@AutoEscape
+	public String getStatusx();
+
+	/**
+	 * Sets the statusx of this issue.
+	 *
+	 * @param statusx the statusx of this issue
+	 */
+	public void setStatusx(String statusx);
+
+	/**
 	 * Gets the status of this issue.
 	 *
 	 * @return the status of this issue
 	 */
-	@AutoEscape
-	public String getStatus();
+	public int getStatus();
 
 	/**
 	 * Sets the status of this issue.
 	 *
 	 * @param status the status of this issue
 	 */
-	public void setStatus(String status);
+	public void setStatus(int status);
+
+	/**
+	 * Gets the status by user id of this issue.
+	 *
+	 * @return the status by user id of this issue
+	 */
+	public long getStatusByUserId();
+
+	/**
+	 * Sets the status by user id of this issue.
+	 *
+	 * @param statusByUserId the status by user id of this issue
+	 */
+	public void setStatusByUserId(long statusByUserId);
+
+	/**
+	 * Gets the status by user uuid of this issue.
+	 *
+	 * @return the status by user uuid of this issue
+	 * @throws SystemException if a system exception occurred
+	 */
+	public String getStatusByUserUuid() throws SystemException;
+
+	/**
+	 * Sets the status by user uuid of this issue.
+	 *
+	 * @param statusByUserUuid the status by user uuid of this issue
+	 */
+	public void setStatusByUserUuid(String statusByUserUuid);
+
+	/**
+	 * Gets the status by user name of this issue.
+	 *
+	 * @return the status by user name of this issue
+	 */
+	@AutoEscape
+	public String getStatusByUserName();
+
+	/**
+	 * Sets the status by user name of this issue.
+	 *
+	 * @param statusByUserName the status by user name of this issue
+	 */
+	public void setStatusByUserName(String statusByUserName);
+
+	/**
+	 * Gets the status date of this issue.
+	 *
+	 * @return the status date of this issue
+	 */
+	public Date getStatusDate();
+
+	/**
+	 * Sets the status date of this issue.
+	 *
+	 * @param statusDate the status date of this issue
+	 */
+	public void setStatusDate(Date statusDate);
+
+	/**
+	 * Determines if this issue is approved.
+	 *
+	 * @return <code>true</code> if this issue is approved; <code>false</code> otherwise
+	 */
+	public boolean isApproved();
+
+	/**
+	 * Determines if this issue is a draft.
+	 *
+	 * @return <code>true</code> if this issue is a draft; <code>false</code> otherwise
+	 */
+	public boolean isDraft();
+
+	/**
+	 * Determines if this issue is expired.
+	 *
+	 * @return <code>true</code> if this issue is expired; <code>false</code> otherwise
+	 */
+	public boolean isExpired();
+
+	/**
+	 * Determines if this issue is pending.
+	 *
+	 * @return <code>true</code> if this issue is pending; <code>false</code> otherwise
+	 */
+	public boolean isPending();
 
 	/**
 	 * Gets a copy of this issue as an escaped model instance by wrapping it with an {@link com.liferay.portal.kernel.bean.AutoEscapeBeanHandler}.

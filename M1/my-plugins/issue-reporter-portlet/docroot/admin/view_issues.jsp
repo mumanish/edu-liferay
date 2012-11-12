@@ -63,9 +63,11 @@
 		/>
 
 	<liferay-ui:search-container-column-text
-		name="status"
-		property="status"
+		name="statusx"
+		property="statusx"
 		/>
+
+
 
 	<liferay-ui:search-container-column-jsp
 		path="/admin/menu_actions.jsp"

@@ -294,7 +294,11 @@ public class IssuePersistenceImpl extends BasePersistenceImpl<Issue>
 		issueImpl.setPriority(issue.getPriority());
 		issueImpl.setDescription(issue.getDescription());
 		issueImpl.setAssignee(issue.getAssignee());
+		issueImpl.setStatusx(issue.getStatusx());
 		issueImpl.setStatus(issue.getStatus());
+		issueImpl.setStatusByUserId(issue.getStatusByUserId());
+		issueImpl.setStatusByUserName(issue.getStatusByUserName());
+		issueImpl.setStatusDate(issue.getStatusDate());
 
 		return issueImpl;
 	}

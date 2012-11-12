@@ -11,5 +11,9 @@ create table Reporter_Issue (
 	priority VARCHAR(75) null,
 	description TEXT null,
 	assignee VARCHAR(75) null,
-	status VARCHAR(75) null
+	statusx VARCHAR(75) null,
+	status INTEGER,
+	statusByUserId LONG,
+	statusByUserName VARCHAR(75) null,
+	statusDate DATE null
 );

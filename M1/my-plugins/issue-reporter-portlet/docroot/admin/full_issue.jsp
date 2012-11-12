@@ -17,7 +17,7 @@ Description: <%= issue.getDescription() %><p>
 Requester: <%= issue.getRequester() %><p>
 Assignee: <%= issue.getAssignee() %><p>
 Priority: <%= issue.getPriority() %><p>
-Status: <%= issue.getStatus() %><p>
+Status: <%= issue.getStatusx() %><p>
 ---<p>
 Created Date: <%= issue.getCreateDate() %><p>
 

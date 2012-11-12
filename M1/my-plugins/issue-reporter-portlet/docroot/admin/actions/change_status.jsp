@@ -25,9 +25,9 @@
 
 	<aui:select name="issueStatus">
 		<c:choose>
-			<c:when test="<%= issue.getStatus() != null %>" >
+			<c:when test="<%= issue.getStatusx() != null %>" >
 				<c:choose>
-					<c:when test='<%= issue.getStatus().equals("New") %>' >
+					<c:when test='<%= issue.getStatusx().equals("New") %>' >
 						<aui:option value="New" selected="true">New</aui:option>
 					</c:when>
 					<c:otherwise>
@@ -36,7 +36,7 @@
 				</c:choose>
 
 				<c:choose>
-					<c:when test='<%= issue.getStatus().equals("In Progress") %>' >
+					<c:when test='<%= issue.getStatusx().equals("In Progress") %>' >
 						<aui:option value="In Progress" selected="true">In Progress</aui:option>
 					</c:when>
 					<c:otherwise>
@@ -45,7 +45,7 @@
 				</c:choose>
 
 				<c:choose>
-					<c:when test='<%= issue.getStatus().equals("Completed") %>' >
+					<c:when test='<%= issue.getStatusx().equals("Completed") %>' >
 						<aui:option value="Completed" selected="true">Completed</aui:option>
 					</c:when>
 					<c:otherwise>

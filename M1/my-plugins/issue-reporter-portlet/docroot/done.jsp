@@ -13,7 +13,7 @@
 <b>Requester:</b> <%= issue.getRequester() %><p>
 <b>Assignee:</b> <i><%= issue.getAssignee() %></i><p>
 <b>Priority:</b> <%= issue.getPriority() %><p>
-<b>Status:</b> <i><%= issue.getStatus() %></i><p>
+<b>Status:</b> <i><%= issue.getStatusx() %></i><p>
 
 
 Your issue id #: <b><%=issue_id %></b><p>

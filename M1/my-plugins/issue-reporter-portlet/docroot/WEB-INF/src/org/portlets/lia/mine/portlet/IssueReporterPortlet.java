@@ -24,6 +24,9 @@ import com.liferay.portal.kernel.exception.SystemException;
 import com.liferay.util.bridges.mvc.MVCPortlet;
 import org.portlets.lia.mine.model.Issue;
 import org.portlets.lia.mine.model.impl.IssueImpl;
+import com.liferay.portal.service.ServiceContext;
+import com.liferay.portal.service.ServiceContextFactory;
+
 
 
 import com.liferay.counter.service.CounterLocalServiceUtil;
@@ -42,23 +45,31 @@ public class IssueReporterPortlet extends MVCPortlet {
 	public void addIssue(ActionRequest request, ActionResponse response)throws Exception {
 
 		ThemeDisplay themeDisplay = (ThemeDisplay)request.getAttribute(WebKeys.THEME_DISPLAY);
-
+		ServiceContext serviceContext =
+		            ServiceContextFactory.getInstance(
+		                Issue.class.getName(), request);
 
 		Long issueId = CounterLocalServiceUtil.increment(Issue.class.getName());
 		String id = issueId.toString();
 
 		Issue issue = new IssueImpl();
 		issue.setAssignee("Not Assigned");
-		issue.setStatus("New");
 
 		issue.setSummary(request.getParameter("summary"));
+		issue.setStatusx("New");
 		issue.setDescription(request.getParameter("description"));
 		issue.setRequester(request.getParameter("requester"));
 		issue.setPriority(request.getParameter("priority"));
 
+		issue.setCompanyId(themeDisplay.getCompanyId());
+        issue.setGroupId(themeDisplay.getScopeGroupId());
+        issue.setUserId(themeDisplay.getUserId());
+
 
 		IssueLocalServiceUtil.addIssue(themeDisplay.getUserId(), issueId,
-			issue.getSummary(), issue.getDescription(), issue.getRequester(), issue.getAssignee(), issue.getPriority(), issue.getStatus());
+			issue.getSummary(), issue.getDescription(), issue.getRequester(), issue.getAssignee(), 
+			issue.getPriority(), issue.getStatusx(), serviceContext);
+
 
 		request.setAttribute("issue_id", id);
 		request.setAttribute("issue", issue);
@@ -80,10 +91,11 @@ public class IssueReporterPortlet extends MVCPortlet {
 			long issueId = ParamUtil.getLong(request, "id");
 			Issue issue = IssueLocalServiceUtil.getIssue(issueId);
 
-			request.setAttribute("status", issue.getStatus());
+			request.setAttribute("statusx", issue.getStatusx());
 			request.setAttribute("id", request.getParameter("id"));
 			response.setRenderParameter("jspPage", checkStatusJSP);
 		}
+
 
 	public void viewIssueForm(ActionRequest request, ActionResponse response) 
 		throws Exception {

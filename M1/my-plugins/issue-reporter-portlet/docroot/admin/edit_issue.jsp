@@ -37,7 +37,7 @@
 
 	<aui:input
 		name="issueStatus"
-		value="<%= issue.getStatus() %>"
+		value="<%= issue.getStatusx() %>"
 		size="20" />
 
 	<aui:button-row>

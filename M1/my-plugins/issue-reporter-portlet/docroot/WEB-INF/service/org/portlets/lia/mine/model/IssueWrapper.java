@@ -141,12 +141,69 @@ public class IssueWrapper implements Issue {
 		_issue.setAssignee(assignee);
 	}
 
-	public java.lang.String getStatus() {
+	public java.lang.String getStatusx() {
+		return _issue.getStatusx();
+	}
+
+	public void setStatusx(java.lang.String statusx) {
+		_issue.setStatusx(statusx);
+	}
+
+	public int getStatus() {
 		return _issue.getStatus();
 	}
 
-	public void setStatus(java.lang.String status) {
+	public void setStatus(int status) {
 		_issue.setStatus(status);
+	}
+
+	public long getStatusByUserId() {
+		return _issue.getStatusByUserId();
+	}
+
+	public void setStatusByUserId(long statusByUserId) {
+		_issue.setStatusByUserId(statusByUserId);
+	}
+
+	public java.lang.String getStatusByUserUuid()
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _issue.getStatusByUserUuid();
+	}
+
+	public void setStatusByUserUuid(java.lang.String statusByUserUuid) {
+		_issue.setStatusByUserUuid(statusByUserUuid);
+	}
+
+	public java.lang.String getStatusByUserName() {
+		return _issue.getStatusByUserName();
+	}
+
+	public void setStatusByUserName(java.lang.String statusByUserName) {
+		_issue.setStatusByUserName(statusByUserName);
+	}
+
+	public java.util.Date getStatusDate() {
+		return _issue.getStatusDate();
+	}
+
+	public void setStatusDate(java.util.Date statusDate) {
+		_issue.setStatusDate(statusDate);
+	}
+
+	public boolean isApproved() {
+		return _issue.isApproved();
+	}
+
+	public boolean isDraft() {
+		return _issue.isDraft();
+	}
+
+	public boolean isExpired() {
+		return _issue.isExpired();
+	}
+
+	public boolean isPending() {
+		return _issue.isPending();
 	}
 
 	public org.portlets.lia.mine.model.Issue toEscapedModel() {

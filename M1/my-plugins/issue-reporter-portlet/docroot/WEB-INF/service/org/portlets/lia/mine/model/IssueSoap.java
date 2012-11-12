@@ -46,7 +46,11 @@ public class IssueSoap implements Serializable {
 		soapModel.setPriority(model.getPriority());
 		soapModel.setDescription(model.getDescription());
 		soapModel.setAssignee(model.getAssignee());
+		soapModel.setStatusx(model.getStatusx());
 		soapModel.setStatus(model.getStatus());
+		soapModel.setStatusByUserId(model.getStatusByUserId());
+		soapModel.setStatusByUserName(model.getStatusByUserName());
+		soapModel.setStatusDate(model.getStatusDate());
 
 		return soapModel;
 	}
@@ -195,12 +199,44 @@ public class IssueSoap implements Serializable {
 		_assignee = assignee;
 	}
 
-	public String getStatus() {
+	public String getStatusx() {
+		return _statusx;
+	}
+
+	public void setStatusx(String statusx) {
+		_statusx = statusx;
+	}
+
+	public int getStatus() {
 		return _status;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(int status) {
 		_status = status;
+	}
+
+	public long getStatusByUserId() {
+		return _statusByUserId;
+	}
+
+	public void setStatusByUserId(long statusByUserId) {
+		_statusByUserId = statusByUserId;
+	}
+
+	public String getStatusByUserName() {
+		return _statusByUserName;
+	}
+
+	public void setStatusByUserName(String statusByUserName) {
+		_statusByUserName = statusByUserName;
+	}
+
+	public Date getStatusDate() {
+		return _statusDate;
+	}
+
+	public void setStatusDate(Date statusDate) {
+		_statusDate = statusDate;
 	}
 
 	private long _issueId;
@@ -215,5 +251,9 @@ public class IssueSoap implements Serializable {
 	private String _priority;
 	private String _description;
 	private String _assignee;
-	private String _status;
+	private String _statusx;
+	private int _status;
+	private long _statusByUserId;
+	private String _statusByUserName;
+	private Date _statusDate;
 }

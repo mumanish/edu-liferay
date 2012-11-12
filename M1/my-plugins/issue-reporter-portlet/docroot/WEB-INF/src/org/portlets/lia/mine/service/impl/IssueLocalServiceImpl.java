@@ -28,6 +28,11 @@ import java.util.Date;
 import com.liferay.counter.service.CounterLocalServiceUtil;
 import com.liferay.portal.model.ResourceConstants;
 import org.portlets.lia.mine.NoSuchIssueException;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
+import com.liferay.portal.kernel.workflow.WorkflowHandlerRegistryUtil;
+import com.liferay.portal.model.ResourceConstants;
+import com.liferay.portal.model.User;
+import com.liferay.portal.service.ServiceContext;
 
 
 /**
@@ -51,7 +56,8 @@ import org.portlets.lia.mine.NoSuchIssueException;
  */
 public class IssueLocalServiceImpl extends IssueLocalServiceBaseImpl {
 
-	public Issue addIssue(long userId, long issueId, String summary, String description, String requester, String assignee, String priority, String status)
+	public Issue addIssue(long userId, long issueId, String summary, String description, String requester, 
+        String assignee, String priority, String status, ServiceContext serviceContext)
         throws PortalException, SystemException {
     User user = UserUtil.findByPrimaryKey(userId);
     Date now = new Date();
@@ -64,7 +70,8 @@ public class IssueLocalServiceImpl extends IssueLocalServiceBaseImpl {
     issue.setPriority(priority);
     issue.setAssignee(assignee);
     issue.setDescription(description);
-    issue.setStatus(status);
+    issue.setStatusx(status);
+    issue.setStatus(WorkflowConstants.STATUS_DRAFT);
 
     issue.setCompanyId(user.getCompanyId());
     issue.setUserId(user.getUserId());
@@ -72,8 +79,44 @@ public class IssueLocalServiceImpl extends IssueLocalServiceBaseImpl {
     issue.setCreateDate(now);
     issue.setModifiedDate(now);
 
-    return issuePersistence.update(issue, true);
+    issuePersistence.update(issue, false);
+
+
+        WorkflowHandlerRegistryUtil.startWorkflowInstance(
+            issue.getCompanyId(), issue.getGroupId(), userId,
+            Issue.class.getName(), issue.getPrimaryKey(), issue,
+            serviceContext);
+
+
+    return issue;
 	}
+
+
+public Issue updateStatus(
+            long userId, long resourcePrimKey, int status,
+            ServiceContext serviceContext)
+        throws PortalException, SystemException {
+
+        User user = userLocalService.getUser(userId);
+        Issue issue = getIssue(resourcePrimKey);
+
+        issue.setStatus(status);
+        issue.setStatusByUserId(userId);
+        issue.setStatusByUserName(user.getFullName());
+        issue.setStatusDate(serviceContext.getModifiedDate());
+
+        issuePersistence.update(issue, false);
+
+        if (status == WorkflowConstants.STATUS_APPROVED) {
+        }
+        else {
+        }
+
+        // Indexer
+
+
+        return issue;
+    }
 
 
 public List<Issue> retrieveIssues(long userId)throws SystemException {

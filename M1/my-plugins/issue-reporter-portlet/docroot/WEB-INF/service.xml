@@ -22,7 +22,14 @@
         <column name="description" type="String" />
 
         <column name="assignee" type="String" />
-        <column name="status" type="String" />
+        <column name="statusx" type="String" />
+
+
+    <column name="status" type="int" />
+    <column name="statusByUserId" type="long" />
+    <column name="statusByUserName" type="String" />
+    <column name="statusDate" type="Date" />
+
 
 
     <finder name="UserId" return-type="Collection">
@@ -32,6 +39,8 @@
     <finder name="CompanyId" return-type="Collection">
       <finder-column name="companyId" />
     </finder>
+
+    <reference package-path="com.liferay.portal" entity="User" />
 
     </entity>
 </service-builder>

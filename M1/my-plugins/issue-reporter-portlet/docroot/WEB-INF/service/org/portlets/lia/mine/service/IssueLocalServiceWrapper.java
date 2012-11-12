@@ -220,11 +220,21 @@ public class IssueLocalServiceWrapper implements IssueLocalService {
 	public org.portlets.lia.mine.model.Issue addIssue(long userId,
 		long issueId, java.lang.String summary, java.lang.String description,
 		java.lang.String requester, java.lang.String assignee,
-		java.lang.String priority, java.lang.String status)
+		java.lang.String priority, java.lang.String status,
+		com.liferay.portal.service.ServiceContext serviceContext)
 		throws com.liferay.portal.kernel.exception.PortalException,
 			com.liferay.portal.kernel.exception.SystemException {
 		return _issueLocalService.addIssue(userId, issueId, summary,
-			description, requester, assignee, priority, status);
+			description, requester, assignee, priority, status, serviceContext);
+	}
+
+	public org.portlets.lia.mine.model.Issue updateStatus(long userId,
+		long resourcePrimKey, int status,
+		com.liferay.portal.service.ServiceContext serviceContext)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _issueLocalService.updateStatus(userId, resourcePrimKey, status,
+			serviceContext);
 	}
 
 	public java.util.List<org.portlets.lia.mine.model.Issue> retrieveIssues(
