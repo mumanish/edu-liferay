@@ -27,21 +27,22 @@ public class UserLog extends BaseModelListener<User> {
 		
 		attributes = new String[20];
 
-		attributes[0] = user.getJobTitle();
-		attributes[1] = user.getMiddleName();
+		attributes[0] = user.getScreenName();
+		attributes[1] = user.getEmailAddress();
 		attributes[2] = user.getFirstName();
-		
-		doLog(attributes[0], 0, user);	
-		doLog(attributes[1], 1, user);	
-		doLog(attributes[2], 2, user);
+		attributes[3] = user.getMiddleName();
+		attributes[4] = user.getLastName();
+		attributes[5] = user.getJobTitle();
 
-
+		for (int i = 0; i < 6; i++) {
+			doLog(attributes[i], i, user);
+		}		
 	}
 
 
 	public void onAfterUpdate(User user) throws ModelListenerException {
 		System.out.println("Updated user: " + user.getFullName());
-		System.out.println("\n===| LOG |===\n" + user.getComments());
+		System.out.println("<br>===| LOG |===<br>" + user.getComments());
 	}
 
 
@@ -55,11 +56,11 @@ public class UserLog extends BaseModelListener<User> {
 		logs = user.getComments();
 
 		if (attr.equals(oldValue)) {
-			System.out.println("\n\nVALUE NOT CHANGED: " + oldValue + "=" + attr);
+			System.out.println("<br><br>VALUE NOT CHANGED: " + oldValue + "=" + attr);
 			
 		} else {
-			System.out.println("\n\nVALUE CHANGED: " + oldValue + "=" + attr);
-			user.setComments(logs + "\n\nUpdated on: " + calendar.getTime() + "\n" + "Attribute changed: from " + oldValue + " to " + attr);
+			System.out.println("<br><br>VALUE CHANGED: " + oldValue + "=" + attr);
+			user.setComments(logs + "<br><br>Updated on: " + calendar.getTime() + "<br>" + "Attribute changed: from " + oldValue + " to " + attr);
 		}		
 	}	
 
