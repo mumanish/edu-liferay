@@ -5,10 +5,19 @@ import com.liferay.portal.model.BaseModel;
 import com.liferay.portal.model.ModelListener;
 import com.liferay.portal.model.BaseModelListener;
 
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.exception.PortalException;
+
 import com.liferay.portlet.blogs.model.BlogsEntry;
 import com.liferay.portal.model.User;
 import java.util.*;
 
+
+/* This class implements User object listener. 
+	It gets all new, just typed-in, main values from the Details page of the User profile 
+	before update and compares them to the previous ones. 
+	If the comparison finds differences, doLog() method stores this diffs as comments. 
+	*/
 public class UserLog extends BaseModelListener<User> {
 
 	String logs, oldValue;
@@ -34,8 +43,20 @@ public class UserLog extends BaseModelListener<User> {
 		attributes[4] = user.getLastName();
 		attributes[5] = user.getJobTitle();
 
-		for (int i = 0; i < 6; i++) {
-			doLog(attributes[i], i, user);
+		try {   
+			if (user.isFemale() == true) {
+				attributes[6] = "Female";
+			} else	{ 
+				attributes[6] = "Male"; 
+			}
+				attributes[7] = user.getBirthday().toString();
+				attributes[8] = String.valueOf(user.getPortraitId());
+
+		} catch (PortalException pe) { }
+			catch (SystemException se) { }
+
+	for (int i = 0; i < 9; i++) {
+		doLog(attributes[i], i, user);
 		}		
 	}
 
@@ -44,7 +65,6 @@ public class UserLog extends BaseModelListener<User> {
 		System.out.println("Updated user: " + user.getFullName());
 		System.out.println("<br>===| LOG |===<br>" + user.getComments());
 	}
-
 
 
 	public void doLog(String attr, int i, User user) {
