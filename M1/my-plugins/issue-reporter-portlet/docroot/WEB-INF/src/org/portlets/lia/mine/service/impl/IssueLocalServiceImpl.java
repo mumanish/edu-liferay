@@ -81,13 +81,6 @@ public class IssueLocalServiceImpl extends IssueLocalServiceBaseImpl {
 
     issuePersistence.update(issue, false);
 
-
-        WorkflowHandlerRegistryUtil.startWorkflowInstance(
-            issue.getCompanyId(), issue.getGroupId(), userId,
-            Issue.class.getName(), issue.getPrimaryKey(), issue,
-            serviceContext);
-
-
     return issue;
 	}
 

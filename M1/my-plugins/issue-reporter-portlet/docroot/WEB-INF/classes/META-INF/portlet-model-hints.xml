@@ -12,9 +12,7 @@
 		<field name="summary" type="String" />
 		<field name="requester" type="String" />
 		<field name="priority" type="String" />
-		<field name="description" type="String">
-			<hint name="max-length">4575</hint>
-		</field>
+		<field name="description" type="String" />
 		<field name="assignee" type="String" />
 		<field name="statusx" type="String" />
 		<field name="status" type="int" />
